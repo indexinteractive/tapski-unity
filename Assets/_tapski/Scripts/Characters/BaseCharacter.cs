@@ -128,7 +128,7 @@ public class BaseCharacter : MonoBehaviour
 
             case PlayerStates.Straight:
                 // Set the turning speed back to a percentage of the vertical speed
-                horizontalSpeed = verticalSpeed * 0.75f;
+                horizontalSpeed = verticalSpeed * 0.5f;
 
                 // Speed the player up while under the max speed
                 if (verticalSpeed < MAX_SPEED)
