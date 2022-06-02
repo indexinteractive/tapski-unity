@@ -236,6 +236,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TileLookAhead: 10
+  xOverdraw: 5
+  yOverdraw: 5
   Player: {fileID: 226757462}
   PlayerPathWidth: 4
   Coin: {fileID: 9018654711017114010, guid: e301af3aa837842118b3705e672276d6, type: 3}

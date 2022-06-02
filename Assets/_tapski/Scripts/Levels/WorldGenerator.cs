@@ -9,6 +9,7 @@ public class WorldGenerator : MonoBehaviour
     private const int MaxCoins = 5;
     private const int MaxCheckpoints = 3;
 
+    [Header("Map Size")]
     [Tooltip("The distance from the player that the map will be generated")]
     public int TileLookAhead = 10;
     [Tooltip("Extra tiles to generate in the X coordinate")]
@@ -16,7 +17,7 @@ public class WorldGenerator : MonoBehaviour
     [Tooltip("Extra tiles to generate in the Y coordinate")]
     public int yOverdraw = 5;
 
-    [Header("Map Properties")]
+    [Header("Player Properties")]
     public Transform Player;
     public int PlayerPathWidth = 3;
     #endregion
@@ -40,25 +41,41 @@ public class WorldGenerator : MonoBehaviour
     #endregion
 
     #region Private Fields
+    private Rect _worldBounds;
+
     /// <summary>
     /// The path laid out before the player where he can navigate without
     /// many obstacles (mainly trees)
     /// </summary>
-    private List<GameObject> path;
+    private List<GameObject> path = new List<GameObject>();
 
     /// <summary>
     /// List of all basic objects in the game
     /// </summary>
-    private List<GameObject> objects;
+    private List<GameObject> _worldObjects = new List<GameObject>();
 
+    /// <summary>
+    /// The parent object for dynamically generated objects
+    /// </summary>
     private GameObject _parent;
-    private Rect _worldBounds;
     #endregion
 
     #region Unity Lifecycle
     private void Awake()
     {
         _parent = new GameObject("_SnowWorld_");
+
+        var ortho = Camera.main.orthographicSize;
+        var cameraHalfWidth = ortho * Camera.main.aspect;
+        var center = Camera.main.transform.position;
+
+        _worldBounds = new Rect(
+            Mathf.Floor(center.x - cameraHalfWidth) - xOverdraw,
+            Mathf.Floor(center.y - ortho) - yOverdraw,
+            Mathf.Ceil(cameraHalfWidth * 2) + (xOverdraw * 2),
+            Mathf.Ceil(ortho * 2) + (yOverdraw * 2)
+        );
+
         PopulateObjects();
     }
 
@@ -76,43 +93,26 @@ public class WorldGenerator : MonoBehaviour
     [Button]
     private void PopulateObjects()
     {
-        objects = new List<GameObject>();
-
-        ///////// MOVE TO AWAKE
-        _parent = new GameObject("_SnowWorld_");
-
-        var ortho = Camera.main.orthographicSize;
-        var cameraHalfWidth = ortho * Camera.main.aspect;
-        var center = Camera.main.transform.position;
-
-        _worldBounds = new Rect(
-            Mathf.Floor(center.x - cameraHalfWidth) - xOverdraw,
-            Mathf.Floor(center.y - ortho) - yOverdraw,
-            Mathf.Ceil(cameraHalfWidth * 2) + (xOverdraw * 2),
-            Mathf.Ceil(ortho * 2) + (yOverdraw * 2)
-        );
-        ////======///// MOVE TO AWAKE
-
         // Indexes[0-> (MAX_COINS - 1)] are coins
         for (int i = 0; i < 2 * MaxCoins; i++)
         {
             var coin = Instance(Coin, -1000, -1000);
-            objects.Add(coin);
+            _worldObjects.Add(coin);
         }
 
         for (int i = 0; i < MaxCheckpoints; i++)
         {
             var checkpoint = Instance(Checkpoint, -1000, -1000);
-            objects.Add(checkpoint);
+            _worldObjects.Add(checkpoint);
         }
 
         // Create objects that will only have one instance offscreen
-        objects.Add(Instance(Rock, -1000, -1000));
-        objects.Add(Instance(WoodRamp, -1000, -1000));
-        objects.Add(Instance(SnowRamp, -1000, -1000));
-        objects.Add(Instance(SnowRamp, -1000, -1000));
-        objects.Add(Instance(BigSnowman, -1000, -1000));
-        objects.Add(Instance(SmallSnowman, -1000, -1000));
+        _worldObjects.Add(Instance(Rock, -1000, -1000));
+        _worldObjects.Add(Instance(WoodRamp, -1000, -1000));
+        _worldObjects.Add(Instance(SnowRamp, -1000, -1000));
+        _worldObjects.Add(Instance(SnowRamp, -1000, -1000));
+        _worldObjects.Add(Instance(BigSnowman, -1000, -1000));
+        _worldObjects.Add(Instance(SmallSnowman, -1000, -1000));
 
         int treeCount = 0;
         for (float y = _worldBounds.yMax - 1; y >= _worldBounds.yMin; y--)
@@ -172,7 +172,7 @@ public class WorldGenerator : MonoBehaviour
         }
 
         var tree = Instance(treePrefab, x, y);
-        objects.Add(tree);
+        _worldObjects.Add(tree);
     }
 
     public GameObject Instance(GameObject prefab, float x, float y)
