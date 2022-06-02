@@ -18,24 +18,31 @@ public class BaseCharacter : MonoBehaviour
     #region Traits
     [Header("Timing")]
     [Tooltip("Amount of time before the player sets off running (seconds)")]
-    public float REST_TIME = 1.3f;
+    public float RestTime = 1.3f;
 
     [Tooltip("Amount of time the player is in the air while jumping (seconds)")]
-    public float JUMP_TIME = 0.5f;
+    public float JumpTime = 0.5f;
 
     [Header("Speeds")]
-    [Tooltip("Max speed the player can move (pixels per second)")]
-    public float MAX_SPEED = 1f;
+    public AnimationCurve SpeedCurve;
+
+    [Tooltip("Max speed the player can move")]
+    public float MaxSpeed = 1f;
 
     [Tooltip("Max speed while jumping")]
-    public float JUMP_SPEED = 2f;
+    public float JumpSpeed = 2f;
     #endregion
 
     #region Public Properties
     /// <summary>
-    /// Keeps track of time spend in a state
+    /// Keeps track of time spent in a state
     /// </summary>
-    public float StateTimer = 0f;
+    private float _stateTimer = 0f;
+
+    /// <summary>
+    /// Tracks the time spent accelerating to pick a speed from <see cref="SpeedCurve"/>
+    /// </summary>
+    private float _speedCurveX;
 
     /// <summary>
     /// Indicates the player's current state. Changing the state will
@@ -43,14 +50,14 @@ public class BaseCharacter : MonoBehaviour
     /// </summary>
     public PlayerStates State
     {
-        get { return state; }
+        get { return _state; }
 
-        set
+        private set
         {
-            if (state != value)
+            if (_state != value)
             {
-                StateTimer = 0f;
-                state = value;
+                _stateTimer = 0f;
+                _state = value;
                 PlayAnimation(value);
             }
         }
@@ -64,36 +71,23 @@ public class BaseCharacter : MonoBehaviour
 
     #region Private / Inherited Fields
     private Animator _animator;
-
     private PlayerInput _input;
-
-    private PlayerStates state;
-
-    /// <summary>
-    /// Velocity of the object per update (pixels per second)
-    /// </summary>
-    private Vector2 velocity;
+    private PlayerStates _state;
 
     /// <summary>
-    /// Player's current descent speed (pixels per second)
+    /// Velocity of the object per update
     /// </summary>
-    private float verticalSpeed;
+    private Vector2 _velocity;
+
+    /// <summary>
+    /// Player's current descent speed
+    /// </summary>
+    private float _verticalSpeed = 0;
 
     /// <summary>
     /// Initial turning speed
     /// </summary>
-    private float horizontalSpeed;
-
-    /// <summary>
-    /// Determines if this object has already had a collision
-    /// </summary>
-    protected bool firstCollision = true;
-
-    /// <summary>
-    /// Counts how many times the player has died in order to decide
-    /// when to show a popup ad
-    /// </summary>
-    public int Deaths { get; set; }
+    private float _horizontalSpeed;
     #endregion
 
     #region Unity Lifecycle
@@ -102,24 +96,22 @@ public class BaseCharacter : MonoBehaviour
         _animator = GetComponent<Animator>();
         Assert.IsNotNull(_animator, $"[BaseCharacter] No Animator found on character {name}");
 
-        verticalSpeed = 0.1f;
-
         _input = new PlayerInput();
         _input.Enable();
 
         _input.Player.Tap.performed += OnInputEvent;
 
-        state = PlayerStates.Idle;
+        _state = PlayerStates.Idle;
     }
 
     private void Update()
     {
-        StateTimer += Time.deltaTime;
+        _stateTimer += Time.deltaTime;
 
         switch (State)
         {
             case PlayerStates.Idle:
-                if (StateTimer > REST_TIME)
+                if (_stateTimer > RestTime)
                 {
                     State = PlayerStates.Straight;
                 }
@@ -127,22 +119,21 @@ public class BaseCharacter : MonoBehaviour
                 break;
 
             case PlayerStates.Straight:
-                // Set the turning speed back to a percentage of the vertical speed
-                horizontalSpeed = verticalSpeed * 0.5f;
-
+                _velocity = new Vector2(0, MaxSpeed);
                 // Speed the player up while under the max speed
-                if (verticalSpeed < MAX_SPEED)
-                {
-                    verticalSpeed += (float)Mathf.Pow(verticalSpeed, 0.25f) * Time.deltaTime;
-                }
+                // if (_verticalSpeed < MaxSpeed)
+                // {
+                //     _speedCurveX += Time.deltaTime;
+                //     _verticalSpeed = SpeedCurve.Evaluate(_speedCurveX) * MaxSpeed;
+                // }
 
                 // If above max speed, the player just jumped, slow down
-                if (verticalSpeed > MAX_SPEED)
-                {
-                    verticalSpeed -= (float)Mathf.Log(verticalSpeed) * Time.deltaTime;
-                }
+                // if (_verticalSpeed > MaxSpeed)
+                // {
+                //     _speedCurveX -= Time.deltaTime;
+                // }
 
-                velocity = new Vector2(0, verticalSpeed);
+                // _velocity = new Vector2(0, _verticalSpeed);
 
                 // trailController.AddTrail(WorldRectangle);
                 break;
@@ -150,64 +141,53 @@ public class BaseCharacter : MonoBehaviour
             case PlayerStates.TurnLeft:
             case PlayerStates.TurnRight:
                 // When turning, slow down the vertical speed
-                if (verticalSpeed > horizontalSpeed)
-                {
-                    verticalSpeed -= (float)Mathf.Log(verticalSpeed) * Time.deltaTime;
-                }
+                // if (_verticalSpeed > _horizontalSpeed)
+                // {
+                //     _verticalSpeed -= (float)Mathf.Log(_verticalSpeed) * Time.deltaTime;
+                // }
 
                 // Speed up the turning velocity
-                if (horizontalSpeed < MAX_SPEED)
-                {
-                    horizontalSpeed += (float)Math.Pow(horizontalSpeed, 0.25) * Time.deltaTime;
-                }
+                // if (_horizontalSpeed < MaxSpeed)
+                // {
+                //     _horizontalSpeed += (float)Math.Pow(_horizontalSpeed, 0.25) * Time.deltaTime;
+                // }
 
-                velocity = new Vector2(horizontalSpeed, verticalSpeed);
+                // _velocity = new Vector2(_horizontalSpeed, _verticalSpeed);
 
                 // trailController.AddTrail(WorldRectangle, 0);
                 break;
 
             case PlayerStates.Jumping:
-                if (verticalSpeed < JUMP_SPEED)
-                {
-                    verticalSpeed += (float)Math.Pow(verticalSpeed * 0.01, 2) * Time.deltaTime;
-                }
+                // if (_verticalSpeed < JumpSpeed)
+                // {
+                //     _verticalSpeed += (float)Math.Pow(_verticalSpeed * 0.01, 2) * Time.deltaTime;
+                // }
 
-                velocity = new Vector2(0, verticalSpeed);
+                // _velocity = new Vector2(0, _verticalSpeed);
 
-                if (StateTimer > JUMP_TIME)
-                {
-                    State = PlayerStates.Straight;
-                }
+                // if (_stateTimer > JumpTime)
+                // {
+                //     State = PlayerStates.Straight;
+                // }
                 break;
 
             case PlayerStates.Dead:
-                if (firstCollision && StateTimer > REST_TIME)
+                if (_stateTimer > RestTime)
                 {
-                    Deaths++;
                     // levelManager.EndGame();
-                    firstCollision = false;
                 }
                 break;
         }
 
-        Debug.Log($"{name} velocity: {velocity}");
+        Debug.Log($"{name} velocity: {_velocity}");
         UpdateMovement();
     }
 
     private void UpdateMovement()
     {
-        // Check collisions against the WORLD only
-        // moveAmount = CheckWorldCollisions(moveAmount);
-
-        // Now make sure we are within world boundaries (with a little
-        // extra room to fly over the top of the map)
-        // FINALLY! Set the object's position to the newly calculated position
-        // WorldOrigin.X = MathHelper.Clamp(newPosition.X, -CollisionRectangle.Width / 2, Camera.WorldRectangle.Width - CollisionRectangle.Width);
-        // WorldOrigin.Y = MathHelper.Clamp(newPosition.Y, (-FrameHeight), Camera.WorldRectangle.Height - FrameHeight);
-
         Vector3 newPosition = new Vector3(
-            transform.position.x + (velocity.x * Time.deltaTime) * (FacesLeft ? -1 : 1),
-            transform.position.y - (velocity.y * Time.deltaTime),
+            transform.position.x + (_velocity.x * Time.deltaTime) * (FacesLeft ? -1 : 1),
+            transform.position.y - (_velocity.y * Time.deltaTime),
             transform.position.z
         );
 
@@ -218,7 +198,7 @@ public class BaseCharacter : MonoBehaviour
     #region Input
     private void OnInputEvent(UnityEngine.InputSystem.InputAction.CallbackContext e)
     {
-        if (state == PlayerStates.Dead || state == PlayerStates.Idle)
+        if (_state == PlayerStates.Dead || _state == PlayerStates.Idle)
         {
             return;
         }
