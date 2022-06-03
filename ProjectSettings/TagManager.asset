@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: playerPath
+    uniqueID: 109877069
+    locked: 0
   - name: snowtrails
     uniqueID: 3558936065
     locked: 0

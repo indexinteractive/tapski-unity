@@ -20,6 +20,8 @@ using UnityEngine;
 /// <para>}</para>
 /// </code>
 /// </summary>
+
+#if UNITY_EDITOR
 [System.AttributeUsage(System.AttributeTargets.Method)]
 public class ButtonAttribute : System.Attribute { }
 
@@ -67,3 +69,4 @@ public class ButtonAttributeHelper
         }
     }
 }
+#endif

@@ -140,6 +140,7 @@ public class BaseCharacter : MonoBehaviour
 
             case PlayerStates.TurnLeft:
             case PlayerStates.TurnRight:
+                _velocity = new Vector2(MaxSpeed * 0.5f, MaxSpeed);
                 // When turning, slow down the vertical speed
                 // if (_verticalSpeed > _horizontalSpeed)
                 // {
