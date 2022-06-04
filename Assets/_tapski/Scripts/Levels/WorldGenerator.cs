@@ -101,7 +101,12 @@ public class WorldGenerator : MonoBehaviour
     /// <summary>
     /// List of all basic objects in the game
     /// </summary>
-    private List<GameObject> _objects = new List<GameObject>();
+    private List<GameObject> _activeObjects = new List<GameObject>();
+
+    /// <summary>
+    /// List of all (non-tree) objects that are pending repositioning by <see cref="ActivateObject"/>
+    /// </summary>
+    private List<GameObject> _inactiveObjects = new List<GameObject>();
 
     /// <summary>
     /// List of trees that are visible or not yet marked inactive by <see cref="DisableHiddenTrees"/>
@@ -112,6 +117,21 @@ public class WorldGenerator : MonoBehaviour
     /// List of trees that are pending repositioning by <see cref="ActivateTrees"/>
     /// </summary>
     private Queue<GameObject> _inactiveTrees = new Queue<GameObject>();
+    #endregion
+
+    #region Object Management
+    /// <summary>
+    /// Tracks the number of steps elapsed since a random object was picked
+    /// for activation by <see cref="ActivateObject"/>.
+    /// Increments for each step during a new generated block of world. Resets to 0 when
+    /// a new block is generated <see cref="UpdatePathDirection"/>
+    /// </summary>
+    private int _stepsSinceLastObject = 0;
+
+    /// <summary>
+    /// Tracks the step in which a new object will be activated
+    /// </summary>
+    private int _nextObjectReposition = 0;
     #endregion
 
     #region Unity Lifecycle
@@ -138,6 +158,7 @@ public class WorldGenerator : MonoBehaviour
     private void Update()
     {
         DisableHiddenTrees();
+        DisableHiddenObjects();
 
         int distanceSinceUpdate = (int)Mathf.Abs(Player.position.y - _lastUpdatePosition);
         if (distanceSinceUpdate > _camera.orthographicSize)
@@ -225,22 +246,22 @@ public class WorldGenerator : MonoBehaviour
         for (int i = 0; i < 2 * MaxCoins; i++)
         {
             var coin = Instance(Coin);
-            _objects.Add(coin);
+            _inactiveObjects.Add(coin);
         }
 
         for (int i = 0; i < MaxCheckpoints; i++)
         {
             var checkpoint = Instance(Checkpoint);
-            _objects.Add(checkpoint);
+            _inactiveObjects.Add(checkpoint);
         }
 
         // Create objects that will only have one instance offscreen
-        _objects.Add(Instance(Rock));
-        _objects.Add(Instance(WoodRamp));
-        _objects.Add(Instance(SnowRamp));
-        _objects.Add(Instance(SnowRamp));
-        _objects.Add(Instance(BigSnowman));
-        _objects.Add(Instance(SmallSnowman));
+        _inactiveObjects.Add(Instance(Rock));
+        _inactiveObjects.Add(Instance(WoodRamp));
+        _inactiveObjects.Add(Instance(SnowRamp));
+        _inactiveObjects.Add(Instance(SnowRamp));
+        _inactiveObjects.Add(Instance(BigSnowman));
+        _inactiveObjects.Add(Instance(SmallSnowman));
 
         for (float y = WorldBounds.yMax - 1; y >= WorldBounds.yMin * 2; y--)
         {
@@ -250,6 +271,7 @@ public class WorldGenerator : MonoBehaviour
 
             var tree = GenerateTree();
             RepositionTree(tree, newPath);
+            tree.SetActive(true);
             _activeTrees.Add(tree);
         }
     }
@@ -273,6 +295,7 @@ public class WorldGenerator : MonoBehaviour
 
             // Move dead objects back to the front of the screen (bottom)
             ActivateTrees(step);
+            ActivateObject();
 
             // Add the step to the end of the path
             path.Add(step);
@@ -300,6 +323,23 @@ public class WorldGenerator : MonoBehaviour
     }
 
     /// <summary>
+    /// Iterates through <see cref="_activeObjects"/> and disables any that are above the camera Y bounds
+    /// </summary>
+    private void DisableHiddenObjects()
+    {
+        for (int i = _activeObjects.Count - 1; i >= 0; i--)
+        {
+            GameObject obj = _activeObjects[i];
+            if (!ViewportHelper.IsAboveCameraView(_camera, obj.transform, 0.1f))
+            {
+                obj.SetActive(false);
+                _inactiveObjects.Add(obj);
+                _activeObjects.RemoveAt(i);
+            }
+        }
+    }
+
+    /// <summary>
     /// Attempts to get a tree from <see cref="_inactiveTrees"/> and repositions it
     /// along the same row as the given <paramref name="pathStep"/>
     /// </summary>
@@ -311,6 +351,30 @@ public class WorldGenerator : MonoBehaviour
             tree.SetActive(true);
             _activeTrees.Add(tree);
         }
+    }
+
+    /// <summary>
+    /// Picks a random object to move to the front of the world
+    /// </summary>
+    private void ActivateObject()
+    {
+        if (_stepsSinceLastObject == _nextObjectReposition)
+        {
+            int i = Random.Range(0, _inactiveObjects.Count);
+            GameObject randomObj = _inactiveObjects[i];
+            _inactiveObjects.RemoveAt(i);
+
+            PathStep front = _safePath[_safePath.Count - 1];
+            RepositionObject(randomObj, front);
+
+            randomObj.SetActive(true);
+            _activeObjects.Add(randomObj);
+
+            _nextObjectReposition = Random.Range(5, 17);
+            _stepsSinceLastObject = 0;
+        }
+
+        _stepsSinceLastObject++;
     }
     #endregion
 
@@ -363,7 +427,7 @@ public class WorldGenerator : MonoBehaviour
     }
 
     /// <summary>
-    /// Repositions trees on either side of the given position
+    /// Repositions trees on either side of the given step
     /// </summary>
     private void RepositionTree(GameObject tree, PathStep step)
     {
@@ -375,10 +439,62 @@ public class WorldGenerator : MonoBehaviour
         tree.transform.position = new Vector3(x, step.transform.position.y, tree.transform.position.z);
     }
 
+    /// <summary>
+    /// Repositions any game object on either side of the given step
+    /// </summary>
+    private void RepositionObject(GameObject obj, PathStep step)
+    {
+        // if (obj is Coin)
+        // { return; }
+
+        float x = Random.Range(step.LeftEdge, step.RightEdge);
+        float y = step.transform.position.y;
+
+        // if (obj is Checkpoint)
+        // {
+        //     obj.WorldOrigin.X = step.WorldCenter.X - obj.FrameWidth / 2;
+        //     obj.WorldOrigin.Y = y - obj.FrameHeight / 2;
+        // }
+
+        // if (obj is SnowRamp || obj is WoodRamp)
+        // {
+        //     int centerX = (int)step.WorldCenter.X;
+        //     int centerY = y + TILE_SIZE_PX;
+
+        //     obj.WorldOrigin.X = centerX - obj.FrameWidth / 2;
+        //     obj.WorldOrigin.Y = y - obj.FrameHeight / 2;
+
+        //     centerX = (int)obj.WorldCenter.X;
+
+        //     /// Move coins directly below ramp
+        //     for (int i = 0; i < MAX_COINS; i++)
+        //     {
+        //         objects[nextCoin].WorldOrigin.X = centerX
+        //             - objects[nextCoin].FrameWidth
+        //             - objects[nextCoin].FrameWidth / 2
+        //             + (TILE_SIZE_PX * (i % 2));
+        //         objects[nextCoin].WorldOrigin.Y = centerY -
+        //             (objects[nextCoin].FrameHeight / 2);
+        //         objects[nextCoin].OnReset();
+
+        //         nextCoin = (nextCoin + 1) % 4;
+        //     }
+        // }
+
+        // if (obj is Rock || obj is TinySnowman || obj is BigSnowman)
+        // {
+        //     obj.WorldOrigin.X = x - obj.FrameWidth / 2;
+        //     obj.WorldOrigin.Y = y - obj.FrameHeight / 2;
+        // }
+
+        obj.transform.position = new Vector3(x, y, obj.transform.position.z);
+    }
+
     public GameObject Instance(GameObject prefab, float x = -1000, float y = 1000)
     {
         GameObject instance = Instantiate(prefab, new Vector2(x, y), Quaternion.identity);
         instance.transform.parent = _parent.transform;
+        instance.SetActive(false);
 
         return instance;
     }
