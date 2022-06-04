@@ -5,6 +5,9 @@ using UnityEngine.Assertions;
 public class WorldGenerator : MonoBehaviour
 {
     #region Map Properties
+    [Header("Scene References")]
+    public Camera Camera;
+
     [Header("Generation Settings")]
     private const int MaxCoins = 5;
     private const int MaxCheckpoints = 3;
@@ -24,8 +27,8 @@ public class WorldGenerator : MonoBehaviour
         get
         {
             return new Rect(
-                _camera.transform.position.x - _worldSize.x / 2,
-                _camera.transform.position.y - _worldSize.y / 2,
+                Camera.transform.position.x - _worldSize.x / 2,
+                Camera.transform.position.y - _worldSize.y / 2,
                 _worldSize.x,
                 _worldSize.y
             );
@@ -52,8 +55,6 @@ public class WorldGenerator : MonoBehaviour
     #endregion
 
     #region Private Fields
-    private Camera _camera;
-
     /// <summary>
     /// The parent object for dynamically generated objects
     /// </summary>
@@ -139,19 +140,10 @@ public class WorldGenerator : MonoBehaviour
     {
         _parent = new GameObject("_SnowWorld_");
 
-        _camera = Camera.main;
-        Assert.IsNotNull(_camera, "[WorldGenerator] No main camera found");
+        Assert.IsNotNull(Camera, "[WorldGenerator] No main camera found");
         Assert.IsNotNull(PathPrefab, "[WorldGenerator] No path prefab found");
 
-        var ortho = _camera.orthographicSize;
-        var cameraHalfWidth = ortho * _camera.aspect;
-        var center = _camera.transform.position;
-
-        _worldSize = new Vector2(
-            Mathf.Ceil(cameraHalfWidth * 2) + (xOverdraw * 2),
-            Mathf.Ceil(ortho * 2) + (yOverdraw * 2)
-        );
-
+        SetWorldSize();
         PopulateObjects();
     }
 
@@ -161,7 +153,7 @@ public class WorldGenerator : MonoBehaviour
         DisableHiddenObjects();
 
         int distanceSinceUpdate = (int)Mathf.Abs(Player.position.y - _lastUpdatePosition);
-        if (distanceSinceUpdate > _camera.orthographicSize)
+        if (distanceSinceUpdate > Camera.orthographicSize)
         {
             GenerateMoreWorld(distanceSinceUpdate, _safePath);
             _lastUpdatePosition = (int)Player.position.y;
@@ -171,6 +163,11 @@ public class WorldGenerator : MonoBehaviour
 #if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
+        if (_worldSize == null)
+        {
+            SetWorldSize();
+        }
+
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(WorldBounds.center, WorldBounds.size);
     }
@@ -313,7 +310,7 @@ public class WorldGenerator : MonoBehaviour
         for (int i = _activeTrees.Count - 1; i >= 0; i--)
         {
             GameObject tree = _activeTrees[i];
-            if (!ViewportHelper.IsAboveCameraView(_camera, tree.transform, 0.1f))
+            if (!ViewportHelper.IsAboveCameraView(Camera, tree.transform, 0.1f))
             {
                 tree.SetActive(false);
                 _inactiveTrees.Enqueue(tree);
@@ -330,7 +327,7 @@ public class WorldGenerator : MonoBehaviour
         for (int i = _activeObjects.Count - 1; i >= 0; i--)
         {
             GameObject obj = _activeObjects[i];
-            if (!ViewportHelper.IsAboveCameraView(_camera, obj.transform, 0.1f))
+            if (!ViewportHelper.IsAboveCameraView(Camera, obj.transform, 0.1f))
             {
                 obj.SetActive(false);
                 _inactiveObjects.Add(obj);
