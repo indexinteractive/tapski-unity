@@ -9,7 +9,6 @@ public class WorldGenerator : MonoBehaviour
     public Camera Camera;
 
     [Header("Generation Settings")]
-    private const int MaxCoins = 5;
     private const int MaxCheckpoints = 3;
 
     [Header("Map Size")]
@@ -38,17 +37,16 @@ public class WorldGenerator : MonoBehaviour
 
     #region Prefabs
     [Header("Prefabs")]
-    public Coin CoinPrefab;
-    public TreeSnowy SnowyTreePrefab;
-    public TreePartial PartialTreePrefab;
-    public TreePine PineTreePrefab;
-    public TreeChristmas ChristmasTreePrefab;
-    public Checkpoint CheckpointPrefab;
-    public Rocks RockPrefab;
-    public SnowmanSmall SmallSnowmanPrefab;
-    public SnowmanLarge BigSnowmanPrefab;
-    public WoodRamp WoodRampPrefab;
-    public SnowRamp SnowRampPrefab;
+    public GameObject SnowyTreePrefab;
+    public GameObject PartialTreePrefab;
+    public GameObject PineTreePrefab;
+    public GameObject ChristmasTreePrefab;
+    public GameObject CheckpointPrefab;
+    public GameObject RockPrefab;
+    public GameObject SmallSnowmanPrefab;
+    public GameObject BigSnowmanPrefab;
+    public GameObject WoodRampPrefab;
+    public GameObject SnowRampPrefab;
 
     [Header("Debugging")]
     public GameObject PathPrefab;
@@ -240,12 +238,6 @@ public class WorldGenerator : MonoBehaviour
     /// </summary>
     private void PopulateObjects()
     {
-        for (int i = 0; i < 2 * MaxCoins; i++)
-        {
-            var coin = Instance(CoinPrefab.gameObject);
-            _inactiveObjects.Add(coin);
-        }
-
         for (int i = 0; i < MaxCheckpoints; i++)
         {
             var checkpoint = Instance(CheckpointPrefab.gameObject);
@@ -367,7 +359,7 @@ public class WorldGenerator : MonoBehaviour
             randomObj.SetActive(true);
             _activeObjects.Add(randomObj);
 
-            _nextObjectReposition = Random.Range(5, 17);
+            _nextObjectReposition = Random.Range(8, 30);
             _stepsSinceLastObject = 0;
         }
 
@@ -452,55 +444,15 @@ public class WorldGenerator : MonoBehaviour
     /// </summary>
     private void RepositionObject(GameObject obj, PathStep step)
     {
-        // if (obj is Coin)
-        // { return; }
-
         float x = Random.Range(step.LeftEdge, step.RightEdge);
         float y = step.transform.position.y;
-
-        // if (obj is Checkpoint)
-        // {
-        //     obj.WorldOrigin.X = step.WorldCenter.X - obj.FrameWidth / 2;
-        //     obj.WorldOrigin.Y = y - obj.FrameHeight / 2;
-        // }
-
-        // if (obj is SnowRamp || obj is WoodRamp)
-        // {
-        //     int centerX = (int)step.WorldCenter.X;
-        //     int centerY = y + TILE_SIZE_PX;
-
-        //     obj.WorldOrigin.X = centerX - obj.FrameWidth / 2;
-        //     obj.WorldOrigin.Y = y - obj.FrameHeight / 2;
-
-        //     centerX = (int)obj.WorldCenter.X;
-
-        //     /// Move coins directly below ramp
-        //     for (int i = 0; i < MAX_COINS; i++)
-        //     {
-        //         objects[nextCoin].WorldOrigin.X = centerX
-        //             - objects[nextCoin].FrameWidth
-        //             - objects[nextCoin].FrameWidth / 2
-        //             + (TILE_SIZE_PX * (i % 2));
-        //         objects[nextCoin].WorldOrigin.Y = centerY -
-        //             (objects[nextCoin].FrameHeight / 2);
-        //         objects[nextCoin].OnReset();
-
-        //         nextCoin = (nextCoin + 1) % 4;
-        //     }
-        // }
-
-        // if (obj is Rock || obj is TinySnowman || obj is BigSnowman)
-        // {
-        //     obj.WorldOrigin.X = x - obj.FrameWidth / 2;
-        //     obj.WorldOrigin.Y = y - obj.FrameHeight / 2;
-        // }
 
         obj.transform.position = new Vector3(x, y, obj.transform.position.z);
     }
 
     public GameObject Instance(GameObject prefab, float x = -1000, float y = 1000)
     {
-        GameObject instance = Instantiate(prefab, new Vector2(x, y), Quaternion.identity);
+        GameObject instance = GameObject.Instantiate(prefab, new Vector2(x, y), Quaternion.identity);
         instance.transform.parent = _parent.transform;
         instance.SetActive(false);
 

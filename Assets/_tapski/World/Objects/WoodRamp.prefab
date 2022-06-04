@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6882607240218425103}
   - component: {fileID: 5549660660749000165}
-  - component: {fileID: 3706348863061630429}
+  - component: {fileID: 6329277300806499225}
   m_Layer: 0
   m_Name: WoodRamp
   m_TagString: Untagged
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3706348863061630429
+--- !u!114 &6329277300806499225
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,6 +94,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3668135708394003361}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c79da17621fb40219203877476049cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Script: {fileID: 11500000, guid: a40088ce3cd5b4197ab083357c103e80, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  CoinPrefab: {fileID: 9018654711017114010, guid: e301af3aa837842118b3705e672276d6, type: 3}
