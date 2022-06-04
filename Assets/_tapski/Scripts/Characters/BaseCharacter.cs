@@ -83,11 +83,6 @@ public class BaseCharacter : MonoBehaviour
     /// Player's current descent speed
     /// </summary>
     private float _verticalSpeed = 0;
-
-    /// <summary>
-    /// Initial turning speed
-    /// </summary>
-    private float _horizontalSpeed;
     #endregion
 
     #region Unity Lifecycle
@@ -120,43 +115,28 @@ public class BaseCharacter : MonoBehaviour
                 break;
 
             case PlayerStates.Straight:
-                _velocity = new Vector2(0, MaxSpeed);
                 // Speed the player up while under the max speed
-                // if (_verticalSpeed < MaxSpeed)
-                // {
-                //     _speedCurveX += Time.deltaTime;
-                //     _verticalSpeed = SpeedCurve.Evaluate(_speedCurveX) * MaxSpeed;
-                // }
+                if (_verticalSpeed < MaxSpeed)
+                {
+                    _speedCurveX += Time.deltaTime;
+                    _verticalSpeed = SpeedCurve.Evaluate(_speedCurveX) * MaxSpeed;
+                }
 
                 // If above max speed, the player just jumped, slow down
-                // if (_verticalSpeed > MaxSpeed)
-                // {
-                //     _speedCurveX -= Time.deltaTime;
-                // }
+                if (_verticalSpeed > MaxSpeed)
+                {
+                    _speedCurveX -= Time.deltaTime;
+                }
 
-                // _velocity = new Vector2(0, _verticalSpeed);
-
-                // trailController.AddTrail(WorldRectangle);
+                _velocity = new Vector2(0, _verticalSpeed);
                 break;
 
             case PlayerStates.TurnLeft:
             case PlayerStates.TurnRight:
-                _velocity = new Vector2(MaxSpeed * 0.5f, MaxSpeed);
-                // When turning, slow down the vertical speed
-                // if (_verticalSpeed > _horizontalSpeed)
-                // {
-                //     _verticalSpeed -= (float)Mathf.Log(_verticalSpeed) * Time.deltaTime;
-                // }
+                _speedCurveX -= Time.deltaTime;
+                _verticalSpeed = SpeedCurve.Evaluate(_speedCurveX) * MaxSpeed;
 
-                // Speed up the turning velocity
-                // if (_horizontalSpeed < MaxSpeed)
-                // {
-                //     _horizontalSpeed += (float)Math.Pow(_horizontalSpeed, 0.25) * Time.deltaTime;
-                // }
-
-                // _velocity = new Vector2(_horizontalSpeed, _verticalSpeed);
-
-                // trailController.AddTrail(WorldRectangle, 0);
+                _velocity = new Vector2(_verticalSpeed * 0.5f, _verticalSpeed);
                 break;
 
             case PlayerStates.Jumping:
