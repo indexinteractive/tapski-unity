@@ -348,17 +348,17 @@ MonoBehaviour:
   yOverdraw: 5
   Player: {fileID: 226757462}
   PlayerPathWidth: 4
-  Coin: {fileID: 9018654711017114010, guid: e301af3aa837842118b3705e672276d6, type: 3}
-  SnowyTree: {fileID: 5791644782863740575, guid: d16a130df2e3748aca69f1e60c4d4f15, type: 3}
-  PartialTree: {fileID: 5277517520873700433, guid: c964de996ebf04a25b6c7a8a8753a173, type: 3}
-  PineTree: {fileID: 6641994557108925868, guid: fbf335490697946dcb1bc45c301b79d5, type: 3}
-  ChristmasTree: {fileID: 5982866523315072290, guid: 6bda7d914c2834e8296e87d46a9ecdf9, type: 3}
-  Checkpoint: {fileID: 3711184314119181809, guid: db3e7257c72a848e7b3b6804b41e7459, type: 3}
-  Rock: {fileID: 7294185497644242597, guid: d3562438e14514ebc84ba20431c3b020, type: 3}
-  SmallSnowman: {fileID: 7722070106110897670, guid: 9fb31cdaa9f1f401e9eaa15ee533f093, type: 3}
-  BigSnowman: {fileID: 9123251707982060105, guid: a12729bc83b9c4de4902fa4901e03dc6, type: 3}
-  WoodRamp: {fileID: 3668135708394003361, guid: c4d907e0544b24b948f50fe4046c1ebd, type: 3}
-  SnowRamp: {fileID: 4612699356770900310, guid: 0b52617b1a8cc49ca8da5dd90ba5b94c, type: 3}
+  CoinPrefab: {fileID: -7412758609221140010, guid: e301af3aa837842118b3705e672276d6, type: 3}
+  SnowyTreePrefab: {fileID: 8642302033429605822, guid: d16a130df2e3748aca69f1e60c4d4f15, type: 3}
+  PartialTreePrefab: {fileID: -1399356166514783053, guid: c964de996ebf04a25b6c7a8a8753a173, type: 3}
+  PineTreePrefab: {fileID: -7059243781212400145, guid: fbf335490697946dcb1bc45c301b79d5, type: 3}
+  ChristmasTreePrefab: {fileID: -5682082060869526918, guid: 6bda7d914c2834e8296e87d46a9ecdf9, type: 3}
+  CheckpointPrefab: {fileID: 6044184614314534341, guid: db3e7257c72a848e7b3b6804b41e7459, type: 3}
+  RockPrefab: {fileID: 7306220002970037255, guid: d3562438e14514ebc84ba20431c3b020, type: 3}
+  SmallSnowmanPrefab: {fileID: 5579160685767161698, guid: 9fb31cdaa9f1f401e9eaa15ee533f093, type: 3}
+  BigSnowmanPrefab: {fileID: -7096621909102559107, guid: a12729bc83b9c4de4902fa4901e03dc6, type: 3}
+  WoodRampPrefab: {fileID: 3706348863061630429, guid: c4d907e0544b24b948f50fe4046c1ebd, type: 3}
+  SnowRampPrefab: {fileID: -3766951131042269840, guid: 0b52617b1a8cc49ca8da5dd90ba5b94c, type: 3}
   PathPrefab: {fileID: 4057498082980442231, guid: 714fe39a6eaef47db8e193f843667fb9, type: 3}
 --- !u!1 &389148607
 GameObject:

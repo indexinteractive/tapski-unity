@@ -38,17 +38,17 @@ public class WorldGenerator : MonoBehaviour
 
     #region Prefabs
     [Header("Prefabs")]
-    public GameObject Coin;
-    public GameObject SnowyTree;
-    public GameObject PartialTree;
-    public GameObject PineTree;
-    public GameObject ChristmasTree;
-    public GameObject Checkpoint;
-    public GameObject Rock;
-    public GameObject SmallSnowman;
-    public GameObject BigSnowman;
-    public GameObject WoodRamp;
-    public GameObject SnowRamp;
+    public Coin CoinPrefab;
+    public TreeSnowy SnowyTreePrefab;
+    public TreePartial PartialTreePrefab;
+    public TreePine PineTreePrefab;
+    public TreeChristmas ChristmasTreePrefab;
+    public Checkpoint CheckpointPrefab;
+    public Rocks RockPrefab;
+    public SnowmanSmall SmallSnowmanPrefab;
+    public SnowmanLarge BigSnowmanPrefab;
+    public WoodRamp WoodRampPrefab;
+    public SnowRamp SnowRampPrefab;
 
     [Header("Debugging")]
     public GameObject PathPrefab;
@@ -216,7 +216,7 @@ public class WorldGenerator : MonoBehaviour
 
         if (chance < 5)
         {
-            treePrefab = ChristmasTree;
+            treePrefab = ChristmasTreePrefab.gameObject;
         }
         else
         {
@@ -224,9 +224,9 @@ public class WorldGenerator : MonoBehaviour
 
             switch (chance)
             {
-                case 0: treePrefab = SnowyTree; break;
-                case 2: treePrefab = PartialTree; break;
-                default: treePrefab = PineTree; break;
+                case 0: treePrefab = SnowyTreePrefab.gameObject; break;
+                case 2: treePrefab = PartialTreePrefab.gameObject; break;
+                default: treePrefab = PineTreePrefab.gameObject; break;
             }
         }
 
@@ -242,23 +242,23 @@ public class WorldGenerator : MonoBehaviour
     {
         for (int i = 0; i < 2 * MaxCoins; i++)
         {
-            var coin = Instance(Coin);
+            var coin = Instance(CoinPrefab.gameObject);
             _inactiveObjects.Add(coin);
         }
 
         for (int i = 0; i < MaxCheckpoints; i++)
         {
-            var checkpoint = Instance(Checkpoint);
+            var checkpoint = Instance(CheckpointPrefab.gameObject);
             _inactiveObjects.Add(checkpoint);
         }
 
         // Create objects that will only have one instance offscreen
-        _inactiveObjects.Add(Instance(Rock));
-        _inactiveObjects.Add(Instance(WoodRamp));
-        _inactiveObjects.Add(Instance(SnowRamp));
-        _inactiveObjects.Add(Instance(SnowRamp));
-        _inactiveObjects.Add(Instance(BigSnowman));
-        _inactiveObjects.Add(Instance(SmallSnowman));
+        _inactiveObjects.Add(Instance(RockPrefab.gameObject));
+        _inactiveObjects.Add(Instance(WoodRampPrefab.gameObject));
+        _inactiveObjects.Add(Instance(SnowRampPrefab.gameObject));
+        _inactiveObjects.Add(Instance(SnowRampPrefab.gameObject));
+        _inactiveObjects.Add(Instance(BigSnowmanPrefab.gameObject));
+        _inactiveObjects.Add(Instance(SmallSnowmanPrefab.gameObject));
 
         for (float y = WorldBounds.yMax - 1; y >= WorldBounds.yMin * 2; y--)
         {
@@ -376,6 +376,17 @@ public class WorldGenerator : MonoBehaviour
     #endregion
 
     #region Helpers
+    private void SetWorldSize()
+    {
+        var ortho = Camera.orthographicSize;
+        var cameraHalfWidth = ortho * Camera.aspect;
+        var center = Camera.transform.position;
+
+        _worldSize = new Vector2(
+            Mathf.Ceil(cameraHalfWidth * 2) + (xOverdraw * 2),
+            Mathf.Ceil(ortho * 2) + (yOverdraw * 2)
+        );
+    }
     /// <summary>
     /// Updates the direction of <see cref="_pathDirection"/> which will determine the position
     /// of steps added to <see cref="_safePath"/>.
@@ -404,7 +415,7 @@ public class WorldGenerator : MonoBehaviour
         currentStep.transform.position = RandomizePathPosition(previousStep);
         // currentStep.Width = RandomPathWidth(previousStep);
 
-        if (!currentStep.IsVisibleInCamera(_camera, 0.1f))
+        if (!currentStep.IsVisibleInCamera(Camera, 0.1f))
         {
             RecenterPath(currentStep);
         }
@@ -417,7 +428,7 @@ public class WorldGenerator : MonoBehaviour
     private void RecenterPath(PathStep path)
     {
         path.transform.position = new Vector3(
-            _camera.transform.position.x,
+            Camera.transform.position.x,
             path.transform.position.y,
             path.transform.position.z
         );
