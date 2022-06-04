@@ -35,6 +35,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DirectionKey"",
+                    ""type"": ""Button"",
+                    ""id"": ""27526cac-9b93-4e22-8332-5cd629b993fd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -59,6 +68,105 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Tap"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""A/D Keys"",
+                    ""id"": ""528f40a0-61dc-4e82-aaeb-192419a5746a"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DirectionKey"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""68ae2299-2cc7-48b3-96de-c1e20fff68bc"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DirectionKey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""c410745b-ffe6-4d1b-8ee2-503bfc2f705b"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DirectionKey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""</> Keys"",
+                    ""id"": ""7baa6cb1-cc02-4a11-8316-5c2efaaf4652"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DirectionKey"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""23ab7251-6a72-4bc5-a556-3d28388002f1"",
+                    ""path"": ""<Keyboard>/comma"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DirectionKey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""78fe556a-2963-4889-812b-72b24dd53b2b"",
+                    ""path"": ""<Keyboard>/period"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DirectionKey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Left/Right Keys"",
+                    ""id"": ""3220fabe-2ae1-47ee-a9a7-196980ec92f8"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": ""Press(behavior=2)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DirectionKey"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""01711069-64d7-46bc-8ac2-079e97ee8c42"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DirectionKey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""99f66369-511f-4290-95c4-23180fe5f076"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DirectionKey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -375,6 +483,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Tap = m_Player.FindAction("Tap", throwIfNotFound: true);
+        m_Player_DirectionKey = m_Player.FindAction("DirectionKey", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -447,11 +556,13 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Tap;
+    private readonly InputAction m_Player_DirectionKey;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
         public PlayerActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Tap => m_Wrapper.m_Player_Tap;
+        public InputAction @DirectionKey => m_Wrapper.m_Player_DirectionKey;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -464,6 +575,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Tap.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTap;
                 @Tap.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTap;
                 @Tap.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTap;
+                @DirectionKey.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDirectionKey;
+                @DirectionKey.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDirectionKey;
+                @DirectionKey.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDirectionKey;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -471,6 +585,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Tap.started += instance.OnTap;
                 @Tap.performed += instance.OnTap;
                 @Tap.canceled += instance.OnTap;
+                @DirectionKey.started += instance.OnDirectionKey;
+                @DirectionKey.performed += instance.OnDirectionKey;
+                @DirectionKey.canceled += instance.OnDirectionKey;
             }
         }
     }
@@ -583,6 +700,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnTap(InputAction.CallbackContext context);
+        void OnDirectionKey(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

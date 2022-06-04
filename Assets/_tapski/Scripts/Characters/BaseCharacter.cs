@@ -99,7 +99,8 @@ public class BaseCharacter : MonoBehaviour
         _input = new PlayerInput();
         _input.Enable();
 
-        _input.Player.Tap.performed += OnInputEvent;
+        _input.Player.Tap.performed += OnTapInput;
+        _input.Player.DirectionKey.performed += OnDirectionKeyInput;
 
         _state = PlayerStates.Idle;
     }
@@ -197,7 +198,7 @@ public class BaseCharacter : MonoBehaviour
     #endregion
 
     #region Input
-    private void OnInputEvent(UnityEngine.InputSystem.InputAction.CallbackContext e)
+    private void OnTapInput(UnityEngine.InputSystem.InputAction.CallbackContext e)
     {
         if (_state == PlayerStates.Dead || _state == PlayerStates.Idle)
         {
@@ -221,6 +222,25 @@ public class BaseCharacter : MonoBehaviour
                 State = PlayerStates.TurnRight;
                 FacesLeft = false;
             }
+        }
+        else
+        {
+            State = PlayerStates.Straight;
+        }
+    }
+
+    private void OnDirectionKeyInput(InputAction.CallbackContext e)
+    {
+        float value = e.ReadValue<float>();
+        if (value > 0)
+        {
+            State = PlayerStates.TurnRight;
+            FacesLeft = false;
+        }
+        else if (value < 0)
+        {
+            State = PlayerStates.TurnLeft;
+            FacesLeft = true;
         }
         else
         {
