@@ -15,9 +15,15 @@ public class Ramp : MonoBehaviour
     public float CoinGap = 1f;
     #endregion
 
+    #region Private Fields
+    public GameObject[] _coins;
+    #endregion
+
     #region Unity Lifecycle
-    private void OnEnable()
+    private void Awake()
     {
+        _coins = new GameObject[CoinCount];
+
         GameObject coinParent = new GameObject("CoinParent");
         coinParent.transform.SetParent(transform);
 
@@ -26,10 +32,18 @@ public class Ramp : MonoBehaviour
 
         for (int i = 0; i < CoinCount; i++)
         {
-            var coin = Instantiate(CoinPrefab, coinParent.transform);
-            coin.transform.localPosition = new Vector3((i * CoinGap), 0, 0);
+            _coins[i] = Instantiate(CoinPrefab, coinParent.transform);
+            _coins[i].transform.localPosition = new Vector3((i * CoinGap), 0, 0);
 
-            coin.SetActive(true);
+            _coins[i].SetActive(false);
+        }
+    }
+
+    private void OnEnable()
+    {
+        for (int i = 0; i < CoinCount; i++)
+        {
+            _coins[i].SetActive(true);
         }
     }
     #endregion
