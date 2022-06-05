@@ -161,7 +161,6 @@ public class BaseCharacter : MonoBehaviour
                 break;
         }
 
-        Debug.Log($"{name} velocity: {_velocity}");
         UpdateMovement();
     }
 

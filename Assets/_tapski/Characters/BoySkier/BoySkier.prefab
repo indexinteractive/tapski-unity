@@ -135,7 +135,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1.5}
-  m_EdgeRadius: 0.2
+  m_EdgeRadius: 0
 --- !u!199 &898066795698634447
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -4954,9 +4954,36 @@ MonoBehaviour:
   JumpTime: 0.5
   SpeedCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.5802702
+      outSlope: 0.5802702
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.17930385
+    - serializedVersion: 3
+      time: 1.0788436
+      value: 0.3745299
+      inSlope: 0.060475383
+      outSlope: 0.060475383
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.050305948
+    - serializedVersion: 3
+      time: 30
+      value: 1.0000106
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  MaxSpeed: 1
+  MaxSpeed: 35
   JumpSpeed: 2
