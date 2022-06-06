@@ -236,10 +236,10 @@ MonoBehaviour:
   yOverdraw: 5
   Player: {fileID: 226757462}
   PlayerPathWidth: 4
-  SnowyTreePrefab: {fileID: 5791644782863740575, guid: d16a130df2e3748aca69f1e60c4d4f15, type: 3}
-  PartialTreePrefab: {fileID: 5277517520873700433, guid: c964de996ebf04a25b6c7a8a8753a173, type: 3}
+  SnowyTreePrefab: {fileID: 2236517618955932911, guid: d16a130df2e3748aca69f1e60c4d4f15, type: 3}
+  PartialTreePrefab: {fileID: 5634292141303267968, guid: c964de996ebf04a25b6c7a8a8753a173, type: 3}
   PineTreePrefab: {fileID: 6641994557108925868, guid: fbf335490697946dcb1bc45c301b79d5, type: 3}
-  ChristmasTreePrefab: {fileID: 5982866523315072290, guid: 6bda7d914c2834e8296e87d46a9ecdf9, type: 3}
+  ChristmasTreePrefab: {fileID: 4399990654881251669, guid: 6bda7d914c2834e8296e87d46a9ecdf9, type: 3}
   CheckpointPrefab: {fileID: 3711184314119181809, guid: db3e7257c72a848e7b3b6804b41e7459, type: 3}
   RockPrefab: {fileID: 7294185497644242597, guid: d3562438e14514ebc84ba20431c3b020, type: 3}
   SmallSnowmanPrefab: {fileID: 7722070106110897670, guid: 9fb31cdaa9f1f401e9eaa15ee533f093, type: 3}
