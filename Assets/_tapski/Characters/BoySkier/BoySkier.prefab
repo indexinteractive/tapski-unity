@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7710205717112133534}
   - component: {fileID: 5164707256349059240}
   - component: {fileID: 3260668067499931479}
+  - component: {fileID: 8118296987711664486}
   m_Layer: 0
   m_Name: BoySkier
   m_TagString: Untagged
@@ -176,7 +177,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -736031231
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -4987,3 +4988,15 @@ MonoBehaviour:
     m_RotationOrder: 4
   MaxSpeed: 35
   JumpSpeed: 2
+--- !u!114 &8118296987711664486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6227765593603246817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9af12eca15f94dbeb4ba7d47b5f3700, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

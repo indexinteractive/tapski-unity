@@ -234,4 +234,17 @@ public class BaseCharacter : MonoBehaviour
         _animator.Play(state.ToString());
     }
     #endregion
+
+    #region Interactions
+    public void OnCollideWithObstacle()
+    {
+        _velocity = Vector2.zero;
+        _speedCurveX = 0;
+
+        _input.Player.Tap.performed -= OnTapInput;
+        _input.Player.DirectionKey.performed -= OnDirectionKeyInput;
+
+        State = PlayerStates.Dead;
+    }
+    #endregion
 }
