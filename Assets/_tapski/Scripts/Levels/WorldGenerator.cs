@@ -48,8 +48,11 @@ public class WorldGenerator : MonoBehaviour
     public GameObject WoodRampPrefab;
     public GameObject SnowRampPrefab;
 
+#if UNITY_EDITOR
     [Header("Debugging")]
     public GameObject PathPrefab;
+    public bool ShowDebug = false;
+#endif
     #endregion
 
     #region Private Fields
@@ -147,6 +150,17 @@ public class WorldGenerator : MonoBehaviour
 
     private void Update()
     {
+#if UNITY_EDITOR
+        if (!ShowDebug)
+        {
+            Camera.cullingMask = ~(1 << LayerMask.NameToLayer("ConditionalRender"));
+        }
+        else
+        {
+            Camera.cullingMask = Camera.cullingMask | (1 << LayerMask.NameToLayer("ConditionalRender"));
+        }
+#endif
+
         DisableHiddenTrees();
         DisableHiddenObjects();
 
