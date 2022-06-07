@@ -3,12 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - obstacle
+  - ramp
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - ConditionalRender
   - Water
   - UI
   - 
