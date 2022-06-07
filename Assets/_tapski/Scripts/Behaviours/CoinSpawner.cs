@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Ramp : MonoBehaviour
+public class CoinSpawner : MonoBehaviour
 {
     #region Public Properties
     public GameObject CoinPrefab;
@@ -8,7 +8,7 @@ public class Ramp : MonoBehaviour
     [Tooltip("Number of coins to spawn")]
     public int CoinCount = 2;
 
-    [Tooltip("Distance from the ramp to the spawnpoint of the coins")]
+    [Tooltip("Distance from the object to the spawnpoint of the coins")]
     public float CoinDistance = 1.5f;
 
     [Tooltip("Distance between the coins")]

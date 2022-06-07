@@ -30,7 +30,7 @@ public class BaseCharacter : MonoBehaviour
     public float MaxSpeed = 1f;
 
     [Tooltip("Max speed while jumping")]
-    public float JumpSpeed = 2f;
+    public float JumpSpeedMultiplier = 1.4f;
     #endregion
 
     #region Public Properties
@@ -71,6 +71,7 @@ public class BaseCharacter : MonoBehaviour
 
     #region Private / Inherited Fields
     private Animator _animator;
+    // private TrailRenderer _trail;
     private PlayerInput _input;
     private PlayerStates _state;
 
@@ -89,7 +90,9 @@ public class BaseCharacter : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+        // _trail = GetComponent<TrailRenderer>();
         Assert.IsNotNull(_animator, $"[BaseCharacter] No Animator found on character {name}");
+        // Assert.IsNotNull(_trail, $"[BaseCharacter] No TrailRenderer found on character {name}");
 
         _input = new PlayerInput();
         _input.Enable();
@@ -140,17 +143,12 @@ public class BaseCharacter : MonoBehaviour
                 break;
 
             case PlayerStates.Jumping:
-                // if (_verticalSpeed < JumpSpeed)
-                // {
-                //     _verticalSpeed += (float)Math.Pow(_verticalSpeed * 0.01, 2) * Time.deltaTime;
-                // }
+                _velocity = new Vector2(0, _verticalSpeed);
 
-                // _velocity = new Vector2(0, _verticalSpeed);
-
-                // if (_stateTimer > JumpTime)
-                // {
-                //     State = PlayerStates.Straight;
-                // }
+                if (_stateTimer > JumpTime)
+                {
+                    State = PlayerStates.Straight;
+                }
                 break;
 
             case PlayerStates.Dead:
@@ -179,7 +177,7 @@ public class BaseCharacter : MonoBehaviour
     #region Input
     private void OnTapInput(UnityEngine.InputSystem.InputAction.CallbackContext e)
     {
-        if (_state == PlayerStates.Dead || _state == PlayerStates.Idle)
+        if (_state == PlayerStates.Jumping || _state == PlayerStates.Idle)
         {
             return;
         }
@@ -210,6 +208,11 @@ public class BaseCharacter : MonoBehaviour
 
     private void OnDirectionKeyInput(InputAction.CallbackContext e)
     {
+        if (_state == PlayerStates.Jumping || _state == PlayerStates.Idle)
+        {
+            return;
+        }
+
         float value = e.ReadValue<float>();
         if (value > 0)
         {
@@ -244,7 +247,16 @@ public class BaseCharacter : MonoBehaviour
         _input.Player.Tap.performed -= OnTapInput;
         _input.Player.DirectionKey.performed -= OnDirectionKeyInput;
 
+        // Setting the trail lifespan to <infinity> will keep it from disappearing on collision
+        // _trail.time = float.PositiveInfinity;
+
         State = PlayerStates.Dead;
+    }
+
+    public void OnCollideWithRamp()
+    {
+        _verticalSpeed = _verticalSpeed * JumpSpeedMultiplier;
+        State = PlayerStates.Jumping;
     }
     #endregion
 }

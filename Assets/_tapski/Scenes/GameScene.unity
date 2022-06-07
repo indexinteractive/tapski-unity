@@ -244,7 +244,7 @@ MonoBehaviour:
   RockPrefab: {fileID: 7294185497644242597, guid: d3562438e14514ebc84ba20431c3b020, type: 3}
   SmallSnowmanPrefab: {fileID: 8440191110165035353, guid: 9fb31cdaa9f1f401e9eaa15ee533f093, type: 3}
   BigSnowmanPrefab: {fileID: 9123251707982060105, guid: a12729bc83b9c4de4902fa4901e03dc6, type: 3}
-  WoodRampPrefab: {fileID: 3668135708394003361, guid: c4d907e0544b24b948f50fe4046c1ebd, type: 3}
+  WoodRampPrefab: {fileID: 7994421938240077905, guid: c4d907e0544b24b948f50fe4046c1ebd, type: 3}
   SnowRampPrefab: {fileID: 4612699356770900310, guid: 0b52617b1a8cc49ca8da5dd90ba5b94c, type: 3}
   PathPrefab: {fileID: 4057498082980442231, guid: 714fe39a6eaef47db8e193f843667fb9, type: 3}
 --- !u!1 &389148607

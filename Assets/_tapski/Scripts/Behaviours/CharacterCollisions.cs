@@ -24,6 +24,10 @@ public class CharacterCollisions : MonoBehaviour
         {
             _character.OnCollideWithObstacle();
         }
+        else if (other.CompareTag("ramp"))
+        {
+            _character.OnCollideWithRamp();
+        }
     }
     #endregion
 }
