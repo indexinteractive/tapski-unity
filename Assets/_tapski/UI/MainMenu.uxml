@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="width: 100%; height: 100%; padding-left: 5%; padding-right: 5%; padding-top: 5%; padding-bottom: 5%;">
+        <ui:VisualElement name="top" />
+        <ui:VisualElement name="middle" style="background-image: url(&apos;project://database/Assets/_tapski/Graphics/UI%20Elements/title.png?fileID=2800000&amp;guid=c2a8ee814ac914961a4295f943af0a09&amp;type=3#title&apos;); -unity-background-scale-mode: scale-to-fit; width: 100%; height: 100%;" />
+        <ui:VisualElement name="bottom" />
+    </ui:VisualElement>
+</ui:UXML>
