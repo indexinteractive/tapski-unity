@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -6,12 +7,14 @@ using UnityEngine.UIElements;
 public class MenuManager : MonoBehaviour
 {
     #region Public Properties
-    [Header("UI References")]
+    [Header("References")]
     public UIDocument MainMenu;
     public UIDocument CharacterSelect;
+    public GameState State;
 
     [Header("Button Selectors")]
     public string BtnPlaySelector = "btn-play";
+    public string BtnAudioSelector = "btn-sound";
 
     [Header("Animation Parameters")]
     public float SlideDurationSec = 1;
@@ -28,6 +31,7 @@ public class MenuManager : MonoBehaviour
     {
         Assert.IsNotNull(MainMenu, "[MenuManager] MainMenu is unassigned");
         Assert.IsNotNull(CharacterSelect, "[MenuManager] CharacterSelect is unassigned");
+        Assert.IsNotNull(State, "[MenuManager] Game State is unassigned");
 
         _mainMenu = MainMenu.rootVisualElement.Children().First();
 
@@ -52,12 +56,22 @@ public class MenuManager : MonoBehaviour
         OffsetUIDocument.Slide(_characterSelect, 0, 0, _offset);
     }
 
+    private void SetAudioImage(Button btnAudio, bool enabled)
+    {
+        btnAudio.ClearClassList();
+        btnAudio.AddToClassList($"audio-{State.AudioIsEnabled}");
+    }
+
     private void SetButtonListeners()
     {
-        var playBtn = _mainMenu.Q<Button>(BtnPlaySelector);
-        Assert.IsNotNull(playBtn, "[MenuManager] Play button was not found");
+        var btnPlay = _mainMenu.Q<Button>(BtnPlaySelector);
+        Assert.IsNotNull(btnPlay, "[MenuManager] Play button was not found");
 
-        playBtn.clicked += OnPlayClick;
+        btnPlay.clicked += OnPlayClick;
+
+        var btnAudio = _mainMenu.Q<Button>(BtnAudioSelector);
+        btnAudio.clicked += () => OnAudioBtnClick(btnAudio);
+        SetAudioImage(btnAudio, State.AudioIsEnabled);
     }
     #endregion
 
@@ -66,6 +80,12 @@ public class MenuManager : MonoBehaviour
     {
         OffsetUIDocument.Slide(_mainMenu, SlideDurationSec, 0, -_offset);
         OffsetUIDocument.Slide(_characterSelect, SlideDurationSec, _offset, 0);
+    }
+
+    private void OnAudioBtnClick(Button btnAudio)
+    {
+        State.AudioIsEnabled = !State.AudioIsEnabled;
+        SetAudioImage(btnAudio, State.AudioIsEnabled);
     }
     #endregion
 }

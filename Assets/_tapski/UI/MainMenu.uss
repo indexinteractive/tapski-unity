@@ -7,6 +7,10 @@
     border-width: 0;
 }
 
+.audio-False {
+    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_sound.png?fileID=-817303054&guid=2547efb6652c041c6984ca5905d7d508&type=3#button_sound_1');
+}
+
 #btn-standings {
     background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_scores.png?fileID=-215675159&guid=bae1e82fae2b345d2bd725d77a3457cf&type=3#button_scores_0');
 }
@@ -21,4 +25,8 @@
 
 #btn-play:active {
     background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_play.png?fileID=-499776347&guid=54c4400b47cfc4c818fe0f8cadf63f26&type=3#button_play_1');
+}
+
+.audio-True {
+    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_sound.png?fileID=-931004189&guid=2547efb6652c041c6984ca5905d7d508&type=3#button_sound_0');
 }
