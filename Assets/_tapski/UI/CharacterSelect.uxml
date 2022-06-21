@@ -1,5 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" name="what" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/_tapski/UI/CharacterSelect.uss?fileID=7433441132597879392&amp;guid=a7094036238f74f4591a59baea90d8fe&amp;type=3#CharacterSelect" />
+    <Style src="project://database/Assets/_tapski/UI/CharacterFrames.uss?fileID=7433441132597879392&amp;guid=e7f3f6bba8d1046128f5e9dd82d92fe3&amp;type=3#CharacterFrames" />
     <ui:VisualElement style="width: 100%; height: 100%; padding-left: 5%; padding-right: 5%; padding-top: 5%; padding-bottom: 5%; justify-content: space-between; position: absolute;">
         <ui:VisualElement name="top" style="justify-content: center;">
             <ui:Label text="Select Your" enable-rich-text="false" name="line-1" style="-unity-font: url(&apos;project://database/Assets/_tapski/UI/TinyPixy.ttf?fileID=12800000&amp;guid=07f154760a1fd4e7ebd3a81d0aa642f8&amp;type=3#TinyPixy&apos;); -unity-font-definition: none; font-size: 26px; white-space: normal; -unity-text-align: upper-center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; -unity-paragraph-spacing: 0; color: rgb(236, 6, 76); text-shadow: 1px 1px 0 rgb(0, 0, 0);" />
@@ -9,7 +10,7 @@
             <ui:VisualElement>
                 <ui:Button name="btn-previous" class="btn-index btn-previous" />
             </ui:VisualElement>
-            <ui:VisualElement name="img-character" style="background-image: url(&apos;project://database/Assets/_tapski/Graphics/Characters/boy_skier_straight.png?fileID=-31581842&amp;guid=a85ae2e54ef3140b9af93325b7315e2a&amp;type=3#boy_skier_straight_0&apos;); width: 80px; height: 180px; -unity-background-scale-mode: scale-to-fit;" />
+            <ui:VisualElement name="img-character" class="boy-skier-0" style="width: 80px; height: 180px; -unity-background-scale-mode: scale-to-fit;" />
             <ui:VisualElement>
                 <ui:Button name="btn-next" class="btn-index btn-next" />
             </ui:VisualElement>

@@ -956,7 +956,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1926072227}
   - component: {fileID: 1926072226}
-  - component: {fileID: 1926072225}
+  - component: {fileID: 1926072228}
   m_Layer: 5
   m_Name: CharacterSelect
   m_TagString: Untagged
@@ -964,19 +964,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &1926072225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1926072224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5e6ce8c9984944199564339e593f109, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SlideDurationSec: 2
 --- !u!114 &1926072226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1008,6 +995,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1926072228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926072224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc1e095ba3665460b97a2f1d41a26178, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Characters:
+  - {fileID: 6227765593603246817, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
+  - {fileID: 6227765593603246817, guid: 63d834c86f29d4f6c80cc90b89465b5d, type: 3}
+  BtnPreviousSelector: btn-previous
+  BtnNextSelector: btn-next
+  BtnStartSelector: btn-start
+  CharacterPreviewSelector: img-character
 --- !u!1 &2086848992
 GameObject:
   m_ObjectHideFlags: 0
@@ -1018,7 +1024,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2086848994}
   - component: {fileID: 2086848993}
-  - component: {fileID: 2086848995}
   m_Layer: 5
   m_Name: MainMenuUI
   m_TagString: Untagged
@@ -1057,16 +1062,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2086848995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2086848992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5e6ce8c9984944199564339e593f109, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SlideDurationSec: 2

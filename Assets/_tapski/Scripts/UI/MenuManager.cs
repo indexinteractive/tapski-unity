@@ -13,7 +13,7 @@ public class MenuManager : MonoBehaviour
     [Header("Button Selectors")]
     public string BtnPlaySelector = "btn-play";
 
-    [Header("Animation Paramters")]
+    [Header("Animation Parameters")]
     public float SlideDurationSec = 1;
     #endregion
 
