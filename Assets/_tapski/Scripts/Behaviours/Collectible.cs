@@ -1,12 +1,17 @@
 using System;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(Renderer))]
 public class Collectible : MonoBehaviour
 {
+    #region Public Properties
+    public GameState State;
+    #endregion
+
     #region Private Fields
     private AudioSource _audio;
     private Renderer _renderer;
@@ -17,6 +22,8 @@ public class Collectible : MonoBehaviour
     {
         _audio = GetComponent<AudioSource>();
         _renderer = GetComponent<Renderer>();
+
+        Assert.IsNotNull(State, "[Collectible] Game State is unassigned");
     }
 
     private void OnEnable()
@@ -28,9 +35,12 @@ public class Collectible : MonoBehaviour
     #region Unity Events
     private void OnTriggerEnter2D(Collider2D other)
     {
-        _audio.Play();
-        _renderer.enabled = false;
+        if (State.AudioIsEnabled)
+        {
+            _audio.Play();
+        }
 
+        _renderer.enabled = false;
         DisableInSecondsAsync(_audio.clip.length);
     }
     #endregion
