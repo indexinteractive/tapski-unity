@@ -1,7 +1,9 @@
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class MenuManager : MonoBehaviour
@@ -11,11 +13,15 @@ public class MenuManager : MonoBehaviour
     public UIDocument MainMenu;
     public UIDocument CharacterSelect;
     public GameState State;
+    public string GameScene = "GameScene";
 
-    [Header("Button Selectors")]
+    [Header("Main Menu Selectors")]
     public string BtnPlaySelector = "btn-play";
-    public string BtnMenuBackSelector = "btn-back";
     public string BtnAudioSelector = "btn-sound";
+
+    [Header("Character Menu Selectors")]
+    public string BtnMenuBackSelector = "btn-back";
+    public string BtnStartGameSelector = "btn-start";
 
     [Header("Animation Parameters")]
     public float SlideDurationSec = 1;
@@ -78,6 +84,10 @@ public class MenuManager : MonoBehaviour
         var btnMenuBack = CharacterSelect.rootVisualElement.Q<Button>(BtnMenuBackSelector);
         Assert.IsNotNull(btnPlay, "[MenuManager] Back button was not found");
         btnMenuBack.clicked += OnMenuBackClick;
+
+        var btnStartGame = CharacterSelect.rootVisualElement.Q<Button>(BtnStartGameSelector);
+        Assert.IsNotNull(btnStartGame, "[MenuManager] Start button was not found");
+        btnStartGame.clicked += OnStartGameClick;
     }
     #endregion
 
@@ -98,6 +108,14 @@ public class MenuManager : MonoBehaviour
     {
         State.AudioIsEnabled = !State.AudioIsEnabled;
         SetAudioImage(btnAudio, State.AudioIsEnabled);
+    }
+
+    private async void OnStartGameClick()
+    {
+        OffsetUIDocument.Slide(_characterSelect, SlideDurationSec, 0, -_offset);
+        await Task.Delay(TimeSpan.FromSeconds(SlideDurationSec));
+
+        SceneManager.LoadSceneAsync(GameScene, LoadSceneMode.Single);
     }
     #endregion
 }

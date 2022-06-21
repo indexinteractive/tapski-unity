@@ -312,9 +312,11 @@ MonoBehaviour:
   MainMenu: {fileID: 2086848993}
   CharacterSelect: {fileID: 1926072226}
   State: {fileID: 11400000, guid: 0bb76baa805de4ee3a0274d83a45547a, type: 2}
+  GameScene: GameScene
   BtnPlaySelector: btn-play
-  BtnMenuBackSelector: btn-back
   BtnAudioSelector: btn-sound
+  BtnMenuBackSelector: btn-back
+  BtnStartGameSelector: btn-start
   SlideDurationSec: 0.3
 --- !u!1 &331249603
 GameObject:
