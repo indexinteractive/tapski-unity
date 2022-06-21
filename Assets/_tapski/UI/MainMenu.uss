@@ -1,0 +1,24 @@
+.btn-large {
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+}
+
+#btn-standings {
+    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_scores.png?fileID=-215675159&guid=bae1e82fae2b345d2bd725d77a3457cf&type=3#button_scores_0');
+}
+
+#btn-standings:active {
+    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_scores.png?fileID=-1078375978&guid=bae1e82fae2b345d2bd725d77a3457cf&type=3#button_scores_1');
+}
+
+#btn-play {
+    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_play.png?fileID=-858668900&guid=54c4400b47cfc4c818fe0f8cadf63f26&type=3#button_play_0');
+}
+
+#btn-play:active {
+    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_play.png?fileID=-499776347&guid=54c4400b47cfc4c818fe0f8cadf63f26&type=3#button_play_1');
+}

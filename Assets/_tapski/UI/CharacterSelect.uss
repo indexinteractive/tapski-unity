@@ -1,0 +1,35 @@
+.btn-index {
+    -unity-background-scale-mode: scale-to-fit;
+    border-width: 0;
+    background-color: rgba(0, 0, 0, 0);
+    width: 33px;
+    height: 50px;
+    margin: 0;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.btn-previous {
+    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_left.png?fileID=-276747054&guid=9f0cb91cecfab4266b53b7a984453556&type=3#button_left_0');
+}
+
+.btn-previous:active {
+    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_left.png?fileID=1600548072&guid=9f0cb91cecfab4266b53b7a984453556&type=3#button_left_1');
+}
+
+.btn-next {
+    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_right.png?fileID=-673657188&guid=dbf5fb6774d574ed6a4510b52e324518&type=3#button_right_0');
+}
+
+.btn-next:active {
+    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_right.png?fileID=-1913711421&guid=dbf5fb6774d574ed6a4510b52e324518&type=3#button_right_1');
+}
+
+.btn-start {
+    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_go.png?fileID=444221316&guid=3f9f7e4a90d094dcda36a71f3d601aea&type=3#button_go_0');
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.btn-start:active {
+    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_go.png?fileID=1660448766&guid=3f9f7e4a90d094dcda36a71f3d601aea&type=3#button_go_1');
+}
