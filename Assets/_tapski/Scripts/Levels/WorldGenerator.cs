@@ -1,12 +1,19 @@
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.Assertions;
 
 public class WorldGenerator : MonoBehaviour
 {
     #region Map Properties
+    [Header("Mode")]
+    public bool UsePreviewMode = false;
+    public GameObject PreviewTarget;
+
     [Header("Scene References")]
     public Camera Camera;
+    public CinemachineVirtualCamera CineCam;
+    public GameState State;
 
     [Header("Generation Settings")]
     private const int MaxCheckpoints = 3;
@@ -18,7 +25,6 @@ public class WorldGenerator : MonoBehaviour
     public int yOverdraw = 5;
 
     [Header("Player Properties")]
-    public Transform Player;
     public int PlayerPathWidth = 3;
 
     public Rect WorldBounds
@@ -62,6 +68,8 @@ public class WorldGenerator : MonoBehaviour
     private GameObject _parent;
 
     private Vector2 _worldSize;
+
+    private GameObject _player;
     #endregion
 
     #region Path Generation
@@ -142,8 +150,11 @@ public class WorldGenerator : MonoBehaviour
         _parent = new GameObject("_SnowWorld_");
 
         Assert.IsNotNull(Camera, "[WorldGenerator] No main camera found");
+        Assert.IsNotNull(CineCam, "[WorldGenerator] Cinemachine camera is unassigned");
         Assert.IsNotNull(PathPrefab, "[WorldGenerator] No path prefab found");
+        Assert.IsNotNull(State, "[WorldGenerator] Game State is unassigned");
 
+        CreatePlayer();
         SetWorldSize();
         PopulateObjects();
     }
@@ -164,11 +175,11 @@ public class WorldGenerator : MonoBehaviour
         DisableHiddenTrees();
         DisableHiddenObjects();
 
-        int distanceSinceUpdate = (int)Mathf.Abs(Player.position.y - _lastUpdatePosition);
+        int distanceSinceUpdate = (int)Mathf.Abs(_player.transform.position.y - _lastUpdatePosition);
         if (distanceSinceUpdate > Camera.orthographicSize)
         {
             GenerateMoreWorld(distanceSinceUpdate, _safePath);
-            _lastUpdatePosition = (int)Player.position.y;
+            _lastUpdatePosition = (int)_player.transform.position.y;
         }
     }
 
@@ -268,7 +279,7 @@ public class WorldGenerator : MonoBehaviour
 
         for (float y = WorldBounds.yMax - 1; y >= WorldBounds.yMin * 2; y--)
         {
-            Vector2 position = new Vector2(Player.position.x, y);
+            Vector2 position = new Vector2(_player.transform.position.x, y);
             PathStep newPath = PathStep.Create(PathPrefab, position, _parent, PlayerPathWidth);
             _safePath.Add(newPath);
 
@@ -382,6 +393,13 @@ public class WorldGenerator : MonoBehaviour
     #endregion
 
     #region Helpers
+    private void CreatePlayer()
+    {
+        _player = (UsePreviewMode) ? PreviewTarget : Instantiate(State.SelectedCharacter);
+        CineCam.Follow = _player.transform;
+        CineCam.LookAt = _player.transform;
+    }
+
     private void SetWorldSize()
     {
         var ortho = Camera.orthographicSize;

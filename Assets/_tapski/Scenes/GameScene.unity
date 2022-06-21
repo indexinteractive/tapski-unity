@@ -123,70 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &226757461
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 2
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6227765593603246817, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
-      propertyPath: m_Name
-      value: BoySkier
-      objectReference: {fileID: 0}
-    - target: {fileID: 6227765593603246819, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6227765593603246819, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6227765593603246819, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6227765593603246819, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6227765593603246819, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6227765593603246819, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6227765593603246819, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6227765593603246819, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6227765593603246819, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6227765593603246819, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6227765593603246819, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_AddedGameObjects: []
-  m_SourcePrefab: {fileID: 100100000, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
---- !u!4 &226757462 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6227765593603246819, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
-  m_PrefabInstance: {fileID: 226757461}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &331249603
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,9 +168,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 519420031}
+  CineCam: {fileID: 1598509300}
+  State: {fileID: 11400000, guid: 0bb76baa805de4ee3a0274d83a45547a, type: 2}
   xOverdraw: 20
   yOverdraw: 5
-  Player: {fileID: 226757462}
   PlayerPathWidth: 4
   SnowyTreePrefab: {fileID: 2236517618955932911, guid: d16a130df2e3748aca69f1e60c4d4f15, type: 3}
   PartialTreePrefab: {fileID: 5634292141303267968, guid: c964de996ebf04a25b6c7a8a8753a173, type: 3}
@@ -247,6 +184,7 @@ MonoBehaviour:
   WoodRampPrefab: {fileID: 7994421938240077905, guid: c4d907e0544b24b948f50fe4046c1ebd, type: 3}
   SnowRampPrefab: {fileID: 4612699356770900310, guid: 0b52617b1a8cc49ca8da5dd90ba5b94c, type: 3}
   PathPrefab: {fileID: 4057498082980442231, guid: 714fe39a6eaef47db8e193f843667fb9, type: 3}
+  ShowDebug: 0
 --- !u!1 &389148607
 GameObject:
   m_ObjectHideFlags: 3
@@ -689,7 +627,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1370752532
 GameObject:
@@ -721,7 +659,7 @@ Transform:
   m_Children:
   - {fileID: 619394802}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1598509298
 GameObject:
@@ -775,8 +713,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 226757462}
-  m_Follow: {fileID: 226757462}
+  m_LookAt: {fileID: 0}
+  m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 34
     OrthographicSize: 19
@@ -838,5 +776,5 @@ Transform:
   - {fileID: 519420032}
   - {fileID: 1598509299}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
