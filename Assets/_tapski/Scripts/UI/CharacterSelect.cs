@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UIElements;
@@ -5,14 +7,11 @@ using UnityEngine.UIElements;
 [RequireComponent(typeof(UIDocument))]
 public class CharacterSelect : MonoBehaviour
 {
-    #region Constants
-    private const int FRAME_UPDATE_MS = 70;
-    private const int FRAMES_COUNT = 3;
-    #endregion
-
     #region Public Properties
     [Header("Characters")]
     public GameObject[] Characters;
+    [Tooltip("Scriptable object that stores the current game state")]
+    public GameState State;
 
     [Header("Selectors")]
     public string BtnPreviousSelector = "btn-previous";
@@ -25,13 +24,13 @@ public class CharacterSelect : MonoBehaviour
     private VisualElement _uiRoot;
     private VisualElement _characterPreview;
     private int _characterIndex = 0;
-    private int _frameIndex = 0;
     #endregion
 
     #region Unity Lifecycle
     private void Awake()
     {
         Assert.IsTrue(Characters.Length > 0, "[CharacterSelect] No characters were assigned");
+        Assert.IsNotNull(State, "[CharacterSelect] GameState asset is unassigned!");
 
         _uiRoot = GetComponent<UIDocument>().rootVisualElement;
         _uiRoot.Q<Button>(BtnPreviousSelector).clicked += OnPreviousClick;
@@ -40,6 +39,7 @@ public class CharacterSelect : MonoBehaviour
         _characterPreview = _uiRoot.Q(CharacterPreviewSelector);
         Assert.IsNotNull(_characterPreview, "[CharacterSelect] cannot find the character preview element");
 
+        CheckSavedCharacter();
         ChangeCharacter();
     }
     #endregion
@@ -64,9 +64,18 @@ public class CharacterSelect : MonoBehaviour
     #endregion
 
     #region Character Handling
+    private void CheckSavedCharacter()
+    {
+        if (State.SelectedCharacter != null)
+        {
+            _characterIndex = Array.IndexOf(Characters, State.SelectedCharacter);
+        }
+    }
+
     private void ChangeCharacter()
     {
         var character = Characters[_characterIndex];
+        State.SelectedCharacter = character;
 
         _characterPreview.ClearClassList();
         _characterPreview.AddToClassList(character.name);
