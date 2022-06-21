@@ -1,10 +1,10 @@
 using System;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UIElements;
 
 [RequireComponent(typeof(UIDocument))]
+[RequireComponent(typeof(AudioSource))]
 public class CharacterSelect : MonoBehaviour
 {
     #region Public Properties
@@ -23,6 +23,7 @@ public class CharacterSelect : MonoBehaviour
     #region Private Fields
     private VisualElement _uiRoot;
     private VisualElement _characterPreview;
+    private AudioSource _btnAudio;
     private int _characterIndex = 0;
     #endregion
 
@@ -39,8 +40,11 @@ public class CharacterSelect : MonoBehaviour
         _characterPreview = _uiRoot.Q(CharacterPreviewSelector);
         Assert.IsNotNull(_characterPreview, "[CharacterSelect] cannot find the character preview element");
 
+        _btnAudio = GetComponent<AudioSource>();
+        Assert.IsNotNull(_btnAudio, "[CharacterSelect] cannot find button AudioSource");
+
         CheckSavedCharacter();
-        ChangeCharacter();
+        ChangeCharacter(true);
     }
     #endregion
 
@@ -72,13 +76,18 @@ public class CharacterSelect : MonoBehaviour
         }
     }
 
-    private void ChangeCharacter()
+    private void ChangeCharacter(bool skipAudio = false)
     {
         var character = Characters[_characterIndex];
         State.SelectedCharacter = character;
 
         _characterPreview.ClearClassList();
         _characterPreview.AddToClassList(character.name);
+
+        if (!skipAudio)
+        {
+            _btnAudio.Play();
+        }
     }
     #endregion
 }
