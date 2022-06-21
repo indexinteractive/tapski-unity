@@ -90,7 +90,7 @@ public class CharacterSelect : MonoBehaviour
         _characterPreview.ClearClassList();
         _characterPreview.AddToClassList(character.name);
 
-        if (!skipAudio)
+        if (!skipAudio && State.AudioIsEnabled)
         {
             _btnAudio.Play();
         }
