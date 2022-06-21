@@ -14,6 +14,7 @@ public class MenuManager : MonoBehaviour
 
     [Header("Button Selectors")]
     public string BtnPlaySelector = "btn-play";
+    public string BtnMenuBackSelector = "btn-back";
     public string BtnAudioSelector = "btn-sound";
 
     [Header("Animation Parameters")]
@@ -38,8 +39,6 @@ public class MenuManager : MonoBehaviour
         // Activate CharacterSelect and et the offset (menu width) after the
         // first frame has been drawn, otherwise it is 'NaN'
         _mainMenu.RegisterCallback<GeometryChangedEvent>(GetResolvedMenus);
-
-        SetButtonListeners();
     }
     #endregion
 
@@ -54,6 +53,8 @@ public class MenuManager : MonoBehaviour
         _offset = _mainMenu.resolvedStyle.width;
 
         OffsetUIDocument.Slide(_characterSelect, 0, 0, _offset);
+
+        SetButtonListeners();
     }
 
     private void SetAudioImage(Button btnAudio, bool enabled)
@@ -70,8 +71,13 @@ public class MenuManager : MonoBehaviour
         btnPlay.clicked += OnPlayClick;
 
         var btnAudio = _mainMenu.Q<Button>(BtnAudioSelector);
+        Assert.IsNotNull(btnPlay, "[MenuManager] Audio button was not found");
         btnAudio.clicked += () => OnAudioBtnClick(btnAudio);
         SetAudioImage(btnAudio, State.AudioIsEnabled);
+
+        var btnMenuBack = CharacterSelect.rootVisualElement.Q<Button>(BtnMenuBackSelector);
+        Assert.IsNotNull(btnPlay, "[MenuManager] Back button was not found");
+        btnMenuBack.clicked += OnMenuBackClick;
     }
     #endregion
 
@@ -80,6 +86,12 @@ public class MenuManager : MonoBehaviour
     {
         OffsetUIDocument.Slide(_mainMenu, SlideDurationSec, 0, -_offset);
         OffsetUIDocument.Slide(_characterSelect, SlideDurationSec, _offset, 0);
+    }
+
+    private void OnMenuBackClick()
+    {
+        OffsetUIDocument.Slide(_mainMenu, SlideDurationSec, -_offset, 0);
+        OffsetUIDocument.Slide(_characterSelect, SlideDurationSec, 0, _offset);
     }
 
     private void OnAudioBtnClick(Button btnAudio)

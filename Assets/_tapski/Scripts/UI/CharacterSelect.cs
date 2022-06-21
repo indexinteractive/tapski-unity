@@ -21,7 +21,6 @@ public class CharacterSelect : MonoBehaviour
     #endregion
 
     #region Private Fields
-    private VisualElement _uiRoot;
     private VisualElement _characterPreview;
     private AudioSource _btnAudio;
     private int _characterIndex = 0;
@@ -33,11 +32,10 @@ public class CharacterSelect : MonoBehaviour
         Assert.IsTrue(Characters.Length > 0, "[CharacterSelect] No characters were assigned");
         Assert.IsNotNull(State, "[CharacterSelect] GameState asset is unassigned!");
 
-        _uiRoot = GetComponent<UIDocument>().rootVisualElement;
-        _uiRoot.Q<Button>(BtnPreviousSelector).clicked += OnPreviousClick;
-        _uiRoot.Q<Button>(BtnNextSelector).clicked += OnNextClick;
+        var uiRoot = GetComponent<UIDocument>().rootVisualElement;
+        SetButtonHandlers(uiRoot);
 
-        _characterPreview = _uiRoot.Q(CharacterPreviewSelector);
+        _characterPreview = uiRoot.Q(CharacterPreviewSelector);
         Assert.IsNotNull(_characterPreview, "[CharacterSelect] cannot find the character preview element");
 
         _btnAudio = GetComponent<AudioSource>();
@@ -45,6 +43,14 @@ public class CharacterSelect : MonoBehaviour
 
         CheckSavedCharacter();
         ChangeCharacter(true);
+    }
+    #endregion
+
+    #region Helpers
+    private void SetButtonHandlers(VisualElement root)
+    {
+        root.Q<Button>(BtnPreviousSelector).clicked += OnPreviousClick;
+        root.Q<Button>(BtnNextSelector).clicked += OnNextClick;
     }
     #endregion
 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dc725c1512c3f4290b7d5c40a7b09143
+guid: fda14e15fd8054e5d961a91972bc67aa
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,7 +71,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -106,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: button_0
+      name: button_back_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 19
-        width: 45
-        height: 19
+        y: 50
+        width: 110
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -120,20 +120,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64773759c3c00412d94381ec603bb481
-      internalID: -910813651
+      spriteID: d9b165bf73379427c96c205e5e472e66
+      internalID: 1233379207
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: button_1
+      name: button_back_1
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 45
-        height: 19
+        width: 110
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d010d6907a98b4bc38cf8c4c71430853
-      internalID: 1292723366
+      spriteID: 28d9ef78b0fbd47719cdc16e2d6603f2
+      internalID: -1277431794
       vertices: []
       indices: 
       edges: []
@@ -158,8 +158,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      button_1: 1292723366
-      button_0: -910813651
+      button_back_0: 1233379207
+      button_back_1: -1277431794
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

@@ -33,3 +33,11 @@
 .btn-start:active {
     background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_go.png?fileID=1660448766&guid=3f9f7e4a90d094dcda36a71f3d601aea&type=3#button_go_1');
 }
+
+.btn-back {
+    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_back.png?fileID=1233379207&guid=fda14e15fd8054e5d961a91972bc67aa&type=3#button_back_0');
+}
+
+.btn-back:active {
+    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_back.png?fileID=-1277431794&guid=fda14e15fd8054e5d961a91972bc67aa&type=3#button_back_1');
+}
