@@ -4,11 +4,16 @@ using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
+[RequireComponent(typeof(AudioSource))]
 public class LoadManager : MonoBehaviour
 {
     #region Public Properties
+    [Header("References")]
     public string MainMenuScene;
     public UIDocument SplashUI;
+    public GameState State;
+
+    [Header("Animation")]
     public float FadeInSec = 2f;
     public float FadeOutSec = 2f;
     #endregion
@@ -25,9 +30,14 @@ public class LoadManager : MonoBehaviour
     {
         Assert.IsNotNull(MainMenuScene, "[LoadManager] MainMenuScene has no value");
         Assert.IsNotNull(SplashUI, "[LoadManager] SplashUI is unassigned");
+        Assert.IsNotNull(State, "[LoadManager] Game State is unassigned");
 
         _uiRoot = SplashUI.rootVisualElement;
         _uiRoot.style.opacity = 0;
+
+        var audio = GetComponent<AudioSource>();
+        Assert.IsNotNull(audio, "[LoadManager] Unable to find AudioSource component");
+        audio.enabled = State.AudioIsEnabled;
 
         LoadGameAsync();
     }
