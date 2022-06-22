@@ -15,6 +15,7 @@ public class MenuManager : MonoBehaviour
 
     [Header("Scene References")]
     public WorldGenerator GameWorld;
+    public GameOver GameOverScreen;
     public GameState State;
     public string GameScene = "GameScene";
 
@@ -43,6 +44,7 @@ public class MenuManager : MonoBehaviour
         Assert.IsNotNull(CharacterSelect, "[MenuManager] CharacterSelect is unassigned");
         Assert.IsNotNull(GameHud, "[MenuManager] GameHud is unassigned");
         Assert.IsNotNull(GameWorld, "[MenuManager] GameWorld is unassigned");
+        Assert.IsNotNull(GameOverScreen, "[MenuManager] GameOverScreen is unassigned");
         Assert.IsNotNull(State, "[MenuManager] Game State is unassigned");
 
         _mainMenu = MainMenu.rootVisualElement.Children().First();
@@ -54,7 +56,7 @@ public class MenuManager : MonoBehaviour
     #endregion
 
     #region Helpers
-    private void GetResolvedMenus(GeometryChangedEvent evt)
+    private void GetResolvedMenus(GeometryChangedEvent e)
     {
         _mainMenu.UnregisterCallback<GeometryChangedEvent>(GetResolvedMenus);
 
@@ -120,7 +122,7 @@ public class MenuManager : MonoBehaviour
         OffsetUIDocument.Slide(_characterSelect, SlideDurationSec, 0, -_offset);
         await Task.Delay(TimeSpan.FromSeconds(SlideDurationSec));
 
-        GameWorld.StartNewGame();
+        GameWorld.StartNewGame(GameOverScreen.OnPlayerDead);
         GameHud.gameObject.SetActive(true);
     }
     #endregion

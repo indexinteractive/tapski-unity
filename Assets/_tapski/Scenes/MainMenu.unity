@@ -313,6 +313,7 @@ MonoBehaviour:
   CharacterSelect: {fileID: 1926072226}
   GameHud: {fileID: 1976664251}
   GameWorld: {fileID: 331249605}
+  GameOverScreen: {fileID: 1185193060}
   State: {fileID: 11400000, guid: 0bb76baa805de4ee3a0274d83a45547a, type: 2}
   GameScene: GameScene
   BtnPlaySelector: btn-play
@@ -915,8 +916,78 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1185193057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1185193059}
+  - component: {fileID: 1185193058}
+  - component: {fileID: 1185193060}
+  m_Layer: 0
+  m_Name: GameOver
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1185193058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185193057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 3275dffca5a1345a9b41f317ba826770, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: f79efb68479584e2b8650f47961459ae, type: 3}
+  m_SortingOrder: 0
+--- !u!4 &1185193059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185193057}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1185193060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185193057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f316b42d3a27941428c33e731b6635a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MainMenu: {fileID: 2086848993}
+  GameHud: {fileID: 1976664251}
+  GameWorld: {fileID: 331249605}
+  State: {fileID: 11400000, guid: 0bb76baa805de4ee3a0274d83a45547a, type: 2}
+  TextScoreSelector: text-score
+  TextHighScoreSelector: text-high-score
+  BtnBackSelector: btn-back
+  BtnRetrySelector: btn-retry
+  SlideDurationSec: 0.3
 --- !u!1 &1370752532
 GameObject:
   m_ObjectHideFlags: 0

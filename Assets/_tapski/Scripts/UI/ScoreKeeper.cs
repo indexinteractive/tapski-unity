@@ -18,7 +18,7 @@ public class ScoreKeeper : MonoBehaviour
     #endregion
 
     #region Unity Lifecycle
-    private void Awake()
+    private void OnEnable()
     {
         Assert.IsNotNull(State, "[ScoreKeeper] Game State is unassigned");
         Assert.IsNotNull(HUD, "[ScoreKeeper] UI HUD is unassigned");

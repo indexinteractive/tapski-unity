@@ -102,7 +102,7 @@ public class WorldGenerator : MonoBehaviour
     private int _nextStepChange = 0;
 
     /// <summary>
-    /// The position of <see cref="Player"/> when the previous chunk of world was generated
+    /// The position of <see cref="_player"/> when the previous chunk of world was generated
     /// in <see cref="GenerateMoreWorld"/>. Used to determine when more world should be generated
     /// </summary>
     private int _lastUpdatePosition = 0;
@@ -199,11 +199,41 @@ public class WorldGenerator : MonoBehaviour
     #endregion
 
     #region Game Management
-    public void StartNewGame()
+    public void StartNewGame(System.Action onPlayerDead)
     {
         State.Reset();
+
+        Vector3 spawnPosition = Vector3.zero;
+        if (_player != null && _player != PreviewTarget)
+        {
+            Destroy(_player);
+
+            // find a position along the known path to respawn the player
+            spawnPosition = _safePath[_safePath.Count / 2].transform.position;
+        }
+        else
+        {
+            spawnPosition = PreviewTarget.transform.position;
+        }
+
         var newPlayer = Instantiate(State.SelectedCharacter);
+        newPlayer.transform.position = spawnPosition;
+
+        newPlayer.GetComponent<BaseCharacter>().OnPlayerDied = onPlayerDead;
+
         SetPlayer(newPlayer);
+    }
+
+    public void EndGame()
+    {
+        PreviewTarget.transform.position = _player.transform.position;
+
+        if (_player != null && _player != PreviewTarget)
+        {
+            Destroy(_player);
+        }
+
+        SetPlayer(PreviewTarget);
     }
     #endregion
 

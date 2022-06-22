@@ -25,7 +25,7 @@ public class Checkpoint : MonoBehaviour
             SuccessClip.Play();
         }
 
-        State.SessionScore++;
+        ++State.SessionScore;
     }
     #endregion
 }

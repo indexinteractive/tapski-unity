@@ -67,6 +67,8 @@ public class BaseCharacter : MonoBehaviour
     /// Indicates the direction the object is facing
     /// </summary>
     public bool FacesLeft { get; set; }
+
+    public Action OnPlayerDied;
     #endregion
 
     #region Private / Inherited Fields
@@ -154,7 +156,7 @@ public class BaseCharacter : MonoBehaviour
             case PlayerStates.Dead:
                 if (_stateTimer > RestTime)
                 {
-                    // levelManager.EndGame();
+                    OnPlayerDied?.Invoke();
                 }
                 break;
         }
