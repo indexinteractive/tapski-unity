@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Tap Ski/Game State")]
@@ -27,11 +26,14 @@ public class GameState : ScriptableObject
     /// <summary>
     /// Called by <see cref="GameOver.OnPlayerDead" /> to set the high score
     /// </summary>
-    public void SetHighScore(int sessionScore)
+    public bool SetHighScore(int sessionScore)
     {
         if (sessionScore > DeviceHighScore)
         {
             DeviceHighScore = sessionScore;
+            return true;
         }
+
+        return false;
     }
 }

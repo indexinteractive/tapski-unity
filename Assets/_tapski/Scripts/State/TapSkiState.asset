@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7b05ab4d971491098a41ae75d4abb1, type: 3}
   m_Name: TapSkiState
   m_EditorClassIdentifier: 
-  AudioIsEnabled: 1
+  AudioIsEnabled: 0
   SelectedCharacter: {fileID: 6227765593603246817, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
-  SessionScore: 4
+  SessionScore: 3
+  DeviceHighScore: 4

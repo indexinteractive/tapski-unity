@@ -5,6 +5,7 @@
             <ui:Label text="Game Over" style="-unity-font: url(&apos;project://database/Assets/_tapski/UI/TinyPixy.ttf?fileID=12800000&amp;guid=07f154760a1fd4e7ebd3a81d0aa642f8&amp;type=3#TinyPixy&apos;); -unity-font-definition: none; font-size: 26px; white-space: normal; -unity-text-align: upper-center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; -unity-paragraph-spacing: 0; margin-top: -10px; color: rgb(236, 6, 76); text-shadow: 1px 1px 0 rgb(0, 0, 0);" />
         </ui:VisualElement>
         <ui:VisualElement name="middle" style="-unity-background-scale-mode: scale-to-fit; width: 100%; height: 45%; justify-content: center; align-items: center; background-image: url(&apos;project://database/Assets/_tapski/Graphics/UI%20Elements/score_panel.png?fileID=2800000&amp;guid=332831d7575a5418ba601b14d59abf29&amp;type=3#score_panel&apos;);">
+            <ui:Label text="New high score!" name="new-high-score" class="panel-item" style="position: absolute; top: 25%; -unity-text-align: upper-center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; color: rgb(194, 22, 75); display: flex; font-size: 16px;" />
             <ui:VisualElement name="session-score" style="flex-direction: row; width: 100%; margin-top: auto;">
                 <ui:Label text="Your Score" class="panel-item" style="width: 70%; -unity-text-align: upper-right;" />
                 <ui:Label text="0" name="text-score" class="panel-item" />

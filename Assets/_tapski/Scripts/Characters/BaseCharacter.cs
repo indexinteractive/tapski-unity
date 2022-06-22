@@ -154,9 +154,10 @@ public class BaseCharacter : MonoBehaviour
                 break;
 
             case PlayerStates.Dead:
-                if (_stateTimer > RestTime)
+                if (_stateTimer > RestTime && OnPlayerDied != null)
                 {
-                    OnPlayerDied?.Invoke();
+                    OnPlayerDied.Invoke();
+                    OnPlayerDied = null;
                 }
                 break;
         }

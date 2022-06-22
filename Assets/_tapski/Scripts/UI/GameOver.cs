@@ -20,6 +20,7 @@ public class GameOver : MonoBehaviour
     [Header("Selectors")]
     public string TextScoreSelector = "text-score";
     public string TextHighScoreSelector = "text-high-score";
+    public string TextNewHighScoreSelector = "new-high-score";
     public string BtnBackSelector = "btn-back";
     public string BtnRetrySelector = "btn-retry";
 
@@ -46,6 +47,8 @@ public class GameOver : MonoBehaviour
         _mainMenu = MainMenu.rootVisualElement.Children().First();
         _offset = _mainMenu.resolvedStyle.width;
 
+        _gameOver.Q<Label>(TextNewHighScoreSelector).style.display = DisplayStyle.None;
+
         OffsetUIDocument.Slide(_gameOver, 0, 0, _offset);
         OffsetUIDocument.Slide(_gameOver, SlideDurationSec, _offset, 0);
     }
@@ -68,7 +71,11 @@ public class GameOver : MonoBehaviour
         this.gameObject.SetActive(true);
         GameHud.gameObject.SetActive(false);
 
-        State.SetHighScore(State.SessionScore);
+        var isNewHigh = State.SetHighScore(State.SessionScore);
+        if (isNewHigh)
+        {
+            _gameOver.Q<Label>(TextNewHighScoreSelector).style.display = DisplayStyle.Flex;
+        }
 
         var labelScore = _gameOver.Q<Label>(TextScoreSelector);
         Assert.IsNotNull(labelScore, "[GameOver] Score Label was not found");
