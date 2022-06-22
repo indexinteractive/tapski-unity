@@ -154,6 +154,8 @@ public class WorldGenerator : MonoBehaviour
         Assert.IsNotNull(PathPrefab, "[WorldGenerator] No path prefab found");
         Assert.IsNotNull(State, "[WorldGenerator] Game State is unassigned");
 
+        State.Reset();
+
         CreatePlayer();
         SetWorldSize();
         PopulateObjects();

@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement />
+    <ui:VisualElement style="align-items: center; justify-content: center;">
+        <ui:Label text="0" name="text-score" style="-unity-font-definition: none; -unity-font: url(&apos;project://database/Assets/_tapski/UI/TinyPixy.ttf?fileID=12800000&amp;guid=07f154760a1fd4e7ebd3a81d0aa642f8&amp;type=3#TinyPixy&apos;); font-size: 60px; text-shadow: 3px 2px 0 rgb(0, 0, 0); color: rgb(210, 210, 210);" />
+    </ui:VisualElement>
+</ui:UXML>

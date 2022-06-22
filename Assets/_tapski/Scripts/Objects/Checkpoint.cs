@@ -24,6 +24,8 @@ public class Checkpoint : MonoBehaviour
         {
             SuccessClip.Play();
         }
+
+        State.SessionScore++;
     }
     #endregion
 }
