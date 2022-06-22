@@ -985,6 +985,7 @@ MonoBehaviour:
   State: {fileID: 11400000, guid: 0bb76baa805de4ee3a0274d83a45547a, type: 2}
   TextScoreSelector: text-score
   TextHighScoreSelector: text-high-score
+  TextNewHighScoreSelector: new-high-score
   BtnBackSelector: btn-back
   BtnRetrySelector: btn-retry
   SlideDurationSec: 0.3
@@ -1232,7 +1233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Characters:
   - {fileID: 6227765593603246817, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
-  - {fileID: 6227765593603246817, guid: 63d834c86f29d4f6c80cc90b89465b5d, type: 3}
+  - {fileID: 193685717549669581, guid: 68d6069fe43b840a0a493fc93fb84c73, type: 3}
   State: {fileID: 11400000, guid: 0bb76baa805de4ee3a0274d83a45547a, type: 2}
   BtnPreviousSelector: btn-previous
   BtnNextSelector: btn-next
