@@ -3,15 +3,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Assertions;
-using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class MenuManager : MonoBehaviour
 {
     #region Public Properties
-    [Header("References")]
+    [Header("UI Documents")]
     public UIDocument MainMenu;
     public UIDocument CharacterSelect;
+    public UIDocument GameHud;
+
+    [Header("Scene References")]
+    public WorldGenerator GameWorld;
     public GameState State;
     public string GameScene = "GameScene";
 
@@ -38,6 +41,8 @@ public class MenuManager : MonoBehaviour
     {
         Assert.IsNotNull(MainMenu, "[MenuManager] MainMenu is unassigned");
         Assert.IsNotNull(CharacterSelect, "[MenuManager] CharacterSelect is unassigned");
+        Assert.IsNotNull(GameHud, "[MenuManager] GameHud is unassigned");
+        Assert.IsNotNull(GameWorld, "[MenuManager] GameWorld is unassigned");
         Assert.IsNotNull(State, "[MenuManager] Game State is unassigned");
 
         _mainMenu = MainMenu.rootVisualElement.Children().First();
@@ -115,7 +120,8 @@ public class MenuManager : MonoBehaviour
         OffsetUIDocument.Slide(_characterSelect, SlideDurationSec, 0, -_offset);
         await Task.Delay(TimeSpan.FromSeconds(SlideDurationSec));
 
-        SceneManager.LoadSceneAsync(GameScene, LoadSceneMode.Single);
+        GameWorld.StartNewGame();
+        GameHud.gameObject.SetActive(true);
     }
     #endregion
 }

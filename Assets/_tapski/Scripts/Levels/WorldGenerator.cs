@@ -6,12 +6,13 @@ using UnityEngine.Assertions;
 public class WorldGenerator : MonoBehaviour
 {
     #region Map Properties
-    [Header("Mode")]
-    public bool UsePreviewMode = false;
-    public GameObject PreviewTarget;
 
     [Header("Scene References")]
     public Camera Camera;
+
+    [Tooltip("A scene object that moves on its own to scroll the map before a game")]
+    public GameObject PreviewTarget;
+
     public CinemachineVirtualCamera CineCam;
     public GameState State;
 
@@ -154,9 +155,7 @@ public class WorldGenerator : MonoBehaviour
         Assert.IsNotNull(PathPrefab, "[WorldGenerator] No path prefab found");
         Assert.IsNotNull(State, "[WorldGenerator] Game State is unassigned");
 
-        State.Reset();
-
-        CreatePlayer();
+        SetPlayer(PreviewTarget);
         SetWorldSize();
         PopulateObjects();
     }
@@ -197,6 +196,15 @@ public class WorldGenerator : MonoBehaviour
         Gizmos.DrawWireCube(WorldBounds.center, WorldBounds.size);
     }
 #endif
+    #endregion
+
+    #region Game Management
+    public void StartNewGame()
+    {
+        State.Reset();
+        var newPlayer = Instantiate(State.SelectedCharacter);
+        SetPlayer(newPlayer);
+    }
     #endregion
 
     #region Randomization
@@ -395,9 +403,9 @@ public class WorldGenerator : MonoBehaviour
     #endregion
 
     #region Helpers
-    private void CreatePlayer()
+    private void SetPlayer(GameObject player)
     {
-        _player = (UsePreviewMode) ? PreviewTarget : Instantiate(State.SelectedCharacter);
+        _player = player;
         CineCam.Follow = _player.transform;
         CineCam.LookAt = _player.transform;
     }
