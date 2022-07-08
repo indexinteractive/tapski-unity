@@ -11,11 +11,11 @@
     background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_sound.png?fileID=-817303054&guid=2547efb6652c041c6984ca5905d7d508&type=3#button_sound_1');
 }
 
-#btn-standings {
+#btn-scoreboard {
     background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_scores.png?fileID=-215675159&guid=bae1e82fae2b345d2bd725d77a3457cf&type=3#button_scores_0');
 }
 
-#btn-standings:active {
+#btn-scoreboard:active {
     background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_scores.png?fileID=-1078375978&guid=bae1e82fae2b345d2bd725d77a3457cf&type=3#button_scores_1');
 }
 

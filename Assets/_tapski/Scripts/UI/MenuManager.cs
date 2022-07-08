@@ -10,6 +10,7 @@ public class MenuManager : MonoBehaviour
     #region Public Properties
     [Header("UI Documents")]
     public UIDocument MainMenu;
+    public UIDocument Scoreboard;
     public UIDocument CharacterSelect;
     public UIDocument GameHud;
 
@@ -21,6 +22,7 @@ public class MenuManager : MonoBehaviour
 
     [Header("Main Menu Selectors")]
     public string BtnPlaySelector = "btn-play";
+    public string BtnScoreboardSelector = "btn-scoreboard";
     public string BtnAudioSelector = "btn-sound";
 
     [Header("Character Menu Selectors")]
@@ -33,6 +35,7 @@ public class MenuManager : MonoBehaviour
 
     #region Private Fields
     private VisualElement _mainMenu;
+    private VisualElement _scoreboard;
     private VisualElement _characterSelect;
     private float _offset;
     #endregion
@@ -41,6 +44,7 @@ public class MenuManager : MonoBehaviour
     private void Awake()
     {
         Assert.IsNotNull(MainMenu, "[MenuManager] MainMenu is unassigned");
+        Assert.IsNotNull(Scoreboard, "[MenuManager] Scoreboard is unassigned");
         Assert.IsNotNull(CharacterSelect, "[MenuManager] CharacterSelect is unassigned");
         Assert.IsNotNull(GameHud, "[MenuManager] GameHud is unassigned");
         Assert.IsNotNull(GameWorld, "[MenuManager] GameWorld is unassigned");
@@ -67,6 +71,10 @@ public class MenuManager : MonoBehaviour
 
         OffsetUIDocument.Slide(_characterSelect, 0, 0, _offset);
 
+        Scoreboard.gameObject.SetActive(true);
+        _scoreboard = Scoreboard.rootVisualElement.Children().First();
+        OffsetUIDocument.Slide(_scoreboard, 0, 0, -_offset);
+
         SetButtonListeners();
     }
 
@@ -83,6 +91,11 @@ public class MenuManager : MonoBehaviour
 
         btnPlay.clicked += OnPlayClick;
 
+        var btnScoreboard = _mainMenu.Q<Button>(BtnScoreboardSelector);
+        Assert.IsNotNull(btnScoreboard, "[MenuManager] Scoreboard button was not found");
+
+        btnScoreboard.clicked += OnScoreboardClick;
+
         var btnAudio = _mainMenu.Q<Button>(BtnAudioSelector);
         Assert.IsNotNull(btnPlay, "[MenuManager] Audio button was not found");
         btnAudio.clicked += () => OnAudioBtnClick(btnAudio);
@@ -91,6 +104,10 @@ public class MenuManager : MonoBehaviour
         var btnMenuBack = CharacterSelect.rootVisualElement.Q<Button>(BtnMenuBackSelector);
         Assert.IsNotNull(btnPlay, "[MenuManager] Back button was not found");
         btnMenuBack.clicked += OnMenuBackClick;
+
+        var btnScoreboardBack = Scoreboard.rootVisualElement.Q<Button>(BtnMenuBackSelector);
+        Assert.IsNotNull(btnScoreboardBack, "[MenuManager] Scoreboard Back button was not found");
+        btnScoreboardBack.clicked += OnScoreboardBackClick;
 
         var btnStartGame = CharacterSelect.rootVisualElement.Q<Button>(BtnStartGameSelector);
         Assert.IsNotNull(btnStartGame, "[MenuManager] Start button was not found");
@@ -103,6 +120,19 @@ public class MenuManager : MonoBehaviour
     {
         OffsetUIDocument.Slide(_mainMenu, SlideDurationSec, 0, -_offset);
         OffsetUIDocument.Slide(_characterSelect, SlideDurationSec, _offset, 0);
+    }
+
+    private void OnScoreboardClick()
+    {
+        // TODO: Rename OffsetUIDocument to UITransition
+        OffsetUIDocument.Slide(_mainMenu, SlideDurationSec, 0, _offset);
+        OffsetUIDocument.Slide(_scoreboard, SlideDurationSec, -_offset, 0);
+    }
+
+    private void OnScoreboardBackClick()
+    {
+        OffsetUIDocument.Slide(_mainMenu, SlideDurationSec, _offset, 0);
+        OffsetUIDocument.Slide(_scoreboard, SlideDurationSec, 0, -_offset);
     }
 
     private void OnMenuBackClick()
