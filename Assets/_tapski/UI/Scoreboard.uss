@@ -2,13 +2,18 @@
     -unity-font: url('project://database/Assets/_tapski/UI/TinyPixy.ttf?fileID=12800000&guid=07f154760a1fd4e7ebd3a81d0aa642f8&type=3#TinyPixy');
     color: rgb(0, 0, 0);
     text-shadow: 1px 1px 0 rgb(56, 94, 118);
-    font-size: 14px;
+    font-size: 10px;
     -unity-font-definition: none;
 }
 
 .score-item {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.score-item Label {
+    margin: 0;
+    padding: 0;
 }
 
 .score-item .text-username {

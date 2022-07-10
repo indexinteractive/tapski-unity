@@ -318,7 +318,7 @@ MonoBehaviour:
   State: {fileID: 11400000, guid: 0bb76baa805de4ee3a0274d83a45547a, type: 2}
   GameScene: GameScene
   BtnPlaySelector: btn-play
-  BtnScoreboard: btn-scoreboard
+  BtnScoreboardSelector: btn-scoreboard
   BtnAudioSelector: btn-sound
   BtnMenuBackSelector: btn-back
   BtnStartGameSelector: btn-start
@@ -1081,7 +1081,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1548537981}
   m_Layer: 0
-  m_Name: ----------------------------- UI ----
+  m_Name: ------------------------------ UI ----
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
