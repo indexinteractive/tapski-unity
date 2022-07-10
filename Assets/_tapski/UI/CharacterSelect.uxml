@@ -2,7 +2,7 @@
     <Style src="project://database/Assets/_tapski/UI/CharacterSelect.uss?fileID=7433441132597879392&amp;guid=a7094036238f74f4591a59baea90d8fe&amp;type=3#CharacterSelect" />
     <Style src="project://database/Assets/_tapski/UI/CharacterFrames.uss?fileID=7433441132597879392&amp;guid=e7f3f6bba8d1046128f5e9dd82d92fe3&amp;type=3#CharacterFrames" />
     <ui:VisualElement style="width: 100%; height: 100%; padding-left: 5%; padding-right: 5%; padding-top: 5%; padding-bottom: 5%; justify-content: space-between; position: absolute;">
-        <ui:VisualElement name="top" style="justify-content: center;">
+        <ui:VisualElement name="top" style="justify-content: center; top: 20px;">
             <ui:Label text="Select Your" enable-rich-text="false" name="line-1" style="-unity-font: url(&apos;project://database/Assets/_tapski/UI/TinyPixy.ttf?fileID=12800000&amp;guid=07f154760a1fd4e7ebd3a81d0aa642f8&amp;type=3#TinyPixy&apos;); -unity-font-definition: none; font-size: 26px; white-space: normal; -unity-text-align: upper-center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; -unity-paragraph-spacing: 0; color: rgb(236, 6, 76); text-shadow: 1px 1px 0 rgb(0, 0, 0);" />
             <ui:Label text="Character" enable-rich-text="false" name="line-2" style="-unity-font: url(&apos;project://database/Assets/_tapski/UI/TinyPixy.ttf?fileID=12800000&amp;guid=07f154760a1fd4e7ebd3a81d0aa642f8&amp;type=3#TinyPixy&apos;); -unity-font-definition: none; font-size: 26px; white-space: normal; -unity-text-align: upper-center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; -unity-paragraph-spacing: 0; margin-top: -10px; color: rgb(236, 6, 76); text-shadow: 1px 1px 0 rgb(0, 0, 0);" />
         </ui:VisualElement>
@@ -15,7 +15,7 @@
                 <ui:Button name="btn-next" class="btn-index btn-next" />
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="bottom" style="flex-direction: row; justify-content: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; align-items: center;">
+        <ui:VisualElement name="bottom" style="flex-direction: row; justify-content: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; align-items: center; bottom: 20px;">
             <ui:Button name="btn-back" class="btn-back" style="width: 72px; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; background-color: rgba(88, 88, 88, 0); height: 20px; -unity-background-scale-mode: scale-to-fit; align-items: center; justify-content: center;" />
             <ui:Button name="btn-start" class="btn-start" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; width: 72px; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; background-color: rgba(88, 88, 88, 0); height: 30px;" />
         </ui:VisualElement>

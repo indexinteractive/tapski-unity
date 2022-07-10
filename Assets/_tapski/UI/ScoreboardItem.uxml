@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement class="score-item" style="flex-direction: row; width: 100%; justify-content: space-between; -unity-font: url(&apos;project://database/Assets/_tapski/UI/TinyPixy.ttf?fileID=12800000&amp;guid=07f154760a1fd4e7ebd3a81d0aa642f8&amp;type=3#TinyPixy&apos;); -unity-font-definition: none; color: rgb(0, 0, 0); text-shadow: 1px 1px 0 rgb(56, 94, 118); font-size: 10px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;">
+        <ui:Label text="#123" class="text-rank" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+        <ui:Label text="ladiesman4287" class="panel-item text-username" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+        <ui:Label text="9000" class="panel-item text-score" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+    </ui:VisualElement>
+</ui:UXML>

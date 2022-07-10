@@ -2,6 +2,9 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UIElements;
 
+/// <summary>
+/// Makes up the score part of the in-game HUD
+/// </summary>
 public class ScoreKeeper : MonoBehaviour
 {
     #region Public Properties
