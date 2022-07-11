@@ -53,7 +53,7 @@ public class MenuManager : MonoBehaviour
 
         _mainMenu = MainMenu.rootVisualElement.Children().First();
 
-        // Activate CharacterSelect and et the offset (menu width) after the
+        // Activate CharacterSelect and get the offset (menu width) after the
         // first frame has been drawn, otherwise it is 'NaN'
         _mainMenu.RegisterCallback<GeometryChangedEvent>(GetResolvedMenus);
     }
@@ -124,6 +124,9 @@ public class MenuManager : MonoBehaviour
 
     private void OnScoreboardClick()
     {
+        var script = Scoreboard.gameObject.GetComponent<Scoreboard>();
+        script.enabled = true;
+
         // TODO: Rename OffsetUIDocument to UITransition
         OffsetUIDocument.Slide(_mainMenu, SlideDurationSec, 0, _offset);
         OffsetUIDocument.Slide(_scoreboard, SlideDurationSec, -_offset, 0);
@@ -131,6 +134,9 @@ public class MenuManager : MonoBehaviour
 
     private void OnScoreboardBackClick()
     {
+        var script = Scoreboard.gameObject.GetComponent<Scoreboard>();
+        script.enabled = false;
+
         OffsetUIDocument.Slide(_mainMenu, SlideDurationSec, _offset, 0);
         OffsetUIDocument.Slide(_scoreboard, SlideDurationSec, 0, -_offset);
     }

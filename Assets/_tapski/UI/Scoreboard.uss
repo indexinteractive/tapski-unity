@@ -11,6 +11,10 @@
     margin-right: auto;
 }
 
+.highlight {
+    color: rgb(176, 0, 55);
+}
+
 .btn-back {
     background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_back.png?fileID=1233379207&guid=fda14e15fd8054e5d961a91972bc67aa&type=3#button_back_0');
 }

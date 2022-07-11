@@ -71,3 +71,8 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Firebase files
+/[Aa]ssets/_tapski/Settings/Firebase/
+/[Aa]ssets/_tapski/Settings/firebase.meta
+/[Aa]ssets/[Ss]treamingAssets/google-services-desktop.*
