@@ -55,9 +55,9 @@ public class WorldGenerator : MonoBehaviour
     public GameObject WoodRampPrefab;
     public GameObject SnowRampPrefab;
 
-#if UNITY_EDITOR
     [Header("Debugging")]
     public GameObject PathPrefab;
+#if UNITY_EDITOR
     public bool ShowDebug = false;
 #endif
     #endregion

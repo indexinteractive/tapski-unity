@@ -29,13 +29,17 @@ public class OffsetUIDocument : MonoBehaviour
     #endregion
 
     #region Panel Movement
+#if UNITY_EDITOR
     [Button]
+#endif
     public void SlideRight()
     {
         Slide(SlideDurationSec, 0, _screenWidth);
     }
 
+#if UNITY_EDITOR
     [Button]
+#endif
     public void SlideLeft()
     {
         Slide(SlideDurationSec, 0, -_screenWidth);
