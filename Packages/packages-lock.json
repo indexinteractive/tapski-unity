@@ -1,39 +1,5 @@
 {
   "dependencies": {
-    "com.google.external-dependency-manager": {
-      "version": "git+https://github.com/GameWorkstore/com.google.external-dependency-manager#1.2.172",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "2da4e24bcd60ffff150a666fffaf985a5b3ba8f6"
-    },
-    "com.google.firebase.app": {
-      "version": "git+https://github.com/GameWorkstore/com.google.firebase.app#9.0.0",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.google.external-dependency-manager": "1.2.171"
-      },
-      "hash": "91d5766e48d66bdca5b477a483301cd2632d425e"
-    },
-    "com.google.firebase.auth": {
-      "version": "git+https://github.com/GameWorkstore/com.google.firebase.auth#9.0.0",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.google.firebase.app": "9.0.0"
-      },
-      "hash": "e9ad9bb67d2a64128104818f889b5f4978d3333f"
-    },
-    "com.google.firebase.database": {
-      "version": "git+https://github.com/GameWorkstore/com.google.firebase.database#9.0.0",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.google.firebase.auth": "9.0.0"
-      },
-      "hash": "93d2561961a6e64cb0d03415e49f9f5d589e3000"
-    },
     "com.unity.2d.animation": {
       "version": "8.0.2",
       "depth": 1,

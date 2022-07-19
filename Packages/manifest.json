@@ -41,10 +41,6 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0",
-    "com.google.external-dependency-manager": "git+https://github.com/GameWorkstore/com.google.external-dependency-manager#1.2.172",
-    "com.google.firebase.app": "git+https://github.com/GameWorkstore/com.google.firebase.app#9.0.0",
-    "com.google.firebase.auth": "git+https://github.com/GameWorkstore/com.google.firebase.auth#9.0.0",
-    "com.google.firebase.database": "git+https://github.com/GameWorkstore/com.google.firebase.database#9.0.0"
+    "com.unity.modules.xr": "1.0.0"
   }
 }

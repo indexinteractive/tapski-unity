@@ -1057,6 +1057,7 @@ MonoBehaviour:
   ItemHeight: 12
   ScoresContainerSelector: item-container
   SpinnerSelector: spinner
+  HighlightClassname: highlight
 --- !u!114 &1239626048
 MonoBehaviour:
   m_ObjectHideFlags: 0

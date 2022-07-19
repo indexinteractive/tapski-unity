@@ -1,8 +1,8 @@
-using Firebase.Database;
 using UnityEngine;
 using System.Threading.Tasks;
 using UnityEngine.UIElements;
 using UnityEngine.Assertions;
+using System.Linq;
 
 /// <summary>
 /// Handles firebase data for the scoreboard.
@@ -12,32 +12,21 @@ using UnityEngine.Assertions;
 [RequireComponent(typeof(UIDocument))]
 public class Scoreboard : MonoBehaviour
 {
-    #region Constants
-    private const string HIGHSCORE_KEY = "highscores";
-    #endregion
-
     #region Public Properties
     [Header("Item Template")]
     public VisualTreeAsset ScoreItemTemplate;
     [Range(8, 15)]
     public float ItemHeight = 12;
 
+    /// <summary>
+    /// The number of items that can be displayed in the scoreboard container after styles are calculated
+    /// </summary>
+    public int ItemSlotsCount => Mathf.FloorToInt(_container.resolvedStyle.height / ItemHeight);
+
     [Header("Selectors")]
     public string ScoresContainerSelector = "item-container";
     public string SpinnerSelector = "spinner";
     public string HighlightClassname = "highlight";
-    #endregion
-
-    #region Firebase Properties
-    public DatabaseReference HighScoreRef
-    {
-        get { return FirebaseDatabase.DefaultInstance.RootReference.Child(HIGHSCORE_KEY); }
-    }
-
-    public int ItemSlotsCount
-    {
-        get { return Mathf.FloorToInt(_container.resolvedStyle.height / ItemHeight); }
-    }
     #endregion
 
     #region Private Fields
@@ -63,7 +52,7 @@ public class Scoreboard : MonoBehaviour
         _spinner.style.opacity = 1;
         _container.style.opacity = 0;
 
-        await FetchFirebaseScores();
+        await FetchHighScoresAsync();
 
         _spinner.style.opacity = 0;
         _container.style.opacity = 1;
@@ -81,47 +70,31 @@ public class Scoreboard : MonoBehaviour
     }
     #endregion
 
-    #region Firebase Methods
-    private async Task FetchFirebaseScores()
+    #region Database Methods
+    private async Task FetchHighScoresAsync()
     {
-        // We would like to keep the user score roughly around the middle of the container:
-        // The ideal scenario means there is an equivalent number of scores above and below the user score.
-        int beforePadding = ItemSlotsCount / 2;
+        // We know the max number of items we want to display, so use that number as the above+below padding in our
+        // query. This satisfies the cases where the player is in either first or last place, and we can
+        // simply adjust a sliding window offset below to display the user as close to the middle as possible
+        PlayerRank[] rankedPlayers = await HighscoresApi.Instance.GetPlayerScoreViewAsync(ItemSlotsCount);
 
-        int userScore = await GetUserScoreAsync();
-
-        DataSnapshot before = await HighScoreRef.OrderByValue().EndAt(userScore).LimitToLast(beforePadding).GetValueAsync();
-
-        foreach (var item in before.Children)
+        int playerIndex = -1;
+        for (int i = 0; i < rankedPlayers.Length; i++)
         {
-            AddPlayers("0", item.Key, item.Value.ToString());
+            var player = rankedPlayers[i];
+            if (player.device_id == AuthUser.Instance.UserId)
+            {
+                playerIndex = i;
+                break;
+            }
         }
 
-        AddPlayers("0", AuthUser.Instance.Username, userScore.ToString(), true);
-
-        // In the event that there are few scores above the player score (i.e., player is ranked #1),
-        // we should populate more items below the player score, in order to fill in the list
-        int beforeCount = (int)before.ChildrenCount;
-        int afterPadding = ItemSlotsCount - beforeCount - 1;
-
-        DataSnapshot after = await HighScoreRef.OrderByValue().StartAt(userScore).LimitToFirst(afterPadding).GetValueAsync();
-
-        foreach (var item in after.Children)
+        int idealSplit = Mathf.FloorToInt(ItemSlotsCount / 2f);
+        int offset = Mathf.Clamp(playerIndex - idealSplit - 1, 0, rankedPlayers.Length - ItemSlotsCount);
+        foreach (var i in rankedPlayers.Skip(offset))
         {
-            AddPlayers("0", item.Key, item.Value.ToString());
-        }
-    }
-
-    private async Task<int> GetUserScoreAsync()
-    {
-        DataSnapshot snap = await HighScoreRef.Child(AuthUser.Instance.UserId).GetValueAsync();
-        if (snap.Exists)
-        {
-            return int.Parse(snap.Value.ToString());
-        }
-        else
-        {
-            return -1;
+            bool highlight = i.device_id == AuthUser.Instance.UserId;
+            AddPlayers(i.rank.ToString(), i.display_name, i.score.ToString(), highlight);
         }
     }
     #endregion

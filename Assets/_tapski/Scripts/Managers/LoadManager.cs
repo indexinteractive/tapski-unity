@@ -48,8 +48,7 @@ public class LoadManager : MonoBehaviour
     {
         await Task.WhenAll(
             FadeUI(FadeInSec, 0, 1),
-            LoadMenuScene(),
-            AuthUser.Instance.WaitForUserAsync()
+            LoadMenuScene()
         );
 
         await FadeUI(FadeOutSec, 1, 0);
