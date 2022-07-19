@@ -71,9 +71,12 @@ public class Scoreboard : MonoBehaviour
 
     private void OnDisable()
     {
-        for (int i = _container.childCount - 1; i >= 0; i--)
+        if (_container != null)
         {
-            _container.RemoveAt(i);
+            for (int i = _container.childCount - 1; i >= 0; i--)
+            {
+                _container.RemoveAt(i);
+            }
         }
     }
     #endregion
