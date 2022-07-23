@@ -48,11 +48,14 @@ public class LoadManager : MonoBehaviour
     {
         await Task.WhenAll(
             FadeUI(FadeInSec, 0, 1),
-            LoadMenuScene()
+            LoadMenuScene(),
+            AuthUser.Instance.GetUser(State)
         );
 
         await FadeUI(FadeOutSec, 1, 0);
         _menuLoadOperation.allowSceneActivation = true;
+
+        Debug.Log("[LoadManager] Game loaded for userId " + AuthUser.Instance.UserId);
     }
 
     private async Task LoadMenuScene()

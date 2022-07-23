@@ -2,7 +2,7 @@ using System.Globalization;
 using System.IO;
 using UnityEngine;
 
-public class UsernameGenerator
+public class UsernameGenerator : Singleton<UsernameGenerator>
 {
     private class Dict
     {

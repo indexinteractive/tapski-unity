@@ -66,13 +66,13 @@ public class GameOver : MonoBehaviour
     #endregion
 
     #region Game Events
-    public void OnPlayerDead()
+    public async void OnPlayerDead()
     {
         this.gameObject.SetActive(true);
         GameHud.gameObject.SetActive(false);
 
-        var isNewHigh = State.SetHighScore(State.SessionScore);
-        if (isNewHigh)
+        int highScore = await HighscoresApi.Instance.SetHighscoreAsync(State.SessionScore);
+        if (highScore == State.SessionScore)
         {
             _gameOver.Q<Label>(TextNewHighScoreSelector).style.display = DisplayStyle.Flex;
         }
@@ -83,7 +83,7 @@ public class GameOver : MonoBehaviour
 
         var labelHighScore = _gameOver.Q<Label>(TextHighScoreSelector);
         Assert.IsNotNull(labelHighScore, "[GameOver] High Score Label was not found");
-        labelHighScore.text = State.DeviceHighScore.ToString();
+        labelHighScore.text = highScore.ToString();
     }
     #endregion
 
