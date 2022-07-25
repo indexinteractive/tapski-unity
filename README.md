@@ -13,7 +13,7 @@ The source repository for the mobile game Tap Ski Extreme, available on [iOS](ht
 
 ## Contributing
 
-Making a game is a lot of work, which means for several ways in which you can participate in this project:
+Making a game is a lot of work, which means there are several ways in which you can participate in this project:
 
 - Contribute directly to the codebase
 - Submit bugs and feature requests
