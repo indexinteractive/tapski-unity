@@ -1,0 +1,47 @@
+.panel-item {
+    -unity-font-definition: none;
+    -unity-font: url('project://database/Assets/_tapski/UI/TinyPixy.ttf?fileID=12800000&guid=07f154760a1fd4e7ebd3a81d0aa642f8&type=3#TinyPixy');
+    color: rgb(0, 0, 0);
+    text-shadow: 1px 1px 0 rgb(56, 94, 118);
+    font-size: 14px;
+    padding-right: 20px;
+    padding-left: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#btn-done {
+    margin: 0;
+    padding: 0;
+    border-width: 0;
+    width: 72px;
+    background-color: rgba(88, 88, 88, 0);
+    height: 30px;
+    -unity-background-scale-mode: scale-to-fit;
+    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_ok.png?fileID=1471703447&guid=526a20e73a9394cebb98a82585739538&type=3#button_ok_0');
+}
+
+#username TextInput {
+    border-radius: 2px;
+    border-color: rgb(176, 0, 55);
+    text-shadow: 1px 1px 0 rgba(56, 94, 118, 0.4);
+    padding: 2px 4px;
+    -unity-font-definition: none;
+    -unity-font: url('project://database/Assets/_tapski/UI/TinyPixy.ttf?fileID=12800000&guid=07f154760a1fd4e7ebd3a81d0aa642f8&type=3#TinyPixy');
+}
+
+.btn-back {
+    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_back.png?fileID=1233379207&guid=fda14e15fd8054e5d961a91972bc67aa&type=3#button_back_0');
+}
+
+.btn-back:active {
+    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_back.png?fileID=-1277431794&guid=fda14e15fd8054e5d961a91972bc67aa&type=3#button_back_1');
+}
+
+#btn-done:active {
+    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_retry.png?fileID=-1533958600&guid=eadb2fe059b9a428a8afaefe2ac4e76b&type=3#button_retry_1');
+}

@@ -71,6 +71,34 @@ public class HighscoresApi : Singleton<HighscoresApi>
             return data.PlayerRanks;
         }
     }
+
+    public async Task<PlayerRank> UpdateUsername(string username)
+    {
+        string url = $"{BASE_URL}/highscores?device_id=eq.{_deviceId}";
+        var data = JsonUtility.ToJson(new UsernameUpdateData() { display_name = username });
+        Debug.Log($"[HighscoresApi] Sending username data {data}");
+
+        UnityWebRequest request = ApiPatch(url, data);
+
+        var result = request.SendWebRequest();
+        while (!result.isDone)
+        {
+            await Task.Yield();
+        }
+
+        if (request.result != UnityWebRequest.Result.Success)
+        {
+            Debug.LogError(request.error);
+            Debug.Log("Unable to update username");
+            return null;
+        }
+        else
+        {
+            string responseText = request.downloadHandler.text;
+            Debug.Log("Username updated: " + responseText);
+            return JsonUtility.FromJson<PlayerRank>(responseText);
+        }
+    }
     #endregion
 
     #region Helpers
@@ -98,6 +126,13 @@ public class HighscoresApi : Singleton<HighscoresApi>
         request.SetRequestHeader("Authorization", $"Bearer {API_KEY}");
         request.SetRequestHeader("Content-Type", "application/json");
 
+        return request;
+    }
+
+    private UnityWebRequest ApiPatch(string url, string data)
+    {
+        var request = ApiPost(url, data);
+        request.method = "PATCH";
         return request;
     }
     #endregion

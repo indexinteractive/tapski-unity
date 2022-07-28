@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using UnityEngine.UIElements;
 using UnityEngine.Assertions;
 using System.Linq;
+using System;
 
 /// <summary>
 /// Handles firebase data for the scoreboard.
@@ -27,6 +28,12 @@ public class Scoreboard : MonoBehaviour
     public string ScoresContainerSelector = "item-container";
     public string SpinnerSelector = "spinner";
     public string HighlightClassname = "highlight";
+
+    [Header("Set Username UI")]
+    public GameState State;
+    public UIDocument SetUsernameUI;
+    public string TextInputSelector = "username-input";
+    public string BtnDoneSelector = "btn-done";
     #endregion
 
     #region Private Fields
@@ -38,6 +45,8 @@ public class Scoreboard : MonoBehaviour
     private void Awake()
     {
         Assert.IsNotNull(ScoreItemTemplate, "[Scoreboard] Item template is unassigned");
+        Assert.IsNotNull(SetUsernameUI, "[Scoreboard] Set Username UI is unassigned");
+        Assert.IsNotNull(State, "[Scoreboard] Game State is unassigned");
 
         var root = GetComponent<UIDocument>().rootVisualElement;
         _container = root.Q(ScoresContainerSelector);
@@ -85,6 +94,13 @@ public class Scoreboard : MonoBehaviour
             if (player.device_id == AuthUser.Instance.UserId)
             {
                 playerIndex = i;
+
+                if (State.Username != player.display_name)
+                {
+                    Debug.Log("Local username does not match remote! Updating local to " + player.display_name);
+                    State.Username = player.display_name;
+                }
+
                 break;
             }
         }
@@ -96,6 +112,35 @@ public class Scoreboard : MonoBehaviour
             bool highlight = i.device_id == AuthUser.Instance.UserId;
             AddPlayers(i.rank.ToString(), i.display_name, i.score.ToString(), highlight);
         }
+    }
+    #endregion
+
+    #region Events
+    public void OnScoreboardItemClicked(MouseUpEvent evt)
+    {
+        SetUsernameUI.gameObject.SetActive(true);
+        SetUsernameUI.rootVisualElement.RegisterCallback<GeometryChangedEvent>(changedEvent =>
+        {
+            var input = SetUsernameUI.rootVisualElement.Q<TextField>(TextInputSelector);
+            input.value = State.Username;
+
+            SetUsernameUI.rootVisualElement.Q<Button>(BtnDoneSelector).clicked += async () =>
+            {
+                string inputText = SetUsernameUI.rootVisualElement.Q<TextField>(TextInputSelector).value;
+
+                if (!string.IsNullOrEmpty(inputText) && inputText != State.Username)
+                {
+                    Debug.Log("Setting username to " + inputText);
+                    State.Username = inputText;
+
+                    await HighscoresApi.Instance.UpdateUsername(State.Username);
+                    OnDisable();
+                    await FetchHighScoresAsync();
+                }
+
+                SetUsernameUI.gameObject.SetActive(false);
+            };
+        });
     }
     #endregion
 
@@ -111,6 +156,7 @@ public class Scoreboard : MonoBehaviour
         if (highlight)
         {
             item.AddToClassList(HighlightClassname);
+            item.RegisterCallback<MouseUpEvent>(OnScoreboardItemClicked);
         }
 
         _container.Add(item);

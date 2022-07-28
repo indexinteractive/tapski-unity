@@ -1,0 +1,17 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" name="what" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_tapski/UI/SetUsername.uss?fileID=7433441132597879392&amp;guid=4a0327e2745a24081bb146303dd3fd8f&amp;type=3#SetUsername" />
+    <ui:VisualElement style="width: 100%; height: 100%; padding-left: 5%; padding-right: 5%; padding-top: 5%; padding-bottom: 5%; justify-content: space-between; position: absolute; top: 0; left: 0; background-color: rgba(0, 0, 0, 0.7);">
+        <ui:VisualElement name="top" style="justify-content: center; margin-top: 20px;">
+            <ui:Label style="-unity-font: url(&apos;project://database/Assets/_tapski/UI/TinyPixy.ttf?fileID=12800000&amp;guid=07f154760a1fd4e7ebd3a81d0aa642f8&amp;type=3#TinyPixy&apos;); -unity-font-definition: none; font-size: 26px; white-space: normal; -unity-text-align: upper-center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; -unity-paragraph-spacing: 0; margin-top: -10px; color: rgb(236, 6, 76); text-shadow: 1px 1px 0 rgb(0, 0, 0);" />
+        </ui:VisualElement>
+        <ui:VisualElement name="middle" style="-unity-background-scale-mode: stretch-to-fill; width: 100%; height: 40%; justify-content: center; align-items: center; background-image: url(&apos;project://database/Assets/_tapski/Graphics/UI%20Elements/score_panel.png?fileID=2800000&amp;guid=332831d7575a5418ba601b14d59abf29&amp;type=3#score_panel&apos;); -unity-slice-left: 16; -unity-slice-top: 16; -unity-slice-right: 16; -unity-slice-bottom: 16;">
+            <ui:Label text="Change Username" class="panel-item" style="position: absolute; -unity-text-align: upper-center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; color: rgb(194, 22, 75); display: flex; font-size: 16px; top: 25%;" />
+            <ui:VisualElement name="username" style="flex-direction: row; width: 100%; margin-top: auto; margin-bottom: auto; justify-content: center; padding-left: 10px; padding-right: 10px;">
+                <ui:TextField name="username-input" picking-mode="Ignore" text="username" max-length="19" style="width: 100%;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="bottom" style="flex-direction: row; justify-content: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; align-items: center; margin-bottom: 20px;">
+            <ui:Button name="btn-done" class="btn-done" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

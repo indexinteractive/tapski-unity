@@ -39,6 +39,7 @@ public struct ScoreData
 /// <summary>
 /// The user data sent to the server when registering/update a new user
 /// </summary>
+[Serializable]
 public struct DbUserData
 {
     public string id;
@@ -49,4 +50,10 @@ public struct DbUserData
         name = displayName;
         id = device_id;
     }
+}
+
+[Serializable]
+public struct UsernameUpdateData
+{
+    public string display_name;
 }
