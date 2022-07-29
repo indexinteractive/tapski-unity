@@ -313,6 +313,7 @@ MonoBehaviour:
   Scoreboard: {fileID: 1239626045}
   CharacterSelect: {fileID: 1926072226}
   GameHud: {fileID: 1976664251}
+  Tutorial: {fileID: 1081300604}
   GameWorld: {fileID: 331249605}
   GameOverScreen: {fileID: 1185193060}
   State: {fileID: 11400000, guid: 0bb76baa805de4ee3a0274d83a45547a, type: 2}
@@ -919,8 +920,73 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1081300600
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1081300603}
+  - component: {fileID: 1081300602}
+  - component: {fileID: 1081300604}
+  m_Layer: 0
+  m_Name: Tutorial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1081300602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081300600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 3275dffca5a1345a9b41f317ba826770, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 3e1a47540b4704b558a9f8c8bf2cf8f0, type: 3}
+  m_SortingOrder: 0
+--- !u!4 &1081300603
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081300600}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1081300604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081300600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e76ffc2c43f9c42e6a5edd22b0f3c565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  State: {fileID: 11400000, guid: 0bb76baa805de4ee3a0274d83a45547a, type: 2}
+  ArrowLeftSelector: arrow-left
+  ArrowRightSelector: arrow-right
+  MinWaitTimeMs: 3000
 --- !u!1 &1185193057
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,7 +1034,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1185193060
 MonoBehaviour:
@@ -1373,7 +1439,6 @@ MonoBehaviour:
   State: {fileID: 11400000, guid: 0bb76baa805de4ee3a0274d83a45547a, type: 2}
   BtnPreviousSelector: btn-previous
   BtnNextSelector: btn-next
-  BtnStartSelector: btn-start
   CharacterPreviewSelector: img-character
 --- !u!82 &1926072229
 AudioSource:

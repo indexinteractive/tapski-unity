@@ -16,7 +16,6 @@ public class CharacterSelect : MonoBehaviour
     [Header("Selectors")]
     public string BtnPreviousSelector = "btn-previous";
     public string BtnNextSelector = "btn-next";
-    public string BtnStartSelector = "btn-start";
     public string CharacterPreviewSelector = "img-character";
     #endregion
 

@@ -40,10 +40,16 @@ public class LoadManager : MonoBehaviour
         audio.enabled = State.AudioIsEnabled;
 
         LoadGameAsync();
+        FlipSessionFlags();
     }
     #endregion
 
     #region Load Operations
+    private void FlipSessionFlags()
+    {
+        State.WillShowTutorial = true;
+    }
+
     private async void LoadGameAsync()
     {
         await Task.WhenAll(

@@ -13,6 +13,7 @@ public class MenuManager : MonoBehaviour
     public UIDocument Scoreboard;
     public UIDocument CharacterSelect;
     public UIDocument GameHud;
+    public TutorialOverlay Tutorial;
 
     [Header("Scene References")]
     public WorldGenerator GameWorld;
@@ -47,6 +48,7 @@ public class MenuManager : MonoBehaviour
         Assert.IsNotNull(Scoreboard, "[MenuManager] Scoreboard is unassigned");
         Assert.IsNotNull(CharacterSelect, "[MenuManager] CharacterSelect is unassigned");
         Assert.IsNotNull(GameHud, "[MenuManager] GameHud is unassigned");
+        Assert.IsNotNull(Tutorial, "[MenuManager] Tutorial is unassigned");
         Assert.IsNotNull(GameWorld, "[MenuManager] GameWorld is unassigned");
         Assert.IsNotNull(GameOverScreen, "[MenuManager] GameOverScreen is unassigned");
         Assert.IsNotNull(State, "[MenuManager] Game State is unassigned");
@@ -157,6 +159,15 @@ public class MenuManager : MonoBehaviour
     {
         OffsetUIDocument.Slide(_characterSelect, SlideDurationSec, 0, -_offset);
         await Task.Delay(TimeSpan.FromSeconds(SlideDurationSec));
+
+        if (State.WillShowTutorial)
+        {
+            Debug.Log("Game will show tutorial");
+            Tutorial.gameObject.SetActive(true);
+            await Tutorial.WaitForSkipAsync();
+            Debug.Log("Tutorial dismissed");
+            Tutorial.gameObject.SetActive(false);
+        }
 
         GameWorld.StartNewGame(GameOverScreen.OnPlayerDead);
         GameHud.gameObject.SetActive(true);

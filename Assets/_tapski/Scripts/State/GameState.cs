@@ -16,6 +16,13 @@ public class GameState : ScriptableObject
     public string Username;
 
     /// <summary>
+    /// This value is set in <see cref="LoadManager.FlipSessionFlags"/> and read in <see cref="MenuManager.OnStartGameClick"/>.
+    /// If the value has already been set to true, the player will not see the tutorial.
+    /// </summary>
+    [Tooltip("Controls whether the tutorial is shown")]
+    public bool WillShowTutorial;
+
+    /// <summary>
     /// Called by <see cref="WorldGenerator" /> when a new game begins
     /// </summary>
     public void Reset()
