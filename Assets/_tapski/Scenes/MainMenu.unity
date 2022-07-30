@@ -1436,6 +1436,7 @@ MonoBehaviour:
   Characters:
   - {fileID: 6227765593603246817, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
   - {fileID: 193685717549669581, guid: 68d6069fe43b840a0a493fc93fb84c73, type: 3}
+  - {fileID: 6208227655328819320, guid: 773ba08c7e06845b2a6951f26ecba4c1, type: 3}
   - {fileID: 6208227655328819320, guid: f19a4ee27685b42ffbc6ca9466a83100, type: 3}
   - {fileID: 6208227655328819320, guid: 4bbba8db0101f4a76967fd613f881959, type: 3}
   - {fileID: 4880289471522437876, guid: c75bd4c0243864b119b7ade0801bd2cb, type: 3}

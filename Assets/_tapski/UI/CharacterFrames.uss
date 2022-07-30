@@ -10,6 +10,10 @@
     background-image: url('project://database/Assets/_tapski/Graphics/Characters/boy_skier_straight.png?fileID=-31581842&guid=a85ae2e54ef3140b9af93325b7315e2a&type=3#boy_skier_straight_0');
 }
 
+.Fro {
+    background-image: url('project://database/Assets/_tapski/Graphics/Characters/fro_kid_straight.png?fileID=1350644475&guid=cf68ccfea7aba48d49241fad95e566dd&type=3#fro_kid_straight_0');
+}
+
 .Elf {
     background-image: url('project://database/Assets/_tapski/Graphics/Characters/elf_straight.png?fileID=25500875&guid=dcd993513e55b44e8a8b5e83a36a6be1&type=3#elf_straight_0');
 }
