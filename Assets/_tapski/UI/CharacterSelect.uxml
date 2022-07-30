@@ -10,7 +10,7 @@
             <ui:VisualElement>
                 <ui:Button name="btn-previous" class="btn-index btn-previous" />
             </ui:VisualElement>
-            <ui:VisualElement name="img-character" class="boy-skier-0" style="width: 80px; height: 180px; -unity-background-scale-mode: scale-to-fit;" />
+            <ui:VisualElement name="img-character" class="boy-skier-0" style="width: 80px; height: 80px; -unity-background-scale-mode: scale-to-fit;" />
             <ui:VisualElement>
                 <ui:Button name="btn-next" class="btn-index btn-next" />
             </ui:VisualElement>
