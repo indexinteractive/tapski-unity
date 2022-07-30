@@ -1,5 +1,5 @@
-.BoySnowboarder {
-    background-image: url('project://database/Assets/_tapski/Graphics/Characters/boy_snowboarder_straight.png?fileID=943472589&guid=c4acd4bbc5f10469abd53d190ce141d6&type=3#boy_snowboarder_straight_0');
+.GirlSnowboarder {
+    background-image: url('project://database/Assets/_tapski/Graphics/Characters/girl_snowboarder_straight.png?fileID=-1147185972&guid=cf6034806f4b94568ae4531154d63e4c&type=3#girl_snowboarder_straight_0');
 }
 
 .DogSled {
@@ -12,4 +12,8 @@
 
 .GirlSkier {
     background-image: url('project://database/Assets/_tapski/Graphics/Characters/girl_skier_straight.png?fileID=-334127812&guid=8088da99c2cec42998a63d71f2b50f22&type=3#girl_skier_straight_0');
+}
+
+.BoySnowboarder {
+    background-image: url('project://database/Assets/_tapski/Graphics/Characters/boy_snowboarder_straight.png?fileID=943472589&guid=c4acd4bbc5f10469abd53d190ce141d6&type=3#boy_snowboarder_straight_0');
 }
