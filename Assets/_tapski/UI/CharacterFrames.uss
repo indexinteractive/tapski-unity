@@ -18,6 +18,10 @@
     background-image: url('project://database/Assets/_tapski/Graphics/Characters/girl_skier_straight.png?fileID=-334127812&guid=8088da99c2cec42998a63d71f2b50f22&type=3#girl_skier_straight_0');
 }
 
+.Extremette {
+    background-image: url('project://database/Assets/_tapski/Graphics/Characters/extremette_straight.png?fileID=997802719&guid=543220c2894184cb28b48f432bfdc504&type=3#extremette_straight_0');
+}
+
 .BoySnowboarder {
     background-image: url('project://database/Assets/_tapski/Graphics/Characters/boy_snowboarder_straight.png?fileID=943472589&guid=c4acd4bbc5f10469abd53d190ce141d6&type=3#boy_snowboarder_straight_0');
 }

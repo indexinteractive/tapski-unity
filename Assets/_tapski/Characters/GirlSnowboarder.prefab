@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5164707256349059240, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5164707256349059240, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
       propertyPath: UVModule.sprites.Array.data[0].sprite
       value: 
       objectReference: {fileID: -1605589773, guid: 694cefa36dd294d0c99a9e0455aca052, type: 3}

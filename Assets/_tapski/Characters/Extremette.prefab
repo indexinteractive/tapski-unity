@@ -8,6 +8,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 898066795698634447, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
+      propertyPath: m_MaxParticleSize
+      value: 0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 5164707256349059240, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 0.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 5164707256349059240, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
+      propertyPath: ShapeModule.m_Scale.z
+      value: 0.34
+      objectReference: {fileID: 0}
     - target: {fileID: 5164707256349059240, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 0.5
@@ -17,24 +29,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -1605589773, guid: 694cefa36dd294d0c99a9e0455aca052, type: 3}
     - target: {fileID: 6186977774110670661, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6186977774110670661, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.25
+      value: 1.125
       objectReference: {fileID: 0}
     - target: {fileID: 6186977774110670661, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2.1875
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 6227765593603246816, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 943472589, guid: c4acd4bbc5f10469abd53d190ce141d6, type: 3}
+      objectReference: {fileID: 997802719, guid: 543220c2894184cb28b48f432bfdc504, type: 3}
     - target: {fileID: 6227765593603246817, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
       propertyPath: m_Name
-      value: BoySnowboarder
+      value: Extremette
       objectReference: {fileID: 0}
     - target: {fileID: 6227765593603246819, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
       propertyPath: m_RootOrder
@@ -46,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6227765593603246819, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.37
+      value: -1.37
       objectReference: {fileID: 0}
     - target: {fileID: 6227765593603246819, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
       propertyPath: m_LocalPosition.z
@@ -83,7 +91,7 @@ PrefabInstance:
     - target: {fileID: 6262820150605305278, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 85d1827bbc8a648b980809313bf56d42, type: 2}
+      objectReference: {fileID: 9100000, guid: a27dbfb2612d54a00b01857095b86f13, type: 2}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
