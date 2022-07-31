@@ -2,8 +2,16 @@
     background-image: url('project://database/Assets/_tapski/Graphics/Characters/girl_snowboarder_straight.png?fileID=-1147185972&guid=cf6034806f4b94568ae4531154d63e4c&type=3#girl_snowboarder_straight_0');
 }
 
+.Santa {
+    background-image: url('project://database/Assets/_tapski/Graphics/Characters/santa_straight.png?fileID=-374624428&guid=51809a99bc8a446faac59c0dc26beaab&type=3#santa_straight_0');
+}
+
 .DogSled {
     background-image: url('project://database/Assets/_tapski/Graphics/Characters/dog_straight.png?fileID=-1797820693&guid=c3ae36e83136a463984ea20d07fd550c&type=3#dog_straight_0');
+}
+
+.Yeti {
+    background-image: url('project://database/Assets/_tapski/Graphics/Characters/yeti_straight.png?fileID=-689755782&guid=26fda200f8fdf43f1999f8ad4925d3c0&type=3#yeti_straight_0');
 }
 
 .BoySkier {
