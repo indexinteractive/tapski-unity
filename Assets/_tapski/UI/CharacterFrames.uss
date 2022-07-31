@@ -26,6 +26,10 @@
     background-image: url('project://database/Assets/_tapski/Graphics/Characters/elf_straight.png?fileID=25500875&guid=dcd993513e55b44e8a8b5e83a36a6be1&type=3#elf_straight_0');
 }
 
+.Zombie {
+    background-image: url('project://database/Assets/_tapski/Graphics/Characters/zombie_straight.png?fileID=-187031193&guid=c9e653e87636941a098de9db804a24a3&type=3#zombie_straight_0');
+}
+
 .Penguin {
     background-image: url('project://database/Assets/_tapski/Graphics/Characters/penguin_straight.png?fileID=-1958667326&guid=4d830d0448c964fe9a5396b8cc544a30&type=3#penguin_straight_0');
 }
