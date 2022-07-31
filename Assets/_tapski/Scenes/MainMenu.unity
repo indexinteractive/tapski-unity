@@ -1445,6 +1445,7 @@ MonoBehaviour:
   - {fileID: 6208227655328819320, guid: 1c451945affb1423daa6dd78fe1c0c66, type: 3}
   - {fileID: 193685717549669581, guid: a9a7fa13dc3344f6d8cd2d0a34c5c69f, type: 3}
   - {fileID: 193685717549669581, guid: 2cfd502d3384440fb940e6f4c0180e1d, type: 3}
+  - {fileID: 6208227655328819320, guid: 0162637a11e0c47aaa9535977c8fc5de, type: 3}
   State: {fileID: 11400000, guid: 0bb76baa805de4ee3a0274d83a45547a, type: 2}
   BtnPreviousSelector: btn-previous
   BtnNextSelector: btn-next
