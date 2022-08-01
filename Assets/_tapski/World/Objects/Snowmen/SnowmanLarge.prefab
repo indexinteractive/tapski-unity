@@ -244,5 +244,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   State: {fileID: 11400000, guid: 0bb76baa805de4ee3a0274d83a45547a, type: 2}
   WompClip: {fileID: 8715576988844313340}
-  Animator: {fileID: 1636871264467702263}
   AnimationClip: SnowmanLargeCollide

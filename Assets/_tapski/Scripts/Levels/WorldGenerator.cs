@@ -325,7 +325,7 @@ public class WorldGenerator : MonoBehaviour
 
             var tree = GenerateTree();
             RepositionTree(tree, newPath);
-            tree.SetActive(true);
+            ResetObject(tree);
             _activeTrees.Add(tree);
         }
     }
@@ -402,8 +402,18 @@ public class WorldGenerator : MonoBehaviour
         if (_inactiveTrees.TryDequeue(out GameObject tree))
         {
             RepositionTree(tree, step);
-            tree.SetActive(true);
+            ResetObject(tree);
             _activeTrees.Add(tree);
+        }
+    }
+
+    private void ResetObject(GameObject obj)
+    {
+        obj.SetActive(true);
+        var resetables = obj.GetComponents<Resetable>();
+        foreach (var item in resetables)
+        {
+            item.OnReset();
         }
     }
 
@@ -421,7 +431,7 @@ public class WorldGenerator : MonoBehaviour
             PathStep front = _safePath[_safePath.Count - 1];
             RepositionObject(randomObj, front);
 
-            randomObj.SetActive(true);
+            ResetObject(randomObj);
             _activeObjects.Add(randomObj);
 
             _nextObjectReposition = Random.Range(8, 30);

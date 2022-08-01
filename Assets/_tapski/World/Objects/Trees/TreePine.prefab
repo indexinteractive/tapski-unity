@@ -244,5 +244,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   State: {fileID: 11400000, guid: 0bb76baa805de4ee3a0274d83a45547a, type: 2}
   WompClip: {fileID: 8094401562410019805}
-  Animator: {fileID: 2919000879903534803}
   AnimationClip: TreePineCollide
