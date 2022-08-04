@@ -29,21 +29,24 @@ public class BaseCharacter : MonoBehaviour
     [Tooltip("Max speed the player can move")]
     public float MaxSpeed = 1f;
 
-    [Tooltip("Max speed while jumping")]
-    public float JumpSpeedMultiplier = 1.4f;
+    [Tooltip("Percent speed increase while in the air")]
+    public float JumpSpeedMultiplier = 0.2f;
+
+    [Header("Speed curve values")]
+    [Tooltip("Rate at which the speed curve (x) increases")]
+    public float SpeedCurveRate = 0.05f;
+
+    [Tooltip("Maximum value that can be reached on the speed curve")]
+    public float MaxCurveValue = 1f;
+
+    [Tooltip("Strength in which the turn is executed")]
+    public float DriftFactor = 1.5f;
+
+    [Tooltip("Rate of turn drift")]
+    public float DriftRate = 0.5f;
     #endregion
 
     #region Public Properties
-    /// <summary>
-    /// Keeps track of time spent in a state
-    /// </summary>
-    private float _stateTimer = 0f;
-
-    /// <summary>
-    /// Tracks the time spent accelerating to pick a speed from <see cref="SpeedCurve"/>
-    /// </summary>
-    private float _speedCurveX;
-
     /// <summary>
     /// Indicates the player's current state. Changing the state will
     /// automatically play it's associated animation
@@ -73,28 +76,30 @@ public class BaseCharacter : MonoBehaviour
 
     #region Private / Inherited Fields
     private Animator _animator;
-    // private TrailRenderer _trail;
     private PlayerInput _input;
     private PlayerStates _state;
 
     /// <summary>
-    /// Velocity of the object per update
+    /// Keeps track of time spent in a state
     /// </summary>
-    private Vector2 _velocity;
+    private float _stateTimer = 0f;
 
     /// <summary>
-    /// Player's current descent speed
+    /// Tracks the time spent accelerating to pick a speed from <see cref="SpeedCurve"/>
     /// </summary>
-    private float _verticalSpeed = 0;
+    private float _speedCurveX;
+
+    /// <summary>
+    /// Tracks the amount of drift that will be applied in the horizontal direction
+    /// </summary>
+    private float _driftAmount;
     #endregion
 
     #region Unity Lifecycle
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-        // _trail = GetComponent<TrailRenderer>();
         Assert.IsNotNull(_animator, $"[BaseCharacter] No Animator found on character {name}");
-        // Assert.IsNotNull(_trail, $"[BaseCharacter] No TrailRenderer found on character {name}");
 
         _input = new PlayerInput();
         _input.Enable();
@@ -120,32 +125,28 @@ public class BaseCharacter : MonoBehaviour
                 break;
 
             case PlayerStates.Straight:
+                _driftAmount = Mathf.Clamp(_driftAmount -= Time.deltaTime, 0, DriftRate);
+
                 // Speed the player up while under the max speed
-                if (_verticalSpeed < MaxSpeed)
+                if (_speedCurveX < MaxCurveValue)
                 {
-                    _speedCurveX += Time.deltaTime;
-                    _verticalSpeed = SpeedCurve.Evaluate(_speedCurveX) * MaxSpeed;
+                    _speedCurveX += Time.deltaTime * SpeedCurveRate;
                 }
 
                 // If above max speed, the player just jumped, slow down
-                if (_verticalSpeed > MaxSpeed)
+                if (_speedCurveX >= MaxCurveValue)
                 {
                     _speedCurveX -= Time.deltaTime;
                 }
-
-                _velocity = new Vector2(0, _verticalSpeed);
                 break;
 
             case PlayerStates.TurnLeft:
             case PlayerStates.TurnRight:
-                _speedCurveX -= Time.deltaTime;
-                _verticalSpeed = SpeedCurve.Evaluate(_speedCurveX) * MaxSpeed;
-
-                _velocity = new Vector2(_verticalSpeed * 0.5f, _verticalSpeed);
+                _driftAmount = Mathf.Clamp(_driftAmount += Time.deltaTime, 0, DriftRate);
                 break;
 
             case PlayerStates.Jumping:
-                _velocity = new Vector2(0, _verticalSpeed);
+                _speedCurveX += Mathf.Clamp((_speedCurveX * JumpSpeedMultiplier) * Time.deltaTime, 0, MaxCurveValue);
 
                 if (_stateTimer > JumpTime)
                 {
@@ -154,6 +155,9 @@ public class BaseCharacter : MonoBehaviour
                 break;
 
             case PlayerStates.Dead:
+                _speedCurveX = 0;
+                _driftAmount = 0;
+
                 if (_stateTimer > RestTime && OnPlayerDied != null)
                 {
                     OnPlayerDied.Invoke();
@@ -167,9 +171,12 @@ public class BaseCharacter : MonoBehaviour
 
     private void UpdateMovement()
     {
+        var vertical = SpeedCurve.Evaluate(_speedCurveX) * MaxSpeed;
+        var horizontal = SpeedCurve.Evaluate(_speedCurveX) * MaxSpeed * (_driftAmount * DriftFactor);
+
         Vector3 newPosition = new Vector3(
-            transform.position.x + (_velocity.x * Time.deltaTime) * (FacesLeft ? -1 : 1),
-            transform.position.y - (_velocity.y * Time.deltaTime),
+            transform.position.x + (horizontal * Time.deltaTime) * (FacesLeft ? -1 : 1),
+            transform.position.y - (vertical * Time.deltaTime),
             transform.position.z
         );
 
@@ -178,27 +185,43 @@ public class BaseCharacter : MonoBehaviour
     #endregion
 
     #region Input
-    private void OnTapInput(UnityEngine.InputSystem.InputAction.CallbackContext e)
+    private bool InputStateIsValid()
     {
         if (_state == PlayerStates.Jumping || _state == PlayerStates.Idle)
         {
-            return;
+            return false;
         }
 
+        return true;
+    }
+
+    private void OnTapInput(UnityEngine.InputSystem.InputAction.CallbackContext e)
+    {
         bool inputIsPressed = e.ReadValueAsButton();
 
-        if (inputIsPressed)
+        if (InputStateIsValid() && inputIsPressed)
         {
+
             float screenMidpoint = Screen.width / 2;
             Vector2 position = Pointer.current.position.ReadValue();
 
             if (position.x < screenMidpoint)
             {
+                if (!FacesLeft)
+                {
+                    _driftAmount = 0;
+                }
+
                 State = PlayerStates.TurnLeft;
                 FacesLeft = true;
             }
             else
             {
+                if (FacesLeft)
+                {
+                    _driftAmount = 0;
+                }
+
                 State = PlayerStates.TurnRight;
                 FacesLeft = false;
             }
@@ -211,7 +234,7 @@ public class BaseCharacter : MonoBehaviour
 
     private void OnDirectionKeyInput(InputAction.CallbackContext e)
     {
-        if (_state == PlayerStates.Jumping || _state == PlayerStates.Idle)
+        if (!InputStateIsValid())
         {
             return;
         }
@@ -219,11 +242,21 @@ public class BaseCharacter : MonoBehaviour
         float value = e.ReadValue<float>();
         if (value > 0)
         {
+            if (FacesLeft)
+            {
+                _driftAmount = 0;
+            }
+
             State = PlayerStates.TurnRight;
             FacesLeft = false;
         }
         else if (value < 0)
         {
+            if (!FacesLeft)
+            {
+                _driftAmount = 0;
+            }
+
             State = PlayerStates.TurnLeft;
             FacesLeft = true;
         }
@@ -244,21 +277,14 @@ public class BaseCharacter : MonoBehaviour
     #region Interactions
     public void OnCollideWithObstacle()
     {
-        _velocity = Vector2.zero;
-        _speedCurveX = 0;
-
         _input.Player.Tap.performed -= OnTapInput;
         _input.Player.DirectionKey.performed -= OnDirectionKeyInput;
-
-        // Setting the trail lifespan to <infinity> will keep it from disappearing on collision
-        // _trail.time = float.PositiveInfinity;
 
         State = PlayerStates.Dead;
     }
 
     public void OnCollideWithRamp()
     {
-        _verticalSpeed = _verticalSpeed * JumpSpeedMultiplier;
         State = PlayerStates.Jumping;
     }
     #endregion
