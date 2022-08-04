@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.Assertions;
 
 [RequireComponent(typeof(Collider2D))]
-[RequireComponent(typeof(Animator))]
 public class WompCollide : Resetable
 {
     #region Public Properties
@@ -26,7 +25,6 @@ public class WompCollide : Resetable
         Assert.IsNotNull(State, "[WompCollide] Game State is unassigned");
 
         _animator = GetComponent<Animator>();
-        Assert.IsNotNull(_animator, "[WompCollide] No Animator found on " + gameObject.name);
     }
     #endregion
 
@@ -45,6 +43,7 @@ public class WompCollide : Resetable
 
         if (!string.IsNullOrEmpty(AnimationClip))
         {
+            Assert.IsNotNull(_animator, "[WompCollide] No Animator found on " + gameObject.name);
             _animator.speed = 1f;
             _animator.Play(AnimationClip, -1, 0f);
         }
@@ -54,8 +53,12 @@ public class WompCollide : Resetable
     #region Resetable
     public override void OnReset()
     {
-        _animator.Play(AnimationClip, -1, 0f);
-        _animator.speed = 0f;
+        if (!string.IsNullOrEmpty(AnimationClip))
+        {
+            Assert.IsNotNull(_animator, "[WompCollide] No Animator found on " + gameObject.name);
+            _animator.Play(AnimationClip, -1, 0f);
+            _animator.speed = 0f;
+        }
     }
     #endregion
 }
