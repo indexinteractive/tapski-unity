@@ -823,7 +823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51b291669441c4f81920ab410780b965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainMenuScene: MainMenu
+  MainMenuScene: MainGame
   SplashUI: {fileID: 2086848993}
   State: {fileID: 11400000, guid: 0bb76baa805de4ee3a0274d83a45547a, type: 2}
   FadeInSec: 2
