@@ -20,7 +20,7 @@
             <ui:Label text="score points by going&#10;through checkpoints" style="-unity-text-align: upper-center; -unity-font-definition: none; -unity-font: url(&apos;project://database/Assets/_tapski/UI/TinyPixy.ttf?fileID=12800000&amp;guid=07f154760a1fd4e7ebd3a81d0aa642f8&amp;type=3#TinyPixy&apos;);" />
         </ui:VisualElement>
         <ui:VisualElement name="bottom" style="align-items: center; margin-bottom: 20px;">
-            <ui:VisualElement style="background-image: url(&apos;project://database/Assets/_tapski/Graphics/UI%20Elements/help_coin.png?fileID=2800000&amp;guid=082b1b43fad1c42dab5534bd3dce660a&amp;type=3#help_coin&apos;); width: 31px; height: 11px;" />
+            <ui:VisualElement style="background-image: url(&apos;project://database/Assets/_tapski/Graphics/UI%20Elements/help_coin.png?fileID=2800000&amp;guid=082b1b43fad1c42dab5534bd3dce660a&amp;type=3#help_coin&apos;); width: 100%; height: 20px; -unity-background-scale-mode: scale-to-fit;" />
             <ui:Label text="collect coins for&#10;unlockables" style="-unity-text-align: upper-center; -unity-font-definition: none; -unity-font: url(&apos;project://database/Assets/_tapski/UI/TinyPixy.ttf?fileID=12800000&amp;guid=07f154760a1fd4e7ebd3a81d0aa642f8&amp;type=3#TinyPixy&apos;);" />
         </ui:VisualElement>
     </ui:VisualElement>
