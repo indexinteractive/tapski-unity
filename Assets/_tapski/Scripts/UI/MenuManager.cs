@@ -17,6 +17,7 @@ public class MenuManager : MonoBehaviour
 
     [Header("Scene References")]
     public WorldGenerator GameWorld;
+    public MusicManager Music;
     public GameOver GameOverScreen;
     public GameState State;
     public string GameScene = "GameScene";
@@ -50,6 +51,7 @@ public class MenuManager : MonoBehaviour
         Assert.IsNotNull(GameHud, "[MenuManager] GameHud is unassigned");
         Assert.IsNotNull(Tutorial, "[MenuManager] Tutorial is unassigned");
         Assert.IsNotNull(GameWorld, "[MenuManager] GameWorld is unassigned");
+        Assert.IsNotNull(Music, "[MenuManager] MusicManager is unassigned");
         Assert.IsNotNull(GameOverScreen, "[MenuManager] GameOverScreen is unassigned");
         Assert.IsNotNull(State, "[MenuManager] Game State is unassigned");
 
@@ -170,6 +172,7 @@ public class MenuManager : MonoBehaviour
         }
 
         GameWorld.StartNewGame(GameOverScreen.OnPlayerDead);
+        Music.SwitchToGame();
         GameHud.gameObject.SetActive(true);
     }
     #endregion

@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 
-[RequireComponent(typeof(AudioSource))]
 public class MusicManager : MonoBehaviour
 {
     #region Public Properties
     public GameState State;
+    public AudioSource MainMenuClip;
+    public AudioSource[] GameplayCips;
     #endregion
 
     #region Private Fields
@@ -15,21 +16,56 @@ public class MusicManager : MonoBehaviour
     #region Unity Lifecycle
     private void Awake()
     {
-        _audioSource = GetComponent<AudioSource>();
-        Assert.IsNotNull(_audioSource, "[MusicManager] _audioSource was not found");
+        Assert.IsNotNull(MainMenuClip, "[MusicManager] Menu Music clip is unassigned");
+        Assert.IsTrue(GameplayCips.Length > 0, "[MusicManager] No gameplay clips were assigned");
+
         Assert.IsNotNull(State, "[MusicManager] Game State is unassigned");
+
+        SwitchToMenu();
     }
 
     private void Update()
     {
-        if (State.AudioIsEnabled && !_audioSource.isPlaying)
+        if (_audioSource != null)
         {
-            _audioSource.UnPause();
+            if (State.AudioIsEnabled && !_audioSource.isPlaying)
+            {
+                _audioSource.UnPause();
+            }
+            else if (!State.AudioIsEnabled && _audioSource.isPlaying)
+            {
+                _audioSource.Pause();
+            }
         }
-        else if (!State.AudioIsEnabled && _audioSource.isPlaying)
+    }
+    #endregion
+
+    #region Public Methods
+    public void StopAudio()
+    {
+        if (_audioSource != null)
         {
-            _audioSource.Pause();
+            _audioSource.Stop();
         }
+    }
+
+    public void SwitchToMenu()
+    {
+        Debug.Log("[MusicManager] Switching to main menu music");
+        StopAudio();
+
+        _audioSource = MainMenuClip;
+        _audioSource.Play();
+    }
+
+    public void SwitchToGame()
+    {
+        Debug.Log("[MusicManager] Switching to game music");
+        StopAudio();
+
+        int clipIndex = Random.Range(0, GameplayCips.Length);
+        _audioSource = GameplayCips[clipIndex];
+        _audioSource.Play();
     }
     #endregion
 }

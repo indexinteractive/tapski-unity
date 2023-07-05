@@ -15,6 +15,7 @@ public class GameOver : MonoBehaviour
 
     [Header("References")]
     public WorldGenerator GameWorld;
+    public MusicManager Music;
     public GameState State;
 
     [Header("Selectors")]
@@ -38,6 +39,7 @@ public class GameOver : MonoBehaviour
     private void OnEnable()
     {
         Assert.IsNotNull(GameWorld, "[GameOver] Game World is unassigned");
+        Assert.IsNotNull(Music, "[GameOver] MusicManager is unassigned");
         Assert.IsNotNull(State, "[GameOver] Game State is unassigned");
 
         var root = GetComponent<UIDocument>().rootVisualElement;
@@ -105,6 +107,7 @@ public class GameOver : MonoBehaviour
         OffsetUIDocument.Slide(_mainMenu, SlideDurationSec, -_offset, 0);
 
         GameWorld.EndGame();
+        Music.SwitchToMenu();
 
         this.gameObject.SetActive(false);
         GameHud.gameObject.SetActive(false);
