@@ -21,8 +21,11 @@ public class UsernameGenerator : Singleton<UsernameGenerator>
 
     public string Generate()
     {
-        Dict adjectives = new Dict("Assets/_tapski/Resources/adjectives.txt");
-        Dict nouns = new Dict("Assets/_tapski/Resources/nouns.txt");
+        string adjectivesPath = Path.Combine(Application.streamingAssetsPath, "text/adjectives.txt");
+        string nounsPath = Path.Combine(Application.streamingAssetsPath, "text/nouns.txt");
+
+        Dict adjectives = new Dict(adjectivesPath);
+        Dict nouns = new Dict(nounsPath);
 
         string adjective = adjectives.Words[Random.Range(0, adjectives.Words.Length)];
         string noun = nouns.Words[Random.Range(0, nouns.Words.Length)];

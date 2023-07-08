@@ -171,6 +171,8 @@ public class WorldGenerator : MonoBehaviour
         {
             Camera.cullingMask = Camera.cullingMask | (1 << LayerMask.NameToLayer("ConditionalRender"));
         }
+#else
+        Camera.cullingMask = ~(1 << LayerMask.NameToLayer("ConditionalRender"));
 #endif
 
         DisableHiddenTrees();
