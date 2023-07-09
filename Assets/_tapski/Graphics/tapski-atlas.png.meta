@@ -403,7 +403,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: girl_skier_straight_
+      name: girl_skier_straight_2
       rect:
         serializedVersion: 2
         x: 146
@@ -2742,15 +2742,15 @@ TextureImporter:
       santa_jump: 1362249280
       girl_snowboarder_fall: 1408877847
       extremette_straight_2: -1603015720
+      girl_skier_straight_2: 1853739170
       extremette_turn_1: -525117728
       penguin_straight_2: 288267756
       girl_skier_jump: -1916840585
       santa_straight_0: -2000401335
       ninja_turn_1: 1811339944
-      girl_skier_straight_: 1853739170
+      mountain_map_turn_1: -1612597612
       mountain_map_turn_2: 113658391
       penguin_jump: 1980056922
-      mountain_map_turn_1: -1612597612
       zombie_turn_2: -205769823
       extremo_turn_0: -67650184
       fro_jump: 262499961
