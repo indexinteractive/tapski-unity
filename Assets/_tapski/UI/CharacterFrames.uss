@@ -27,7 +27,7 @@
 }
 
 .Zombie {
-    background-image: url('project://database/Assets/_tapski/Graphics/Characters/zombie_straight.png?fileID=-187031193&guid=c9e653e87636941a098de9db804a24a3&type=3#zombie_straight_0');
+    background-image: url('project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=1542479524&guid=f44b9c29f5876474fb05a508c1839a9c&type=3#zombie_straight_0');
 }
 
 .Penguin {

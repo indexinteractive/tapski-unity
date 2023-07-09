@@ -1015,9 +1015,9 @@ TextureImporter:
       name: zombie_turn_2
       rect:
         serializedVersion: 2
-        x: 46
+        x: 47
         y: 338
-        width: 23
+        width: 22
         height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
