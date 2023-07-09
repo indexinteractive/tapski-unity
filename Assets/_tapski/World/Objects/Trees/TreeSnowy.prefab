@@ -59,7 +59,7 @@ PrefabInstance:
     - target: {fileID: 4224620970126782414, guid: fbf335490697946dcb1bc45c301b79d5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1345097093, guid: 29e8d81f33e4149158f87f7aa617497c, type: 3}
+      objectReference: {fileID: 1073866161, guid: f44b9c29f5876474fb05a508c1839a9c, type: 3}
     - target: {fileID: 6641994557108925868, guid: fbf335490697946dcb1bc45c301b79d5, type: 3}
       propertyPath: m_Name
       value: TreeSnowy

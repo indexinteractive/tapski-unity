@@ -3099,7 +3099,7 @@ TextureImporter:
         width: 32
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3120,7 +3120,7 @@ TextureImporter:
         width: 48
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3128,6 +3128,510 @@ TextureImporter:
       bones: []
       spriteID: 5966b33cc345947f29f74eb2e6230c3f
       internalID: -468867983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coin_0
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 324
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9555ef6dc5d6d4d768cf1846283de948
+      internalID: 194198693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coin_1
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 324
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc040c487e951439ca196c4a0c66806d
+      internalID: 292906132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coin_2
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 324
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71f3032ac3e1842e5953ab8d11b2a0d7
+      internalID: 1514244791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coin_3
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 324
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3f7ccb5798674fb29503b8308439549
+      internalID: 1503924841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree_christmas_0
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 375
+        width: 36
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3744c28b0395c469b9f771afc37a884e
+      internalID: 1507270044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree_christmas_1
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 375
+        width: 36
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 944caffaff2ee4712845dac2fb02faad
+      internalID: 954124671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree_christmas_2
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 375
+        width: 36
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19395c9762c86474aa46f6b4c47ec6c1
+      internalID: 384843869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree_christmas_3
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 375
+        width: 36
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5ec051c4ee6b40cc835bfb632f39171
+      internalID: 1587514857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree_christmas_4
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 375
+        width: 36
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 800def22ca9b54032a4a17990296d4d1
+      internalID: 1771454590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree_green_4
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 422
+        width: 36
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a2dbf12d644844069fcf363c42f9f4d
+      internalID: 472956821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree_green_3
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 422
+        width: 36
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbd4a3d8f02bf451396144b4c6a600ef
+      internalID: 1246522111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree_green_2
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 422
+        width: 36
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c0b4ff9bd0a7433b886ff4e871c73ed
+      internalID: -1475730711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree_green_1
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 422
+        width: 36
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 306b0c588ea4747af9f9a2969336977f
+      internalID: 157050709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree_green_0
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 422
+        width: 36
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df0fd47dfe8b54396bc9c412a8785a71
+      internalID: 1168713570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree_partial_0
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 469
+        width: 36
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30c3d7f3505da4d14837c8a2250f63a9
+      internalID: 609524212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree_partial_1
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 469
+        width: 36
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e3ce5c00264e490ba43dfab1b2d6a81
+      internalID: -910297900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree_partial_2
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 469
+        width: 36
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc0c9672bf6644f83a98d8b359b2cd41
+      internalID: -1581739954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree_partial_3
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 469
+        width: 36
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8de31e16d67e14d618a1ddc67b5ef6da
+      internalID: -628279577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree_partial_4
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 469
+        width: 36
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd9f1f92be8dc4203a926451c3285dac
+      internalID: 1315042276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree_snowy_0
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 516
+        width: 36
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8639e0e74719b4cb69a70d5e3631c723
+      internalID: 1073866161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree_snowy_1
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 516
+        width: 36
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92759266b751440dab5a1a7974bd64f1
+      internalID: -1111634693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree_snowy_2
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 516
+        width: 36
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac078e0605cda4e2dbcf07c3c6d777a6
+      internalID: 2031094663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree_snowy_3
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 516
+        width: 36
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ed5165c272494ddaa724be6099470a8
+      internalID: 1874089475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree_snowy_4
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 516
+        width: 36
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5dfa25d7fdeb4faca8d3ec05187cda1
+      internalID: 577370375
       vertices: []
       indices: 
       edges: []
@@ -3146,9 +3650,12 @@ TextureImporter:
       boy_snowboarder_fall: 1775923331
       checkpoint_right_0: 1340599410
       zombie_fall: 1632852986
+      coin_3: 1503924841
       elf_turn_1: -360321406
       fro_straight_2: -1002825962
       santa_straight_1: 85865568
+      tree_partial_0: 609524212
+      tree_christmas_1: 954124671
       checkpoint_left_1: -1583143798
       yeti_straight_0: -191391720
       girl_skier_turn_2: -58252859
@@ -3161,17 +3668,21 @@ TextureImporter:
       snowman_large_2: -1888338965
       boy_snowboarder_straight_2: -218012939
       extremo_straight_2: -629776862
+      coin_1: 292906132
       extremo_straight_1: 1760072356
       zombie_turn_0: -683715967
       penguin_fall: -1955342165
+      tree_partial_3: -628279577
       ninja_turn_2: 1254310636
       snowman_small_4: -1672390336
+      tree_christmas_0: 1507270044
       boy_snowboarder_turn_1: 175500839
       extremo_turn_1: -584395586
       girl_snowboarder_turn_1: 1579046827
       penguin_turn_2: 1169254760
       santa_turn_1: -1107705040
       snowman_large_1: -976209474
+      tree_green_3: 1246522111
       mountain_map_turn_0: 2079748835
       fro_straight_1: 976542559
       extremo_fall: 1559166504
@@ -3179,17 +3690,22 @@ TextureImporter:
       boy_skier_turn_1: -868332046
       girl_skier_turn_0: 1463445503
       extremette_fall: -1300266225
+      tree_partial_2: -1581739954
       boy_snowboarder_turn_2: 1765790269
       rocks_0: -885980564
       yeti_turn_1: -1409340013
       girl_snowboarder_straight_0: -1424716248
+      coin_0: 194198693
       penguin_straight_0: -2070063893
       elf_straight_0: -886436564
       doggo_straight_2: -1352548662
+      coin_2: 1514244791
       penguin_turn_1: 2020049613
       boy_skier_turn_2: 2062070409
       fro_fall: 89168185
+      tree_green_4: 472956821
       snowman_small_1: 921559838
+      tree_snowy_1: -1111634693
       elf_straight_1: 359109546
       boy_skier_turn_0: 187946409
       zombie_turn_1: 1293544787
@@ -3204,7 +3720,9 @@ TextureImporter:
       girl_skier_straight_1: 1173576529
       girl_snowboarder_jump: -331233382
       snowman_small_0: 924901198
+      tree_snowy_4: 577370375
       checkpoint_tutorial: -291290384
+      tree_snowy_3: 1874089475
       snowman_small_2: 791248304
       extremette_straight_1: 652537022
       yeti_fall: 1472186574
@@ -3212,16 +3730,20 @@ TextureImporter:
       zombie_straight_0: 1542479524
       yeti_straight_2: 1972685146
       yeti_turn_0: -566070687
-      mountain_map_jump: 61933129
+      tree_christmas_3: 1587514857
       boy_snowboarder_straight_0: -1170241691
       doggo_straight_0: -865258777
+      mountain_map_jump: 61933129
       elf_jump: 1641980223
       elf_fall: -35306477
       boy_skier_straight_0: 1090987264
       ninja_jump: 593933369
       extremo_jump: -2109938881
+      tree_partial_4: 1315042276
+      tree_green_0: 1168713570
       zombie_straight_2: 2074796401
       elf_turn_2: -1915616561
+      tree_snowy_2: 2031094663
       extremette_turn_2: 2093608994
       fro_turn_1: -1361336217
       girl_snowboarder_straight_2: 1602006126
@@ -3242,6 +3764,9 @@ TextureImporter:
       extremette_straight_2: -1603015720
       girl_skier_straight_2: 1853739170
       extremette_turn_1: -525117728
+      tree_green_1: 157050709
+      tree_green_2: -1475730711
+      tree_snowy_0: 1073866161
       penguin_straight_2: 288267756
       girl_skier_jump: -1916840585
       santa_straight_0: -2000401335
@@ -3266,10 +3791,13 @@ TextureImporter:
       fro_turn_2: -683058522
       white_square: 1289245548
       ninja_straight_0: 909824564
+      tree_christmas_4: 1771454590
       extremo_turn_2: 936277624
       santa_fall: 82701068
       doggo_turn_0: -351452439
       santa_turn_0: 15696086
+      tree_christmas_2: 384843869
+      tree_partial_1: -910297900
       checkpoint_idle: 2078899165
       boy_skier_jump: -655308576
       zombie_jump: -1984542856
