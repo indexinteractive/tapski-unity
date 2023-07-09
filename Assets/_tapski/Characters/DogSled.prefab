@@ -23,10 +23,10 @@ PrefabInstance:
     - target: {fileID: 6227765593603246816, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 821110828, guid: c3ae36e83136a463984ea20d07fd550c, type: 3}
+      objectReference: {fileID: -865258777, guid: f44b9c29f5876474fb05a508c1839a9c, type: 3}
     - target: {fileID: 6227765593603246817, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
       propertyPath: m_Name
-      value: Dog
+      value: DogSled
       objectReference: {fileID: 0}
     - target: {fileID: 6227765593603246819, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
       propertyPath: m_RootOrder
