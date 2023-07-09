@@ -9,13 +9,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6186977774110670661, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 2.4375
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186977774110670661, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.4375
+      objectReference: {fileID: 0}
+    - target: {fileID: 6227765593603246816, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
+      propertyPath: m_Size.y
       value: 2.4375
       objectReference: {fileID: 0}
     - target: {fileID: 6227765593603246816, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 25500875, guid: dcd993513e55b44e8a8b5e83a36a6be1, type: 3}
+      objectReference: {fileID: -886436564, guid: f44b9c29f5876474fb05a508c1839a9c, type: 3}
     - target: {fileID: 6227765593603246817, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
       propertyPath: m_Name
       value: Elf
