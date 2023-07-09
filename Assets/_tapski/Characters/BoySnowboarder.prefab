@@ -31,7 +31,7 @@ PrefabInstance:
     - target: {fileID: 6227765593603246816, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 943472589, guid: c4acd4bbc5f10469abd53d190ce141d6, type: 3}
+      objectReference: {fileID: -1170241691, guid: f44b9c29f5876474fb05a508c1839a9c, type: 3}
     - target: {fileID: 6227765593603246817, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
       propertyPath: m_Name
       value: BoySnowboarder
