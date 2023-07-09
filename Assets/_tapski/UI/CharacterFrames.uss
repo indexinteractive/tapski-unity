@@ -55,5 +55,5 @@
 }
 
 .BoySnowboarder {
-    background-image: url('project://database/Assets/_tapski/Graphics/Characters/boy_snowboarder_straight.png?fileID=943472589&guid=c4acd4bbc5f10469abd53d190ce141d6&type=3#boy_snowboarder_straight_0');
+    background-image: url('project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=-1170241691&guid=f44b9c29f5876474fb05a508c1839a9c&type=3#boy_snowboarder_straight_0');
 }
