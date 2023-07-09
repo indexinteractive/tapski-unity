@@ -1,5 +1,5 @@
 .GirlSnowboarder {
-    background-image: url('project://database/Assets/_tapski/Graphics/Characters/girl_snowboarder_straight.png?fileID=-1147185972&guid=cf6034806f4b94568ae4531154d63e4c&type=3#girl_snowboarder_straight_0');
+    background-image: url('project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=1424716248&guid=f44b9c29f5876474fb05a508c1839a9c&type=3#girl_snowboarder_straight_0');
 }
 
 .Santa {
