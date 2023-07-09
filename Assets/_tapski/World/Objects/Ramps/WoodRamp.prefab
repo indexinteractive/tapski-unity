@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 4548224140073004382, guid: 0b52617b1a8cc49ca8da5dd90ba5b94c, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 3a1353e6bd1ff40fdbbd16f34871dd16, type: 3}
+      objectReference: {fileID: 1054531604, guid: f44b9c29f5876474fb05a508c1839a9c, type: 3}
     - target: {fileID: 4612699356770900310, guid: 0b52617b1a8cc49ca8da5dd90ba5b94c, type: 3}
       propertyPath: m_Name
       value: WoodRamp

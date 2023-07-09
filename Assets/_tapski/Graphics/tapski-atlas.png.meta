@@ -2880,6 +2880,258 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: snowman_large_0
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 296
+        width: 25
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3180847a037b54feca1e2b045dc808e4
+      internalID: 1728015390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowman_large_1
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 296
+        width: 25
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebdac2a72ce174cfb9252cd3d76e10e7
+      internalID: -976209474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowman_large_2
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 296
+        width: 25
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef3f83ba7a02d452195c2add740c82b9
+      internalID: -1888338965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowman_large_3
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 296
+        width: 25
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3689ae055646a45de801ff84684c0726
+      internalID: -1830762014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowman_large_4
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 296
+        width: 25
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 703b9dd2facd1456e99f3d0aea0db71e
+      internalID: -1363411300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowman_small_0
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 279
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78ad1d91c23c24b6d85ea57a00df2fcb
+      internalID: 924901198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowman_small_1
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 279
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d45b6e00590f46b6b3ac0b10ead7d76
+      internalID: 921559838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowman_small_2
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 279
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11c6e0b8cda8149568aa1b32f30a3ab2
+      internalID: 791248304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowman_small_3
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 279
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 792229c0bd1664388b9a43b20b9019c6
+      internalID: -1272481960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowman_small_4
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 279
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 425d04c07a8334ed5a0f6ca8a08f1d8f
+      internalID: -1672390336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wood_ramp
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 324
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20fb1efbd5acc41b391294eecf1517c8
+      internalID: 1054531604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow_ramp
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 324
+        width: 48
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5966b33cc345947f29f74eb2e6230c3f
+      internalID: -468867983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -2906,17 +3158,20 @@ TextureImporter:
       girl_snowboarder_turn_0: -962311921
       fro_turn_0: 1782399308
       ninja_straight_1: 1071502460
+      snowman_large_2: -1888338965
       boy_snowboarder_straight_2: -218012939
       extremo_straight_2: -629776862
       extremo_straight_1: 1760072356
       zombie_turn_0: -683715967
       penguin_fall: -1955342165
       ninja_turn_2: 1254310636
+      snowman_small_4: -1672390336
       boy_snowboarder_turn_1: 175500839
       extremo_turn_1: -584395586
       girl_snowboarder_turn_1: 1579046827
       penguin_turn_2: 1169254760
       santa_turn_1: -1107705040
+      snowman_large_1: -976209474
       mountain_map_turn_0: 2079748835
       fro_straight_1: 976542559
       extremo_fall: 1559166504
@@ -2934,9 +3189,13 @@ TextureImporter:
       penguin_turn_1: 2020049613
       boy_skier_turn_2: 2062070409
       fro_fall: 89168185
+      snowman_small_1: 921559838
       elf_straight_1: 359109546
       boy_skier_turn_0: 187946409
       zombie_turn_1: 1293544787
+      snowman_small_3: -1272481960
+      snow_ramp: -468867983
+      snowman_large_4: -1363411300
       yeti_jump: -1056578799
       mountain_map_fall: 1991876631
       yeti_turn_2: 1587886858
@@ -2944,7 +3203,9 @@ TextureImporter:
       penguin_straight_1: 1854045363
       girl_skier_straight_1: 1173576529
       girl_snowboarder_jump: -331233382
+      snowman_small_0: 924901198
       checkpoint_tutorial: -291290384
+      snowman_small_2: 791248304
       extremette_straight_1: 652537022
       yeti_fall: 1472186574
       extremette_jump: -1032736963
@@ -2966,6 +3227,7 @@ TextureImporter:
       girl_snowboarder_straight_2: 1602006126
       zombie_straight_1: -212492181
       doggo_turn_2: -1380174685
+      snowman_large_0: 1728015390
       girl_skier_straight_0: 1329808172
       extremette_straight_0: -1387401676
       ninja_turn_0: 698744590
@@ -3011,12 +3273,14 @@ TextureImporter:
       checkpoint_idle: 2078899165
       boy_skier_jump: -655308576
       zombie_jump: -1984542856
+      snowman_large_3: -1830762014
       boy_skier_straight_2: -1431787435
       girl_skier_turn_1: -1397584914
       ninja_straight_2: 494430547
       checkpoint_left_2: -2055572589
       mountain_map_straight_0: 1359563634
       mountain_map_straight_1: 2093405872
+      wood_ramp: 1054531604
       santa_turn_2: 1985581554
       penguin_turn_0: -516736070
       fro_straight_0: 799349619

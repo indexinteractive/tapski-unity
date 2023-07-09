@@ -55,10 +55,26 @@ PrefabInstance:
     - target: {fileID: 3917248474519430507, guid: a12729bc83b9c4de4902fa4901e03dc6, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -660868204, guid: 980e97548bc2143819477d516c9ae48e, type: 3}
+      objectReference: {fileID: 924901198, guid: f44b9c29f5876474fb05a508c1839a9c, type: 3}
     - target: {fileID: 5573202595042508427, guid: a12729bc83b9c4de4902fa4901e03dc6, type: 3}
       propertyPath: AnimationClip
       value: SnowmanSmallCollide
+      objectReference: {fileID: 0}
+    - target: {fileID: 8399449439033416630, guid: a12729bc83b9c4de4902fa4901e03dc6, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0137718
+      objectReference: {fileID: 0}
+    - target: {fileID: 8399449439033416630, guid: a12729bc83b9c4de4902fa4901e03dc6, type: 3}
+      propertyPath: m_Size.y
+      value: 0.51949406
+      objectReference: {fileID: 0}
+    - target: {fileID: 8399449439033416630, guid: a12729bc83b9c4de4902fa4901e03dc6, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.004359126
+      objectReference: {fileID: 0}
+    - target: {fileID: 8399449439033416630, guid: a12729bc83b9c4de4902fa4901e03dc6, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.42974705
       objectReference: {fileID: 0}
     - target: {fileID: 8399449439033416630, guid: a12729bc83b9c4de4902fa4901e03dc6, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
