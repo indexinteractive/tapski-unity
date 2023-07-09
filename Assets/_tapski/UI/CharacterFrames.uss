@@ -43,7 +43,7 @@
 }
 
 .MountainMan {
-    background-image: url('project://database/Assets/_tapski/Graphics/Characters/mountain_man_straight.png?fileID=-1897688579&guid=71f5425fcf4984ef2aeffdeb7d29e7c8&type=3#mountain_man_straight_0');
+    background-image: url('project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=1359563634&guid=f44b9c29f5876474fb05a508c1839a9c&type=3#mountain_man_straight_0');
 }
 
 .Extremo {
