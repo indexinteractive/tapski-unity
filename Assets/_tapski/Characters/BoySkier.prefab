@@ -81,12 +81,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -31581842, guid: a85ae2e54ef3140b9af93325b7315e2a, type: 3}
+  m_Sprite: {fileID: 1090987264, guid: f44b9c29f5876474fb05a508c1839a9c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.32, y: 0.34}
+  m_Size: {x: 2, y: 2.125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -108,7 +108,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage:
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -130,7 +130,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 2, y: 2.125}
-    newSize: {x: 0.32, y: 0.34}
+    newSize: {x: 2, y: 2.125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -4951,8 +4951,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2862e519100224e3fbef0b4fcb6cc646, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   RestTime: 1.3
   JumpTime: 0.5
   SpeedCurve:
@@ -4990,6 +4990,10 @@ MonoBehaviour:
     m_RotationOrder: 4
   MaxSpeed: 30
   JumpSpeedMultiplier: 0.2
+  SpeedCurveRate: 0.05
+  MaxCurveValue: 1
+  DriftFactor: 1.5
+  DriftRate: 0.5
 --- !u!114 &8118296987711664486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5000,8 +5004,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9af12eca15f94dbeb4ba7d47b5f3700, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7484859789646117072
 GameObject:
   m_ObjectHideFlags: 0

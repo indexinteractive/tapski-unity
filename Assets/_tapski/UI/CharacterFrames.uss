@@ -15,7 +15,7 @@
 }
 
 .BoySkier {
-    background-image: url('project://database/Assets/_tapski/Graphics/Characters/boy_skier_straight.png?fileID=-31581842&guid=a85ae2e54ef3140b9af93325b7315e2a&type=3#boy_skier_straight_0');
+    background-image: url('project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=1090987264&guid=f44b9c29f5876474fb05a508c1839a9c&type=3#boy_skier_straight_0');
 }
 
 .Fro {
