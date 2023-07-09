@@ -11,7 +11,7 @@
 }
 
 .Yeti {
-    background-image: url('project://database/Assets/_tapski/Graphics/Characters/yeti_straight.png?fileID=-689755782&guid=26fda200f8fdf43f1999f8ad4925d3c0&type=3#yeti_straight_0');
+    background-image: url('project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=-191391720&guid=f44b9c29f5876474fb05a508c1839a9c&type=3#yeti_straight_0');
 }
 
 .BoySkier {
