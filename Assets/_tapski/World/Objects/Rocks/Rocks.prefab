@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 1994329685
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1208771523, guid: 1a5289dfa9d03439cb762831100ece4c, type: 3}
+  m_Sprite: {fileID: -885980564, guid: f44b9c29f5876474fb05a508c1839a9c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -223,5 +223,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   State: {fileID: 11400000, guid: 0bb76baa805de4ee3a0274d83a45547a, type: 2}
   WompClip: {fileID: 5624575684251980328}
-  Animator: {fileID: 0}
   AnimationClip: 

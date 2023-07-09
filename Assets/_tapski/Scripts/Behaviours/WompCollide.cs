@@ -24,7 +24,7 @@ public class WompCollide : Resetable
         Assert.IsNotNull(WompClip, "[WompCollide] WompClip is unassigned");
         Assert.IsNotNull(State, "[WompCollide] Game State is unassigned");
 
-        _animator = GetComponent<Animator>();
+        _animator = GetComponentInParent<Animator>();
     }
     #endregion
 

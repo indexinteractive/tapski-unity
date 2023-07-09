@@ -2649,6 +2649,237 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: white_square
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 358
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3197721c93e274f9b8dc85975b5fe2d1
+      internalID: 1289245548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocks_0
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 341
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 713ad58c58e164b5088430192b05a381
+      internalID: -885980564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rocks_1
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 341
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51e3096a81fd3451cab0ab60d6027c40
+      internalID: -724100376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: checkpoint_idle
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 279
+        width: 80
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbe4f5bebba764cfbbd4b719a64df4a1
+      internalID: 2078899165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: checkpoint_tutorial
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 183
+        width: 80
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c4b0f778c5fb487cab94db73fc567d1
+      internalID: -291290384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: checkpoint_right_0
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 247
+        width: 80
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e0ef753ae9af45498ccd83f1d1eef02
+      internalID: 1340599410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: checkpoint_right_1
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 247
+        width: 80
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 722947f26ce074765b5ce045bf9ccdcd
+      internalID: -1445815481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: checkpoint_right_2
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 247
+        width: 80
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d49d9cee2b34b4ab6a6b74959bd6dd3e
+      internalID: -249584164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: checkpoint_left_2
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 215
+        width: 80
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb55e02a2bd6944eaae9e47186fd7e6f
+      internalID: -2055572589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: checkpoint_left_1
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 215
+        width: 80
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e40dbb5dd26bc4ab29ec97953ab7a0ee
+      internalID: -1583143798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: checkpoint_left_0
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 215
+        width: 80
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bbbf0002ef004a779cc3c4537afda78
+      internalID: 691828818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -2661,10 +2892,12 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       boy_snowboarder_fall: 1775923331
+      checkpoint_right_0: 1340599410
       zombie_fall: 1632852986
       elf_turn_1: -360321406
       fro_straight_2: -1002825962
       santa_straight_1: 85865568
+      checkpoint_left_1: -1583143798
       yeti_straight_0: -191391720
       girl_skier_turn_2: -58252859
       boy_skier_fall: 1138187117
@@ -2692,9 +2925,10 @@ TextureImporter:
       girl_skier_turn_0: 1463445503
       extremette_fall: -1300266225
       boy_snowboarder_turn_2: 1765790269
-      penguin_straight_0: -2070063893
+      rocks_0: -885980564
       yeti_turn_1: -1409340013
       girl_snowboarder_straight_0: -1424716248
+      penguin_straight_0: -2070063893
       elf_straight_0: -886436564
       doggo_straight_2: -1352548662
       penguin_turn_1: 2020049613
@@ -2706,9 +2940,11 @@ TextureImporter:
       yeti_jump: -1056578799
       mountain_map_fall: 1991876631
       yeti_turn_2: 1587886858
+      rocks_1: -724100376
       penguin_straight_1: 1854045363
       girl_skier_straight_1: 1173576529
       girl_snowboarder_jump: -331233382
+      checkpoint_tutorial: -291290384
       extremette_straight_1: 652537022
       yeti_fall: 1472186574
       extremette_jump: -1032736963
@@ -2751,28 +2987,34 @@ TextureImporter:
       mountain_map_turn_1: -1612597612
       mountain_map_turn_2: 113658391
       penguin_jump: 1980056922
+      checkpoint_right_1: -1445815481
       zombie_turn_2: -205769823
       extremo_turn_0: -67650184
       fro_jump: 262499961
       girl_snowboarder_turn_2: -1833070053
       doggo_fall: 495126197
+      checkpoint_left_0: 691828818
       doggo_straight_1: 950024045
       santa_straight_2: -1086279354
       ninja_fall: 1811695020
       elf_straight_2: -1499848794
       extremo_straight_0: -1992131279
       boy_snowboarder_jump: -1543309024
+      checkpoint_right_2: -249584164
       fro_turn_2: -683058522
+      white_square: 1289245548
       ninja_straight_0: 909824564
       extremo_turn_2: 936277624
       santa_fall: 82701068
       doggo_turn_0: -351452439
       santa_turn_0: 15696086
+      checkpoint_idle: 2078899165
       boy_skier_jump: -655308576
       zombie_jump: -1984542856
       boy_skier_straight_2: -1431787435
       girl_skier_turn_1: -1397584914
       ninja_straight_2: 494430547
+      checkpoint_left_2: -2055572589
       mountain_map_straight_0: 1359563634
       mountain_map_straight_1: 2093405872
       santa_turn_2: 1985581554

@@ -73,7 +73,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   State: {fileID: 11400000, guid: 0bb76baa805de4ee3a0274d83a45547a, type: 2}
   WompClip: {fileID: 2748594475939701180}
-  Animator: {fileID: 8754192410525726782}
   AnimationClip: CheckpointMissRight
 --- !u!1 &3494813359269548975
 GameObject:
@@ -148,7 +147,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   State: {fileID: 11400000, guid: 0bb76baa805de4ee3a0274d83a45547a, type: 2}
   WompClip: {fileID: 2748594475939701180}
-  Animator: {fileID: 8754192410525726782}
   AnimationClip: CheckpointMissLeft
 --- !u!1 &3711184314119181809
 GameObject:
@@ -230,7 +228,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cdcc2ecd1be7b414ab5e7d3e4136d330, type: 3}
+  m_Sprite: {fileID: 2078899165, guid: f44b9c29f5876474fb05a508c1839a9c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -278,7 +276,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5, y: 1.9375}
+    oldSize: {x: 5, y: 2}
     newSize: {x: 0.8, y: 0.31}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
