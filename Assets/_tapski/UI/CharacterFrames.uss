@@ -3,7 +3,7 @@
 }
 
 .Santa {
-    background-image: url('project://database/Assets/_tapski/Graphics/Characters/santa_straight.png?fileID=-374624428&guid=51809a99bc8a446faac59c0dc26beaab&type=3#santa_straight_0');
+    background-image: url('project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=-2000401335&guid=f44b9c29f5876474fb05a508c1839a9c&type=3#santa_straight_0');
 }
 
 .DogSled {
