@@ -21,17 +21,33 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6186977774110670661, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 1.5625
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186977774110670661, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 2.1875
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186977774110670661, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.625
+      value: 1.5625
       objectReference: {fileID: 0}
     - target: {fileID: 6186977774110670661, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 2.1875
       objectReference: {fileID: 0}
     - target: {fileID: 6227765593603246816, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
+      propertyPath: m_Size.x
+      value: 1.5625
+      objectReference: {fileID: 0}
+    - target: {fileID: 6227765593603246816, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
+      propertyPath: m_Size.y
+      value: 2.1875
+      objectReference: {fileID: 0}
+    - target: {fileID: 6227765593603246816, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1958667326, guid: 4d830d0448c964fe9a5396b8cc544a30, type: 3}
+      objectReference: {fileID: -2070063893, guid: f44b9c29f5876474fb05a508c1839a9c, type: 3}
     - target: {fileID: 6227765593603246817, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
       propertyPath: m_Name
       value: Penguin

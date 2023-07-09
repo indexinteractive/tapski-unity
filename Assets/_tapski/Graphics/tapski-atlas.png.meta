@@ -2382,7 +2382,7 @@ TextureImporter:
         serializedVersion: 2
         x: 82
         y: 44
-        width: 25
+        width: 24
         height: 35
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -2401,9 +2401,9 @@ TextureImporter:
       name: penguin_straight_1
       rect:
         serializedVersion: 2
-        x: 108
+        x: 107
         y: 44
-        width: 27
+        width: 24
         height: 35
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -2422,9 +2422,9 @@ TextureImporter:
       name: penguin_straight_2
       rect:
         serializedVersion: 2
-        x: 136
+        x: 132
         y: 44
-        width: 26
+        width: 24
         height: 35
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -2443,9 +2443,9 @@ TextureImporter:
       name: penguin_jump
       rect:
         serializedVersion: 2
-        x: 163
+        x: 157
         y: 44
-        width: 26
+        width: 24
         height: 35
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -2464,9 +2464,9 @@ TextureImporter:
       name: penguin_fall
       rect:
         serializedVersion: 2
-        x: 190
+        x: 182
         y: 44
-        width: 26
+        width: 24
         height: 35
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
