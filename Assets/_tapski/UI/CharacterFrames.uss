@@ -47,7 +47,7 @@
 }
 
 .Extremo {
-    background-image: url('project://database/Assets/_tapski/Graphics/Characters/extremo_straight.png?fileID=-786451458&guid=cf0becfbaa5ba434a80eb3f347fae6ab&type=3#extremo_straight_0');
+    background-image: url('project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=-1992131279&guid=f44b9c29f5876474fb05a508c1839a9c&type=3#extremo_straight_0');
 }
 
 .Extremette {
