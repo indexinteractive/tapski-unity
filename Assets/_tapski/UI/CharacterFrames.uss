@@ -19,7 +19,7 @@
 }
 
 .Fro {
-    background-image: url('project://database/Assets/_tapski/Graphics/Characters/fro_kid_straight.png?fileID=1350644475&guid=cf68ccfea7aba48d49241fad95e566dd&type=3#fro_kid_straight_0');
+    background-image: url('project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=799349619&guid=f44b9c29f5876474fb05a508c1839a9c&type=3#fro_straight_0');
 }
 
 .Elf {
