@@ -28,6 +28,9 @@ public class LoadManager : MonoBehaviour
     #region Unity Lifecycle
     private void OnEnable()
     {
+        // Without this line, performance on iOS is miserable.
+        Application.targetFrameRate = 60;
+
         Assert.IsNotNull(MainMenuScene, "[LoadManager] MainMenuScene has no value");
         Assert.IsNotNull(SplashUI, "[LoadManager] SplashUI is unassigned");
         Assert.IsNotNull(State, "[LoadManager] Game State is unassigned");
