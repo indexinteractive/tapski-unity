@@ -6,21 +6,21 @@
             </ui:VisualElement>
             <ui:VisualElement name="arrows" style="flex-direction: row;">
                 <ui:VisualElement name="arrow-left" style="align-items: center;">
-                    <ui:VisualElement style="background-image: url(&apos;project://database/Assets/_tapski/Graphics/UI%20Elements/help_turn.png?fileID=2800000&amp;guid=476e7fd35ebe44a1f8fd0b2e3bd92667&amp;type=3#help_turn&apos;); width: 90px; height: 34px; scale: -1 1;" />
-                    <ui:VisualElement style="background-image: url(&apos;project://database/Assets/_tapski/Graphics/UI%20Elements/help_cursor.png?fileID=2800000&amp;guid=78cee4ae39d974748803e5e099beb98b&amp;type=3#help_cursor&apos;); width: 17px; height: 34px; margin-right: 40px;" />
+                    <ui:VisualElement style="background-image: url(&apos;project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=85051408&amp;guid=f44b9c29f5876474fb05a508c1839a9c&amp;type=3#help_turn&apos;); width: 90px; height: 34px; scale: -1 1;" />
+                    <ui:VisualElement style="background-image: url(&apos;project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=-1288627613&amp;guid=f44b9c29f5876474fb05a508c1839a9c&amp;type=3#help_cursor&apos;); width: 17px; height: 34px; margin-right: 40px;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="arrow-right" style="align-items: center; visibility: visible;">
-                    <ui:VisualElement style="background-image: url(&apos;project://database/Assets/_tapski/Graphics/UI%20Elements/help_turn.png?fileID=2800000&amp;guid=476e7fd35ebe44a1f8fd0b2e3bd92667&amp;type=3#help_turn&apos;); width: 90px; height: 34px;" />
-                    <ui:VisualElement style="background-image: url(&apos;project://database/Assets/_tapski/Graphics/UI%20Elements/help_cursor.png?fileID=2800000&amp;guid=78cee4ae39d974748803e5e099beb98b&amp;type=3#help_cursor&apos;); width: 17px; height: 34px; margin-left: 40px;" />
+                    <ui:VisualElement style="background-image: url(&apos;project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=85051408&amp;guid=f44b9c29f5876474fb05a508c1839a9c&amp;type=3#help_turn&apos;); width: 90px; height: 34px;" />
+                    <ui:VisualElement style="background-image: url(&apos;project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=-1288627613&amp;guid=f44b9c29f5876474fb05a508c1839a9c&amp;type=3#help_cursor&apos;); width: 17px; height: 34px; margin-left: 40px;" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="middle" style="align-items: center;">
-            <ui:VisualElement style="background-image: url(&apos;project://database/Assets/_tapski/Graphics/UI%20Elements/help_checkpoint.png?fileID=2800000&amp;guid=459f238bf457b4a2593af494f6a85849&amp;type=3#help_checkpoint&apos;); width: 80px; height: 31px;" />
+            <ui:VisualElement style="background-image: url(&apos;project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=-291290384&amp;guid=f44b9c29f5876474fb05a508c1839a9c&amp;type=3#help_checkpoint&apos;); width: 80px; height: 31px;" />
             <ui:Label text="score points by going&#10;through checkpoints" style="-unity-text-align: upper-center; -unity-font-definition: none; -unity-font: url(&apos;project://database/Assets/_tapski/UI/TinyPixy.ttf?fileID=12800000&amp;guid=07f154760a1fd4e7ebd3a81d0aa642f8&amp;type=3#TinyPixy&apos;);" />
         </ui:VisualElement>
         <ui:VisualElement name="bottom" style="align-items: center; margin-bottom: 20px;">
-            <ui:VisualElement style="background-image: url(&apos;project://database/Assets/_tapski/Graphics/UI%20Elements/help_coin.png?fileID=2800000&amp;guid=082b1b43fad1c42dab5534bd3dce660a&amp;type=3#help_coin&apos;); width: 100%; height: 20px; -unity-background-scale-mode: scale-to-fit;" />
+            <ui:VisualElement style="background-image: url(&apos;project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=1987976855&amp;guid=f44b9c29f5876474fb05a508c1839a9c&amp;type=3#help_coin&apos;); width: 100%; height: 20px; -unity-background-scale-mode: scale-to-fit;" />
             <ui:Label text="collect coins for&#10;unlockables" style="-unity-text-align: upper-center; -unity-font-definition: none; -unity-font: url(&apos;project://database/Assets/_tapski/UI/TinyPixy.ttf?fileID=12800000&amp;guid=07f154760a1fd4e7ebd3a81d0aa642f8&amp;type=3#TinyPixy&apos;);" />
         </ui:VisualElement>
     </ui:VisualElement>

@@ -802,7 +802,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_map_turn_0
+      name: mountain_man_turn_0
       rect:
         serializedVersion: 2
         x: 1
@@ -823,7 +823,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_map_turn_1
+      name: mountain_man_turn_1
       rect:
         serializedVersion: 2
         x: 34
@@ -844,7 +844,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_map_turn_2
+      name: mountain_man_turn_2
       rect:
         serializedVersion: 2
         x: 67
@@ -865,7 +865,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_map_straight_0
+      name: mountain_man_straight_0
       rect:
         serializedVersion: 2
         x: 100
@@ -886,7 +886,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_map_straight_1
+      name: mountain_man_straight_1
       rect:
         serializedVersion: 2
         x: 133
@@ -907,7 +907,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_map_straight_2
+      name: mountain_man_straight_2
       rect:
         serializedVersion: 2
         x: 166
@@ -928,7 +928,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_map_jump
+      name: mountain_man_jump
       rect:
         serializedVersion: 2
         x: 199
@@ -949,7 +949,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mountain_map_fall
+      name: mountain_man_fall
       rect:
         serializedVersion: 2
         x: 232
@@ -2734,7 +2734,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: checkpoint_tutorial
+      name: help_checkpoint
       rect:
         serializedVersion: 2
         x: 265
@@ -3729,7 +3729,7 @@ TextureImporter:
         width: 14
         height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3737,6 +3737,615 @@ TextureImporter:
       bones: []
       spriteID: 2665397046122415cb8223947d86b6d0
       internalID: -1166961243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tapski-title
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 285
+        width: 199
+        height: 212
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2acdc82d205824627b8d2a5f9e67ea43
+      internalID: -594861366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_empty_neutral
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 543
+        width: 45
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a39ca024b2f141eaa42faa7e1f67324
+      internalID: 895223879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_empty_pressed
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 523
+        width: 45
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d70ed3fbdb5e94fe69b041378eb16780
+      internalID: 857958002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_ok_neutral
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 537
+        width: 65
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa8fd9b55e48b4378a8a2a6a47e63751
+      internalID: 1916152410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_ok_pressed
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 511
+        width: 65
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f2db1f880ae746628893a444e743a62
+      internalID: -1217741793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_go_neutral
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 537
+        width: 65
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2329d5b3feee246a089c67c27857407a
+      internalID: -1312682326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_go_pressed
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 511
+        width: 65
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9e866f538de64a7ea7fdbcdcd28c08b
+      internalID: 176980550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_back_neutral
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 537
+        width: 55
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62cad0d4e54884273a65b7dfa223fab7
+      internalID: 71806621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_back_pressed
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 511
+        width: 55
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e422e53eaef74236828bba54186b5d3
+      internalID: -1882238187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_retry_neutral
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 485
+        width: 65
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f36eec1f9dfa941a08ea9db59078073f
+      internalID: 366233459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_retry_pressed
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 459
+        width: 65
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dd6f4d938a6b4ea5b2ff7dedb7655ba
+      internalID: 1939589162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_sound_on
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 499
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89a13a51cb753492c8fd40d859f5a334
+      internalID: -554321971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_sound_off
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 475
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fc0e8f1d0db84f84b9761986bf17f4e
+      internalID: -377645225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_play_neutral
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 394
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ecb4b82adbed4954a9156da8ad43fee
+      internalID: -2004876131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_play_pressed
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 329
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 067aa75986b6844afa90d7a5bbfaec62
+      internalID: 334773920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_highscores_pressed
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 329
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 022ad3359135b4bd4ba3442837ccd4e5
+      internalID: -1499523602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_highscores_neutral
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 394
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 656b58f816729492c863e0a365596a59
+      internalID: -813081115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_left_neutral
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 531
+        width: 18
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c66c0af0ef49e440cac5a6a22ceb7113
+      internalID: 1635928956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_left_pressed
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 498
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed738d5c7c3914c1e9c32d220ed7380f
+      internalID: -617584105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_right_pressed
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 498
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42f15437a075e4dcc824fad189d37639
+      internalID: -30175782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_right_neutral
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 531
+        width: 18
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac27fb507ddea419e9eb2b31faf3d186
+      internalID: 1972108140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: text_game_over
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 183
+        width: 192
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0d36d01151b94946824d52fa45b5c8e
+      internalID: -6399990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: text_select_character
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 65
+        width: 256
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7483bf1340e1840bab28e272b55ac7e6
+      internalID: -1294037682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: logo
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 272
+        width: 72
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f534fc8bcef8b4c83baa0c55088bddcc
+      internalID: -132979456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: score_panel
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 227
+        width: 44
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 16, y: 16, z: 16, w: 16}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c573d67904d6d4a2f8ca5d7909bdeb39
+      internalID: 290427079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: help_turn
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 303
+        width: 90
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5895ec806f27d4f7881656937f4b5491
+      internalID: 85051408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: help_coin
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 215
+        width: 35
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdc474682adab42faa274dc4b7d769af
+      internalID: 1987976855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: help_cursor
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 340
+        width: 17
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd8a560497434439fa3a15a8eef400f4
+      internalID: -1288627613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panel
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 239
+        width: 192
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 8, y: 9, z: 4, w: 9}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e3b4eb39969749d6b08e9f1207820e7
+      internalID: 1931511541
       vertices: []
       indices: 
       edges: []
@@ -3755,10 +4364,12 @@ TextureImporter:
       checkpoint_right_0: 1340599410
       fro_straight_2: -1002825962
       santa_straight_1: 85865568
+      help_cursor: -1288627613
       tree_christmas_1: 954124671
       trail_doggo: -1070853268
       checkpoint_left_1: -1583143798
       girl_snowboarder_turn_0: -962311921
+      btn_play_pressed: 334773920
       fro_turn_0: 1782399308
       ninja_straight_1: 1071502460
       snowman_large_2: -1888338965
@@ -3775,29 +4386,33 @@ TextureImporter:
       boy_skier_turn_1: -868332046
       tree_partial_2: -1581739954
       extremette_fall: -1300266225
+      mountain_man_turn_0: 2079748835
       boy_snowboarder_turn_2: 1765790269
       rocks_0: -885980564
       girl_snowboarder_straight_0: -1424716248
       elf_straight_0: -886436564
       doggo_straight_2: -1352548662
+      btn_left_pressed: -617584105
       penguin_turn_1: 2020049613
       boy_skier_turn_2: 2062070409
       snow_ramp: -468867983
       tree_green_4: 472956821
       snowman_small_1: 921559838
       elf_straight_1: 359109546
+      btn_back_neutral: 71806621
       snowman_large_4: -1363411300
       yeti_jump: -1056578799
       yeti_turn_2: 1587886858
       trail_ski: 452709999
       rocks_1: -724100376
+      text_game_over: -6399990
       penguin_straight_1: 1854045363
-      checkpoint_tutorial: -291290384
       snowman_small_0: 924901198
       extremette_straight_1: 652537022
       yeti_fall: 1472186574
       zombie_straight_0: 1542479524
       yeti_straight_2: 1972685146
+      mountain_man_turn_1: -1612597612
       doggo_straight_0: -865258777
       elf_jump: 1641980223
       extremo_jump: -2109938881
@@ -3814,6 +4429,7 @@ TextureImporter:
       girl_skier_straight_2: 1853739170
       extremette_turn_1: -525117728
       tree_green_1: 157050709
+      help_coin: 1987976855
       penguin_straight_2: 288267756
       girl_skier_jump: -1916840585
       checkpoint_right_1: -1445815481
@@ -3823,30 +4439,36 @@ TextureImporter:
       fro_jump: 262499961
       doggo_fall: 495126197
       checkpoint_left_0: 691828818
+      btn_highscores_pressed: -1499523602
       ninja_fall: 1811695020
+      btn_sound_off: -377645225
       elf_straight_2: -1499848794
       checkpoint_right_2: -249584164
       fro_turn_2: -683058522
       tree_christmas_4: 1771454590
       extremo_turn_2: 936277624
       tree_christmas_2: 384843869
+      btn_empty_neutral: 895223879
       boy_skier_jump: -655308576
       zombie_jump: -1984542856
-      mountain_map_straight_0: 1359563634
+      btn_retry_neutral: 366233459
       wood_ramp: 1054531604
-      mountain_map_straight_1: 2093405872
       fro_straight_0: 799349619
       boy_skier_straight_1: -687234269
-      mountain_map_straight_2: 695390525
       boy_snowboarder_fall: 1775923331
       zombie_fall: 1632852986
+      btn_ok_neutral: 1916152410
       coin_3: 1503924841
       elf_turn_1: -360321406
+      btn_right_pressed: -30175782
+      mountain_man_straight_0: 1359563634
+      mountain_man_straight_1: 2093405872
       yeti_straight_0: -191391720
       girl_skier_turn_2: -58252859
       boy_skier_fall: 1138187117
       girl_skier_fall: -1182605746
       doggo_turn_1: -799866003
+      btn_go_pressed: 176980550
       extremo_straight_2: -629776862
       coin_1: 292906132
       zombie_turn_0: -683715967
@@ -3857,19 +4479,23 @@ TextureImporter:
       santa_turn_1: -1107705040
       snowman_large_1: -976209474
       tree_green_3: 1246522111
-      mountain_map_turn_0: 2079748835
       fro_straight_1: 976542559
+      help_turn: 85051408
       girl_skier_turn_0: 1463445503
+      text_select_character: -1294037682
       penguin_straight_0: -2070063893
       yeti_turn_1: -1409340013
+      mountain_man_turn_2: 113658391
       coin_0: 194198693
       coin_2: 1514244791
+      logo: -132979456
       fro_fall: 89168185
       tree_snowy_1: -1111634693
       boy_skier_turn_0: 187946409
       zombie_turn_1: 1293544787
       snowman_small_3: -1272481960
-      mountain_map_fall: 1991876631
+      tapski-title: -594861366
+      btn_sound_on: -554321971
       girl_skier_straight_1: 1173576529
       girl_snowboarder_jump: -331233382
       tree_snowy_4: 577370375
@@ -3880,11 +4506,11 @@ TextureImporter:
       tree_christmas_3: 1587514857
       boy_snowboarder_straight_0: -1170241691
       trail_snowboard: 873879632
-      mountain_map_jump: 61933129
       elf_fall: -35306477
       boy_skier_straight_0: 1090987264
       ninja_jump: 593933369
       tree_partial_4: 1315042276
+      mountain_man_fall: 1991876631
       tree_green_0: 1168713570
       elf_turn_2: -1915616561
       tree_snowy_2: 2031094663
@@ -3894,22 +4520,30 @@ TextureImporter:
       girl_skier_straight_0: 1329808172
       extremette_straight_0: -1387401676
       yeti_straight_1: -1341562307
+      btn_empty_pressed: 857958002
       girl_snowboarder_straight_1: 1976246667
+      btn_ok_pressed: -1217741793
+      btn_highscores_neutral: -813081115
       boy_snowboarder_straight_1: 1332790044
       tree_green_2: -1475730711
       extremette_straight_2: -1603015720
       tree_snowy_0: 1073866161
       santa_straight_0: -2000401335
+      mountain_man_straight_2: 695390525
       ninja_turn_1: 1811339944
-      mountain_map_turn_1: -1612597612
-      mountain_map_turn_2: 113658391
+      btn_play_neutral: -2004876131
       zombie_turn_2: -205769823
       doggo_straight_1: 950024045
       santa_straight_2: -1086279354
+      panel: 1931511541
+      mountain_man_jump: 61933129
       extremo_straight_0: -1992131279
       boy_snowboarder_jump: -1543309024
+      btn_back_pressed: -1882238187
+      score_panel: 290427079
       white_square: 1289245548
       ninja_straight_0: 909824564
+      btn_go_neutral: -1312682326
       santa_fall: 82701068
       doggo_turn_0: -351452439
       santa_turn_0: 15696086
@@ -3921,9 +4555,13 @@ TextureImporter:
       ninja_straight_2: 494430547
       checkpoint_left_2: -2055572589
       trail_yeti: -1166961243
+      btn_right_neutral: 1972108140
       santa_turn_2: 1985581554
+      help_checkpoint: -291290384
       tree_partial_0: 609524212
       penguin_turn_0: -516736070
+      btn_left_neutral: 1635928956
+      btn_retry_pressed: 1939589162
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

@@ -10,34 +10,34 @@
 }
 
 .btn-previous {
-    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_left.png?fileID=-276747054&guid=9f0cb91cecfab4266b53b7a984453556&type=3#button_left_0');
+    background-image: url('project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=1635928956&guid=f44b9c29f5876474fb05a508c1839a9c&type=3#btn_left_neutral');
 }
 
 .btn-previous:active {
-    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_left.png?fileID=1600548072&guid=9f0cb91cecfab4266b53b7a984453556&type=3#button_left_1');
+    background-image: url('project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=-617584105&guid=f44b9c29f5876474fb05a508c1839a9c&type=3#btn_left_pressed');
 }
 
 .btn-next {
-    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_right.png?fileID=-673657188&guid=dbf5fb6774d574ed6a4510b52e324518&type=3#button_right_0');
+    background-image: url('project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=1972108140&guid=f44b9c29f5876474fb05a508c1839a9c&type=3#btn_right_neutral');
 }
 
 .btn-next:active {
-    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_right.png?fileID=-1913711421&guid=dbf5fb6774d574ed6a4510b52e324518&type=3#button_right_1');
+    background-image: url('project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=-30175782&guid=f44b9c29f5876474fb05a508c1839a9c&type=3#btn_right_pressed');
 }
 
 .btn-start {
-    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_go.png?fileID=444221316&guid=3f9f7e4a90d094dcda36a71f3d601aea&type=3#button_go_0');
+    background-image: url('project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=-1312682326&guid=f44b9c29f5876474fb05a508c1839a9c&type=3#btn_go_neutral');
     -unity-background-scale-mode: scale-to-fit;
 }
 
 .btn-start:active {
-    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_go.png?fileID=1660448766&guid=3f9f7e4a90d094dcda36a71f3d601aea&type=3#button_go_1');
+    background-image: url('project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=176980550&guid=f44b9c29f5876474fb05a508c1839a9c&type=3#btn_go_pressed');
 }
 
 .btn-back {
-    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_back.png?fileID=1233379207&guid=fda14e15fd8054e5d961a91972bc67aa&type=3#button_back_0');
+    background-image: url('project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=71806621&guid=f44b9c29f5876474fb05a508c1839a9c&type=3#btn_back_neutral');
 }
 
 .btn-back:active {
-    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_back.png?fileID=-1277431794&guid=fda14e15fd8054e5d961a91972bc67aa&type=3#button_back_1');
+    background-image: url('project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=-1882238187&guid=f44b9c29f5876474fb05a508c1839a9c&type=3#btn_back_pressed');
 }

@@ -22,7 +22,7 @@
     background-color: rgba(88, 88, 88, 0);
     height: 30px;
     -unity-background-scale-mode: scale-to-fit;
-    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_ok.png?fileID=1471703447&guid=526a20e73a9394cebb98a82585739538&type=3#button_ok_0');
+    background-image: url('project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=1916152410&guid=f44b9c29f5876474fb05a508c1839a9c&type=3#btn_ok_neutral');
 }
 
 #username TextInput {
@@ -35,13 +35,13 @@
 }
 
 .btn-back {
-    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_back.png?fileID=1233379207&guid=fda14e15fd8054e5d961a91972bc67aa&type=3#button_back_0');
+    background-image: url('project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=71806621&guid=f44b9c29f5876474fb05a508c1839a9c&type=3#btn_back_neutral');
 }
 
 .btn-back:active {
-    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_back.png?fileID=-1277431794&guid=fda14e15fd8054e5d961a91972bc67aa&type=3#button_back_1');
+    background-image: url('project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=-1882238187&guid=f44b9c29f5876474fb05a508c1839a9c&type=3#btn_back_pressed');
 }
 
 #btn-done:active {
-    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_retry.png?fileID=-1533958600&guid=eadb2fe059b9a428a8afaefe2ac4e76b&type=3#button_retry_1');
+    background-image: url('project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=-1217741793&guid=f44b9c29f5876474fb05a508c1839a9c&type=3#btn_ok_pressed');
 }

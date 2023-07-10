@@ -7,7 +7,7 @@
                 <ui:Button name="btn-sound" class="audio-True" style="-unity-background-scale-mode: scale-to-fit; background-color: rgba(88, 88, 88, 0); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; width: 24px; height: 24px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="middle" style="background-image: url(&apos;project://database/Assets/_tapski/Graphics/UI%20Elements/title.png?fileID=2800000&amp;guid=c2a8ee814ac914961a4295f943af0a09&amp;type=3#title&apos;); -unity-background-scale-mode: scale-to-fit; width: 100%; height: 45%;" />
+        <ui:VisualElement name="middle" style="background-image: url(&apos;project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=-594861366&amp;guid=f44b9c29f5876474fb05a508c1839a9c&amp;type=3#tapski-title&apos;); -unity-background-scale-mode: scale-to-fit; width: 100%; height: 45%;" />
         <ui:VisualElement name="bottom" style="flex-direction: row; justify-content: space-between; padding-left: 20px; padding-right: 20px; padding-top: 0; padding-bottom: 20px;">
             <ui:VisualElement name="top-left">
                 <ui:Button name="btn-scoreboard" class="btn-large" />

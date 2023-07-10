@@ -8,25 +8,25 @@
 }
 
 .audio-False {
-    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_sound.png?fileID=-817303054&guid=2547efb6652c041c6984ca5905d7d508&type=3#button_sound_1');
+    background-image: url('project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=-377645225&guid=f44b9c29f5876474fb05a508c1839a9c&type=3#btn_sound_off');
 }
 
 #btn-scoreboard {
-    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_scores.png?fileID=-215675159&guid=bae1e82fae2b345d2bd725d77a3457cf&type=3#button_scores_0');
+    background-image: url('project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=-813081115&guid=f44b9c29f5876474fb05a508c1839a9c&type=3#btn_highscores_neutral');
 }
 
 #btn-scoreboard:active {
-    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_scores.png?fileID=-1078375978&guid=bae1e82fae2b345d2bd725d77a3457cf&type=3#button_scores_1');
+    background-image: url('project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=-1499523602&guid=f44b9c29f5876474fb05a508c1839a9c&type=3#btn_highscores_pressed');
 }
 
 #btn-play {
-    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_play.png?fileID=-858668900&guid=54c4400b47cfc4c818fe0f8cadf63f26&type=3#button_play_0');
+    background-image: url('project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=-2004876131&guid=f44b9c29f5876474fb05a508c1839a9c&type=3#btn_play_neutral');
 }
 
 #btn-play:active {
-    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_play.png?fileID=-499776347&guid=54c4400b47cfc4c818fe0f8cadf63f26&type=3#button_play_1');
+    background-image: url('project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=334773920&guid=f44b9c29f5876474fb05a508c1839a9c&type=3#btn_play_pressed');
 }
 
 .audio-True {
-    background-image: url('project://database/Assets/_tapski/Graphics/UI%20Elements/button_sound.png?fileID=-931004189&guid=2547efb6652c041c6984ca5905d7d508&type=3#button_sound_0');
+    background-image: url('project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=-554321971&guid=f44b9c29f5876474fb05a508c1839a9c&type=3#btn_sound_on');
 }
