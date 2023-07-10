@@ -3435,7 +3435,7 @@ TextureImporter:
         width: 36
         height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3456,7 +3456,7 @@ TextureImporter:
         width: 36
         height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3477,7 +3477,7 @@ TextureImporter:
         width: 36
         height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3498,7 +3498,7 @@ TextureImporter:
         width: 36
         height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3519,7 +3519,7 @@ TextureImporter:
         width: 36
         height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3540,7 +3540,7 @@ TextureImporter:
         width: 36
         height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3561,7 +3561,7 @@ TextureImporter:
         width: 36
         height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3582,7 +3582,7 @@ TextureImporter:
         width: 36
         height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3603,7 +3603,7 @@ TextureImporter:
         width: 36
         height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3624,7 +3624,7 @@ TextureImporter:
         width: 36
         height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3632,6 +3632,111 @@ TextureImporter:
       bones: []
       spriteID: d5dfa25d7fdeb4faca8d3ec05187cda1
       internalID: 577370375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trail_ski
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 336
+        width: 12
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3e19f53361e4461b8e4e06ed60fe9d8
+      internalID: 452709999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trail_snowboard
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 336
+        width: 7
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1d13aecbfd9f4e2baa125403ac2901b
+      internalID: 873879632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trail_doggo
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 336
+        width: 18
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8842df78aa98548b3add3f6294511e04
+      internalID: -1070853268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trail_penguin
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 336
+        width: 10
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05445c1e6db354bf3a93761add4eba97
+      internalID: -1453363308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trail_yeti
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 336
+        width: 14
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2665397046122415cb8223947d86b6d0
+      internalID: -1166961243
       vertices: []
       indices: 
       edges: []
@@ -3647,173 +3752,178 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      boy_snowboarder_fall: 1775923331
       checkpoint_right_0: 1340599410
-      zombie_fall: 1632852986
-      coin_3: 1503924841
-      elf_turn_1: -360321406
       fro_straight_2: -1002825962
       santa_straight_1: 85865568
-      tree_partial_0: 609524212
       tree_christmas_1: 954124671
+      trail_doggo: -1070853268
       checkpoint_left_1: -1583143798
-      yeti_straight_0: -191391720
-      girl_skier_turn_2: -58252859
-      boy_skier_fall: 1138187117
-      girl_skier_fall: -1182605746
-      doggo_turn_1: -799866003
       girl_snowboarder_turn_0: -962311921
       fro_turn_0: 1782399308
       ninja_straight_1: 1071502460
       snowman_large_2: -1888338965
       boy_snowboarder_straight_2: -218012939
-      extremo_straight_2: -629776862
-      coin_1: 292906132
       extremo_straight_1: 1760072356
-      zombie_turn_0: -683715967
       penguin_fall: -1955342165
-      tree_partial_3: -628279577
       ninja_turn_2: 1254310636
       snowman_small_4: -1672390336
       tree_christmas_0: 1507270044
-      boy_snowboarder_turn_1: 175500839
+      trail_penguin: -1453363308
       extremo_turn_1: -584395586
-      girl_snowboarder_turn_1: 1579046827
+      extremo_fall: 1559166504
+      extremette_turn_0: -1351067731
+      boy_skier_turn_1: -868332046
+      tree_partial_2: -1581739954
+      extremette_fall: -1300266225
+      boy_snowboarder_turn_2: 1765790269
+      rocks_0: -885980564
+      girl_snowboarder_straight_0: -1424716248
+      elf_straight_0: -886436564
+      doggo_straight_2: -1352548662
+      penguin_turn_1: 2020049613
+      boy_skier_turn_2: 2062070409
+      snow_ramp: -468867983
+      tree_green_4: 472956821
+      snowman_small_1: 921559838
+      elf_straight_1: 359109546
+      snowman_large_4: -1363411300
+      yeti_jump: -1056578799
+      yeti_turn_2: 1587886858
+      trail_ski: 452709999
+      rocks_1: -724100376
+      penguin_straight_1: 1854045363
+      checkpoint_tutorial: -291290384
+      snowman_small_0: 924901198
+      extremette_straight_1: 652537022
+      yeti_fall: 1472186574
+      zombie_straight_0: 1542479524
+      yeti_straight_2: 1972685146
+      doggo_straight_0: -865258777
+      elf_jump: 1641980223
+      extremo_jump: -2109938881
+      zombie_straight_2: 2074796401
+      fro_turn_1: -1361336217
+      doggo_turn_2: -1380174685
+      snowman_large_0: 1728015390
+      ninja_turn_0: 698744590
+      elf_turn_0: 1313134652
+      doggo_jump: -1941462285
+      boy_snowboarder_turn_0: 1651643725
+      santa_jump: 1362249280
+      girl_snowboarder_fall: 1408877847
+      girl_skier_straight_2: 1853739170
+      extremette_turn_1: -525117728
+      tree_green_1: 157050709
+      penguin_straight_2: 288267756
+      girl_skier_jump: -1916840585
+      checkpoint_right_1: -1445815481
+      penguin_jump: 1980056922
+      girl_snowboarder_turn_2: -1833070053
+      extremo_turn_0: -67650184
+      fro_jump: 262499961
+      doggo_fall: 495126197
+      checkpoint_left_0: 691828818
+      ninja_fall: 1811695020
+      elf_straight_2: -1499848794
+      checkpoint_right_2: -249584164
+      fro_turn_2: -683058522
+      tree_christmas_4: 1771454590
+      extremo_turn_2: 936277624
+      tree_christmas_2: 384843869
+      boy_skier_jump: -655308576
+      zombie_jump: -1984542856
+      mountain_map_straight_0: 1359563634
+      wood_ramp: 1054531604
+      mountain_map_straight_1: 2093405872
+      fro_straight_0: 799349619
+      boy_skier_straight_1: -687234269
+      mountain_map_straight_2: 695390525
+      boy_snowboarder_fall: 1775923331
+      zombie_fall: 1632852986
+      coin_3: 1503924841
+      elf_turn_1: -360321406
+      yeti_straight_0: -191391720
+      girl_skier_turn_2: -58252859
+      boy_skier_fall: 1138187117
+      girl_skier_fall: -1182605746
+      doggo_turn_1: -799866003
+      extremo_straight_2: -629776862
+      coin_1: 292906132
+      zombie_turn_0: -683715967
+      tree_partial_3: -628279577
+      boy_snowboarder_turn_1: 175500839
       penguin_turn_2: 1169254760
+      girl_snowboarder_turn_1: 1579046827
       santa_turn_1: -1107705040
       snowman_large_1: -976209474
       tree_green_3: 1246522111
       mountain_map_turn_0: 2079748835
       fro_straight_1: 976542559
-      extremo_fall: 1559166504
-      extremette_turn_0: -1351067731
-      boy_skier_turn_1: -868332046
       girl_skier_turn_0: 1463445503
-      extremette_fall: -1300266225
-      tree_partial_2: -1581739954
-      boy_snowboarder_turn_2: 1765790269
-      rocks_0: -885980564
-      yeti_turn_1: -1409340013
-      girl_snowboarder_straight_0: -1424716248
-      coin_0: 194198693
       penguin_straight_0: -2070063893
-      elf_straight_0: -886436564
-      doggo_straight_2: -1352548662
+      yeti_turn_1: -1409340013
+      coin_0: 194198693
       coin_2: 1514244791
-      penguin_turn_1: 2020049613
-      boy_skier_turn_2: 2062070409
       fro_fall: 89168185
-      tree_green_4: 472956821
-      snowman_small_1: 921559838
       tree_snowy_1: -1111634693
-      elf_straight_1: 359109546
       boy_skier_turn_0: 187946409
       zombie_turn_1: 1293544787
       snowman_small_3: -1272481960
-      snow_ramp: -468867983
-      snowman_large_4: -1363411300
-      yeti_jump: -1056578799
       mountain_map_fall: 1991876631
-      yeti_turn_2: 1587886858
-      rocks_1: -724100376
-      penguin_straight_1: 1854045363
       girl_skier_straight_1: 1173576529
       girl_snowboarder_jump: -331233382
-      snowman_small_0: 924901198
       tree_snowy_4: 577370375
-      checkpoint_tutorial: -291290384
       tree_snowy_3: 1874089475
       snowman_small_2: 791248304
-      extremette_straight_1: 652537022
-      yeti_fall: 1472186574
       extremette_jump: -1032736963
-      zombie_straight_0: 1542479524
-      yeti_straight_2: 1972685146
       yeti_turn_0: -566070687
       tree_christmas_3: 1587514857
       boy_snowboarder_straight_0: -1170241691
-      doggo_straight_0: -865258777
+      trail_snowboard: 873879632
       mountain_map_jump: 61933129
-      elf_jump: 1641980223
       elf_fall: -35306477
       boy_skier_straight_0: 1090987264
       ninja_jump: 593933369
-      extremo_jump: -2109938881
       tree_partial_4: 1315042276
       tree_green_0: 1168713570
-      zombie_straight_2: 2074796401
       elf_turn_2: -1915616561
       tree_snowy_2: 2031094663
       extremette_turn_2: 2093608994
-      fro_turn_1: -1361336217
       girl_snowboarder_straight_2: 1602006126
       zombie_straight_1: -212492181
-      doggo_turn_2: -1380174685
-      snowman_large_0: 1728015390
       girl_skier_straight_0: 1329808172
       extremette_straight_0: -1387401676
-      ninja_turn_0: 698744590
       yeti_straight_1: -1341562307
-      elf_turn_0: 1313134652
       girl_snowboarder_straight_1: 1976246667
       boy_snowboarder_straight_1: 1332790044
-      doggo_jump: -1941462285
-      boy_snowboarder_turn_0: 1651643725
-      santa_jump: 1362249280
-      girl_snowboarder_fall: 1408877847
-      extremette_straight_2: -1603015720
-      girl_skier_straight_2: 1853739170
-      extremette_turn_1: -525117728
-      tree_green_1: 157050709
       tree_green_2: -1475730711
+      extremette_straight_2: -1603015720
       tree_snowy_0: 1073866161
-      penguin_straight_2: 288267756
-      girl_skier_jump: -1916840585
       santa_straight_0: -2000401335
       ninja_turn_1: 1811339944
       mountain_map_turn_1: -1612597612
       mountain_map_turn_2: 113658391
-      penguin_jump: 1980056922
-      checkpoint_right_1: -1445815481
       zombie_turn_2: -205769823
-      extremo_turn_0: -67650184
-      fro_jump: 262499961
-      girl_snowboarder_turn_2: -1833070053
-      doggo_fall: 495126197
-      checkpoint_left_0: 691828818
       doggo_straight_1: 950024045
       santa_straight_2: -1086279354
-      ninja_fall: 1811695020
-      elf_straight_2: -1499848794
       extremo_straight_0: -1992131279
       boy_snowboarder_jump: -1543309024
-      checkpoint_right_2: -249584164
-      fro_turn_2: -683058522
       white_square: 1289245548
       ninja_straight_0: 909824564
-      tree_christmas_4: 1771454590
-      extremo_turn_2: 936277624
       santa_fall: 82701068
       doggo_turn_0: -351452439
       santa_turn_0: 15696086
-      tree_christmas_2: 384843869
       tree_partial_1: -910297900
       checkpoint_idle: 2078899165
-      boy_skier_jump: -655308576
-      zombie_jump: -1984542856
       snowman_large_3: -1830762014
       boy_skier_straight_2: -1431787435
       girl_skier_turn_1: -1397584914
       ninja_straight_2: 494430547
       checkpoint_left_2: -2055572589
-      mountain_map_straight_0: 1359563634
-      mountain_map_straight_1: 2093405872
-      wood_ramp: 1054531604
+      trail_yeti: -1166961243
       santa_turn_2: 1985581554
+      tree_partial_0: 609524212
       penguin_turn_0: -516736070
-      fro_straight_0: 799349619
-      boy_skier_straight_1: -687234269
-      mountain_map_straight_2: 695390525
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

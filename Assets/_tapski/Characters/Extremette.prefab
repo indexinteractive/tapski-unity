@@ -27,7 +27,7 @@ PrefabInstance:
     - target: {fileID: 5164707256349059240, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
       propertyPath: UVModule.sprites.Array.data[0].sprite
       value: 
-      objectReference: {fileID: -1605589773, guid: 694cefa36dd294d0c99a9e0455aca052, type: 3}
+      objectReference: {fileID: 873879632, guid: f44b9c29f5876474fb05a508c1839a9c, type: 3}
     - target: {fileID: 6186977774110670661, guid: ceb6452753bf04e09a49c142cfda1aad, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
       value: 1.125
