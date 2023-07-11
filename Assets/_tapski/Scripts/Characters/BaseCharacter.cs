@@ -2,6 +2,8 @@ using System;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.EnhancedTouch;
+using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 
 public enum PlayerStates
 {
@@ -93,6 +95,8 @@ public class BaseCharacter : MonoBehaviour
     /// Tracks the amount of drift that will be applied in the horizontal direction
     /// </summary>
     private float _driftAmount;
+
+    private float _screenMidpoint;
     #endregion
 
     #region Unity Lifecycle
@@ -101,18 +105,28 @@ public class BaseCharacter : MonoBehaviour
         _animator = GetComponent<Animator>();
         Assert.IsNotNull(_animator, $"[BaseCharacter] No Animator found on character {name}");
 
+        EnhancedTouchSupport.Enable();
         _input = new PlayerInput();
         _input.Enable();
 
-        _input.Player.Tap.performed += OnTapInput;
         _input.Player.DirectionKey.performed += OnDirectionKeyInput;
 
+        _screenMidpoint = Screen.width * 0.5f;
         _state = PlayerStates.Idle;
     }
 
     private void Update()
     {
         _stateTimer += Time.deltaTime;
+
+#if UNITY_STANDALONE || UNITY_EDITOR
+        if (!Keyboard.current.anyKey.isPressed)
+        {
+            HandlePointerInput();
+        }
+#else
+        HandleTouchInput();
+#endif
 
         switch (State)
         {
@@ -169,25 +183,16 @@ public class BaseCharacter : MonoBehaviour
         UpdateMovement();
     }
 
-    private void UpdateMovement()
+    private void OnDisable()
     {
-        var vertical = SpeedCurve.Evaluate(_speedCurveX) * MaxSpeed;
-        var horizontal = SpeedCurve.Evaluate(_speedCurveX) * MaxSpeed * (_driftAmount * DriftFactor);
-
-        Vector3 newPosition = new Vector3(
-            transform.position.x + (horizontal * Time.deltaTime) * (FacesLeft ? -1 : 1),
-            transform.position.y - (vertical * Time.deltaTime),
-            transform.position.z
-        );
-
-        transform.position = newPosition;
+        EnhancedTouchSupport.Disable();
     }
     #endregion
 
     #region Input
     private bool InputStateIsValid()
     {
-        if (_state == PlayerStates.Jumping || _state == PlayerStates.Idle)
+        if (_state == PlayerStates.Jumping || _state == PlayerStates.Idle || _state == PlayerStates.Dead)
         {
             return false;
         }
@@ -195,38 +200,54 @@ public class BaseCharacter : MonoBehaviour
         return true;
     }
 
-    private void OnTapInput(UnityEngine.InputSystem.InputAction.CallbackContext e)
+    private void AdjustDirection(Vector2 position)
     {
-        bool inputIsPressed = e.ReadValueAsButton();
+        if (position.x < _screenMidpoint)
+        {
+            if (!FacesLeft)
+            {
+                _driftAmount = 0;
+            }
+
+            State = PlayerStates.TurnLeft;
+            FacesLeft = true;
+        }
+        else
+        {
+            if (FacesLeft)
+            {
+                _driftAmount = 0;
+            }
+
+            State = PlayerStates.TurnRight;
+            FacesLeft = false;
+        }
+    }
+
+    private void HandleTouchInput()
+    {
+        if (InputStateIsValid() && Touch.activeTouches.Count > 0)
+        {
+            Touch lastTouch = Touch.activeTouches[Touch.activeTouches.Count - 1];
+            Vector2 position = lastTouch.screenPosition;
+            AdjustDirection(position);
+        }
+        else if (_state != PlayerStates.Dead)
+        {
+            State = PlayerStates.Straight;
+        }
+    }
+
+    private void HandlePointerInput() {
+        bool inputIsPressed = Pointer.current.press.isPressed;
 
         if (InputStateIsValid() && inputIsPressed)
         {
-
             float screenMidpoint = Screen.width / 2;
             Vector2 position = Pointer.current.position.ReadValue();
-
-            if (position.x < screenMidpoint)
-            {
-                if (!FacesLeft)
-                {
-                    _driftAmount = 0;
-                }
-
-                State = PlayerStates.TurnLeft;
-                FacesLeft = true;
-            }
-            else
-            {
-                if (FacesLeft)
-                {
-                    _driftAmount = 0;
-                }
-
-                State = PlayerStates.TurnRight;
-                FacesLeft = false;
-            }
+            AdjustDirection(position);
         }
-        else
+        else if (_state != PlayerStates.Dead)
         {
             State = PlayerStates.Straight;
         }
@@ -240,29 +261,14 @@ public class BaseCharacter : MonoBehaviour
         }
 
         float value = e.ReadValue<float>();
-        if (value > 0)
+        if (value == 0)
         {
-            if (FacesLeft)
-            {
-                _driftAmount = 0;
-            }
-
-            State = PlayerStates.TurnRight;
-            FacesLeft = false;
-        }
-        else if (value < 0)
-        {
-            if (!FacesLeft)
-            {
-                _driftAmount = 0;
-            }
-
-            State = PlayerStates.TurnLeft;
-            FacesLeft = true;
+            State = PlayerStates.Straight;
         }
         else
         {
-            State = PlayerStates.Straight;
+            Vector2 position = new Vector2(_screenMidpoint + value, 0);
+            AdjustDirection(position);
         }
     }
     #endregion
@@ -275,9 +281,22 @@ public class BaseCharacter : MonoBehaviour
     #endregion
 
     #region Interactions
+    private void UpdateMovement()
+    {
+        var vertical = SpeedCurve.Evaluate(_speedCurveX) * MaxSpeed;
+        var horizontal = SpeedCurve.Evaluate(_speedCurveX) * MaxSpeed * (_driftAmount * DriftFactor);
+
+        Vector3 newPosition = new Vector3(
+            transform.position.x + (horizontal * Time.deltaTime) * (FacesLeft ? -1 : 1),
+            transform.position.y - (vertical * Time.deltaTime),
+            transform.position.z
+        );
+
+        transform.position = newPosition;
+    }
+
     public void OnCollideWithObstacle()
     {
-        _input.Player.Tap.performed -= OnTapInput;
         _input.Player.DirectionKey.performed -= OnDirectionKeyInput;
 
         State = PlayerStates.Dead;
