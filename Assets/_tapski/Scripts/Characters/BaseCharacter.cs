@@ -232,7 +232,7 @@ public class BaseCharacter : MonoBehaviour
             Vector2 position = lastTouch.screenPosition;
             AdjustDirection(position);
         }
-        else if (_state != PlayerStates.Dead)
+        else if (_state != PlayerStates.Dead && _state != PlayerStates.Jumping)
         {
             State = PlayerStates.Straight;
         }
@@ -247,7 +247,7 @@ public class BaseCharacter : MonoBehaviour
             Vector2 position = Pointer.current.position.ReadValue();
             AdjustDirection(position);
         }
-        else if (_state != PlayerStates.Dead)
+        else if (_state != PlayerStates.Dead && _state != PlayerStates.Jumping)
         {
             State = PlayerStates.Straight;
         }
