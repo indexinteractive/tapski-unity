@@ -4,7 +4,7 @@
             <ui:VisualElement name="heading" style="padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
                 <ui:Label text="tap to turn" style="-unity-text-align: upper-center; -unity-font-definition: none; -unity-font: url(&apos;project://database/Assets/_tapski/UI/TinyPixy.ttf?fileID=12800000&amp;guid=07f154760a1fd4e7ebd3a81d0aa642f8&amp;type=3#TinyPixy&apos;);" />
             </ui:VisualElement>
-            <ui:VisualElement name="arrows" style="flex-direction: row;">
+            <ui:VisualElement name="arrows" style="flex-direction: row; justify-content: center;">
                 <ui:VisualElement name="arrow-left" style="align-items: center;">
                     <ui:VisualElement style="background-image: url(&apos;project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=85051408&amp;guid=f44b9c29f5876474fb05a508c1839a9c&amp;type=3#help_turn&apos;); width: 90px; height: 34px; scale: -1 1;" />
                     <ui:VisualElement style="background-image: url(&apos;project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=-1288627613&amp;guid=f44b9c29f5876474fb05a508c1839a9c&amp;type=3#help_cursor&apos;); width: 17px; height: 34px; margin-right: 40px;" />
