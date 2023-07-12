@@ -93,7 +93,6 @@ public class MenuManager : MonoBehaviour
 
     private void OnDisable()
     {
-        Debug.Log("!!! Disable all inputs!!");
         InputPrevMenu.performed -= OnPreviousMenuPressed;
         InputNextMenu.performed -= OnNextMenuPressed;
         DisableAllInputs();
