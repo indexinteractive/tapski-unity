@@ -212,6 +212,7 @@ public class WorldGenerator : MonoBehaviour
 
             // find a position along the known path to respawn the player
             spawnPosition = _safePath[_safePath.Count / 2].transform.position;
+            RemoveObjectsFromPath(_player.transform.position);
         }
         else
         {
@@ -541,6 +542,24 @@ public class WorldGenerator : MonoBehaviour
         instance.SetActive(false);
 
         return instance;
+    }
+
+    /// <summary>
+    /// Called during <see cref="StartNewGame" /> if a player is being respawned after a crash.
+    /// Parameter <paramref name="crashPosition"/> is the location where the player last crashed
+    /// and is used to find any (inactive)objects nearby (since trees are part of a different list)
+    /// </summary>
+    private void RemoveObjectsFromPath(Vector3 crashPosition)
+    {
+        float distanceThreshold = 1.5f;
+        foreach (var o in _activeObjects)
+        {
+            if (Vector2.Distance(o.transform.position, crashPosition) < distanceThreshold)
+            {
+                PathStep front = _safePath[_safePath.Count - 1];
+                RepositionObject(o, front);
+            }
+        }
     }
     #endregion
 }
