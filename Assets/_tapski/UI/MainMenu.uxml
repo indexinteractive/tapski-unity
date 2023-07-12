@@ -1,14 +1,13 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" name="what" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/_tapski/UI/MainMenu.uss?fileID=7433441132597879392&amp;guid=bcff582635bdf47dfaf6e2efcdcd026e&amp;type=3#MainMenu" />
     <ui:VisualElement name="thename" style="width: 100%; height: 100%; padding-left: 5%; padding-right: 5%; padding-top: 5%; padding-bottom: 5%; justify-content: space-between; position: absolute;">
-        <ui:VisualElement name="top" style="flex-direction: row; justify-content: space-between;">
-            <ui:VisualElement name="top-left" />
-            <ui:VisualElement name="top-right" style="margin-right: 10px;">
+        <ui:VisualElement name="top" style="align-items: center; justify-content: center;">
+            <ui:VisualElement name="top-right" style="align-items: flex-end; max-width: 160px; width: 100%;">
                 <ui:Button name="btn-sound" class="audio-True" style="-unity-background-scale-mode: scale-to-fit; background-color: rgba(88, 88, 88, 0); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; width: 24px; height: 24px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="middle" style="background-image: url(&apos;project://database/Assets/_tapski/Graphics/tapski-atlas.png?fileID=-594861366&amp;guid=f44b9c29f5876474fb05a508c1839a9c&amp;type=3#tapski-title&apos;); -unity-background-scale-mode: scale-to-fit; width: 100%; height: 45%;" />
-        <ui:VisualElement name="bottom" style="flex-direction: row; justify-content: space-between; padding-left: 20px; padding-right: 20px; padding-top: 0; padding-bottom: 20px;">
+        <ui:VisualElement name="bottom" style="flex-direction: row; justify-content: center;">
             <ui:VisualElement name="top-left">
                 <ui:Button name="btn-scoreboard" class="btn-large" />
             </ui:VisualElement>

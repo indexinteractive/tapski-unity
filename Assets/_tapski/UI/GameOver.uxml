@@ -6,11 +6,11 @@
         </ui:VisualElement>
         <ui:VisualElement name="middle" style="-unity-background-scale-mode: stretch-to-fill; width: 100%; height: 40%; justify-content: center; align-items: center; background-image: url(&apos;project://database/Assets/_tapski/Graphics/UI%20Elements/score_panel.png?fileID=2800000&amp;guid=332831d7575a5418ba601b14d59abf29&amp;type=3#score_panel&apos;); -unity-slice-left: 16; -unity-slice-top: 16; -unity-slice-right: 16; -unity-slice-bottom: 16;">
             <ui:Label text="New high score!" name="new-high-score" class="panel-item" style="position: absolute; -unity-text-align: upper-center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; color: rgb(191, 0, 22); display: flex; font-size: 16px; top: 25%;" />
-            <ui:VisualElement name="session-score" style="flex-direction: row; width: 100%; margin-top: auto;">
+            <ui:VisualElement name="session-score" style="flex-direction: row; width: 100%; margin-top: auto; max-width: 200px;">
                 <ui:Label text="Your Score" class="panel-item" style="width: 70%; -unity-text-align: upper-right;" />
                 <ui:Label text="0" name="text-score" class="panel-item" />
             </ui:VisualElement>
-            <ui:VisualElement name="high-score" style="flex-direction: row; width: 100%; margin-bottom: auto;">
+            <ui:VisualElement name="high-score" style="flex-direction: row; width: 100%; margin-bottom: auto; max-width: 200px;">
                 <ui:Label text="High Score" class="panel-item" style="width: 70%; -unity-text-align: upper-right;" />
                 <ui:Label text="0" name="text-high-score" class="panel-item" />
             </ui:VisualElement>
