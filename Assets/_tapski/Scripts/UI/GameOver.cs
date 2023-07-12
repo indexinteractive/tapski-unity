@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 [RequireComponent(typeof(UIDocument))]
@@ -10,8 +11,12 @@ public class GameOver : MonoBehaviour
 {
     #region Public Properties
     [Header("UI Documents")]
-    public UIDocument MainMenu;
+    public MenuManager MainMenu;
     public UIDocument GameHud;
+
+    [Header("Menu Input Commands")]
+    public InputAction InputRetry;
+    public InputAction InputBack;
 
     [Header("References")]
     public WorldGenerator GameWorld;
@@ -30,12 +35,17 @@ public class GameOver : MonoBehaviour
     #endregion
 
     #region Private Fields
-    private VisualElement _mainMenu;
     private VisualElement _gameOver;
     private float _offset;
     #endregion
 
     #region Unity Lifecycle
+    private void Awake()
+    {
+        InputRetry.performed += OnInputRetryPressed;
+        InputBack.performed += OnInputBackPressed;
+    }
+
     private void OnEnable()
     {
         Assert.IsNotNull(GameWorld, "[GameOver] Game World is unassigned");
@@ -46,8 +56,7 @@ public class GameOver : MonoBehaviour
         SetButtons(root);
 
         _gameOver = root.Children().First();
-        _mainMenu = MainMenu.rootVisualElement.Children().First();
-        _offset = _mainMenu.resolvedStyle.width;
+        _offset = MainMenu.Root.resolvedStyle.width;
 
         _gameOver.Q<Label>(TextNewHighScoreSelector).style.display = DisplayStyle.None;
 
@@ -72,6 +81,7 @@ public class GameOver : MonoBehaviour
     {
         this.gameObject.SetActive(true);
         GameHud.gameObject.SetActive(false);
+        EnableInputs();
 
         int highScore = await HighscoresApi.Instance.SetHighscoreAsync(State.SessionScore);
         if (highScore == State.SessionScore)
@@ -89,9 +99,22 @@ public class GameOver : MonoBehaviour
     }
     #endregion
 
+    #region Input Actions
+    private void OnInputRetryPressed(InputAction.CallbackContext context)
+    {
+        OnBtnRetryClicked();
+    }
+
+    private void OnInputBackPressed(InputAction.CallbackContext context)
+    {
+        OnBtnBackClicked();
+    }
+    #endregion
+
     #region Button Events
     private async void OnBtnRetryClicked()
     {
+        DisableInputs();
         OffsetUIDocument.Slide(_gameOver, SlideDurationSec, 0, _offset);
         await Task.Delay(TimeSpan.FromSeconds(SlideDurationSec));
 
@@ -103,14 +126,30 @@ public class GameOver : MonoBehaviour
 
     private void OnBtnBackClicked()
     {
+        DisableInputs();
         OffsetUIDocument.Slide(_gameOver, SlideDurationSec, 0, _offset);
-        OffsetUIDocument.Slide(_mainMenu, SlideDurationSec, -_offset, 0);
+        OffsetUIDocument.Slide(MainMenu.Root, SlideDurationSec, -_offset, 0);
 
         GameWorld.EndGame();
         Music.SwitchToMenu();
 
         this.gameObject.SetActive(false);
         GameHud.gameObject.SetActive(false);
+        MainMenu.Activate();
+    }
+    #endregion
+
+    #region Helpers
+    private void EnableInputs()
+    {
+        InputBack.Enable();
+        InputRetry.Enable();
+    }
+
+    private void DisableInputs()
+    {
+        InputBack.Disable();
+        InputRetry.Disable();
     }
     #endregion
 }

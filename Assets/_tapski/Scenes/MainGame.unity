@@ -221,14 +221,113 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenu: {fileID: 2086848993}
   Scoreboard: {fileID: 1239626045}
-  CharacterSelect: {fileID: 1926072226}
   GameHud: {fileID: 1976664251}
   Tutorial: {fileID: 1081300604}
   GameWorld: {fileID: 331249605}
   Music: {fileID: 173622127}
+  CharacterSelect: {fileID: 1926072228}
   GameOverScreen: {fileID: 1185193060}
   State: {fileID: 11400000, guid: 0bb76baa805de4ee3a0274d83a45547a, type: 2}
-  GameScene: GameScene
+  InputPrevMenu:
+    m_Name: Input Prev Menu
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 19dce85b-fc95-4176-b329-5bd39762b3b0
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 4fb9d4a4-43cf-4dde-86da-843fb98e7b5a
+      m_Path: <Keyboard>/escape
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Prev Menu
+      m_Flags: 0
+    m_Flags: 0
+  InputNextMenu:
+    m_Name: Input Next Menu
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: d5a8ed99-7c1d-4879-98c0-9603970292b5
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 6ea2f8c9-fa69-456d-824c-de61870c4dbf
+      m_Path: <Keyboard>/enter
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Next Menu
+      m_Flags: 0
+    m_Flags: 0
+  InputPrevCharacter:
+    m_Name: Input Prev Character
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 70ea4bb3-932c-4ca7-8001-e8789d8ff07f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 9e9a7694-1e6b-4a1c-ada8-222d69d90bfa
+      m_Path: <Keyboard>/leftArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Prev Character
+      m_Flags: 0
+    - m_Name: 
+      m_Id: d0c90360-bb48-409c-aa0a-654f9607e1e6
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Prev Character
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 8eeaaa61-4135-4533-9cd5-ec7c8332e4f6
+      m_Path: <Keyboard>/comma
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Prev Character
+      m_Flags: 0
+    m_Flags: 0
+  InputNextCharacter:
+    m_Name: Input Next Character
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 77f23e29-3002-4054-b753-44026b96081b
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 80bcb30a-9aec-4307-a06b-67f944997352
+      m_Path: <Keyboard>/rightArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Next Character
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 3e49c367-9b45-4dbf-87fc-0757c0f131e6
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Next Character
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 5e27b0b3-d415-4bda-958f-d92e934eee23
+      m_Path: <Keyboard>/period
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Next Character
+      m_Flags: 0
+    m_Flags: 0
   BtnPlaySelector: btn-play
   BtnScoreboardSelector: btn-scoreboard
   BtnAudioSelector: btn-sound
@@ -959,8 +1058,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f316b42d3a27941428c33e731b6635a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainMenu: {fileID: 2086848993}
+  MainMenu: {fileID: 219831176}
   GameHud: {fileID: 1976664251}
+  InputRetry:
+    m_Name: Input Retry
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: ce810554-86ce-4e83-a26f-41a0171fd3c4
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 87d8263e-1468-480d-825e-c3b6b00a4857
+      m_Path: <Keyboard>/enter
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Retry
+      m_Flags: 0
+    m_Flags: 0
+  InputBack:
+    m_Name: Input Back
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 5666a4f5-9b7d-4378-b877-5c07d4a25d76
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 29d51a97-e7a1-4872-a317-3ed233799ebb
+      m_Path: <Keyboard>/escape
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Back
+      m_Flags: 0
+    m_Flags: 0
   GameWorld: {fileID: 331249605}
   Music: {fileID: 173622127}
   State: {fileID: 11400000, guid: 0bb76baa805de4ee3a0274d83a45547a, type: 2}
@@ -1485,7 +1618,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.52715653, y: 1}
+    m_SensorSize: {x: 1.6413794, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

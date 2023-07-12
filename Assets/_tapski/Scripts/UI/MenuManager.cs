@@ -2,8 +2,18 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Assertions;
 using UnityEngine.UIElements;
+
+public enum MenuView
+{
+    None,
+    HighScores,
+    MainMenu,
+    CharacterSelect,
+    GameOver
+}
 
 public class MenuManager : MonoBehaviour
 {
@@ -11,16 +21,21 @@ public class MenuManager : MonoBehaviour
     [Header("UI Documents")]
     public UIDocument MainMenu;
     public UIDocument Scoreboard;
-    public UIDocument CharacterSelect;
     public UIDocument GameHud;
     public TutorialOverlay Tutorial;
 
     [Header("Scene References")]
     public WorldGenerator GameWorld;
     public MusicManager Music;
+    public CharacterSelect CharacterSelect;
     public GameOver GameOverScreen;
     public GameState State;
-    public string GameScene = "GameScene";
+
+    [Header("Menu Input Commands")]
+    public InputAction InputPrevMenu;
+    public InputAction InputNextMenu;
+    public InputAction InputPrevCharacter;
+    public InputAction InputNextCharacter;
 
     [Header("Main Menu Selectors")]
     public string BtnPlaySelector = "btn-play";
@@ -36,10 +51,16 @@ public class MenuManager : MonoBehaviour
     #endregion
 
     #region Private Fields
-    private VisualElement _mainMenu;
+    public VisualElement Root { get; private set; }
     private VisualElement _scoreboard;
     private VisualElement _characterSelect;
     private float _offset;
+
+    /// <summary>
+    /// Tracks the current view that is shown to the player. Used only for
+    /// determining what a keyboard shortcut should do at any given time
+    /// </summary>
+    private MenuView _currentView;
     #endregion
 
     #region Unity Lifecycle
@@ -55,23 +76,49 @@ public class MenuManager : MonoBehaviour
         Assert.IsNotNull(GameOverScreen, "[MenuManager] GameOverScreen is unassigned");
         Assert.IsNotNull(State, "[MenuManager] Game State is unassigned");
 
-        _mainMenu = MainMenu.rootVisualElement.Children().First();
+        Root = MainMenu.rootVisualElement.Children().First();
 
         // Activate CharacterSelect and get the offset (menu width) after the
         // first frame has been drawn, otherwise it is 'NaN'
-        _mainMenu.RegisterCallback<GeometryChangedEvent>(GetResolvedMenus);
+        Root.RegisterCallback<GeometryChangedEvent>(GetResolvedMenus);
+
+        InputPrevMenu.performed += OnPreviousMenuPressed;
+        InputNextMenu.performed += OnNextMenuPressed;
+
+        InputPrevCharacter.performed += OnPreviousCharacterPressed;
+        InputNextCharacter.performed += OnNextCharacterPressed;
+
+        Activate();
+    }
+
+    private void OnDisable()
+    {
+        Debug.Log("!!! Disable all inputs!!");
+        InputPrevMenu.performed -= OnPreviousMenuPressed;
+        InputNextMenu.performed -= OnNextMenuPressed;
+        DisableAllInputs();
     }
     #endregion
 
     #region Helpers
+    /// <summary>
+    /// Called externally by <see cref="GameOver.OnBtnBackClicked" /> to activate
+    /// keyboard / controller inputs again
+    /// </summary>
+    public void Activate()
+    {
+        _currentView = MenuView.MainMenu;
+        EnableNavigationInputs();
+    }
+
     private void GetResolvedMenus(GeometryChangedEvent e)
     {
-        _mainMenu.UnregisterCallback<GeometryChangedEvent>(GetResolvedMenus);
+        Root.UnregisterCallback<GeometryChangedEvent>(GetResolvedMenus);
 
         CharacterSelect.gameObject.SetActive(true);
 
-        _characterSelect = CharacterSelect.rootVisualElement.Children().First();
-        _offset = _mainMenu.resolvedStyle.width;
+        _characterSelect = CharacterSelect.Root.Children().First();
+        _offset = Root.resolvedStyle.width;
 
         OffsetUIDocument.Slide(_characterSelect, 0, 0, _offset);
 
@@ -90,22 +137,22 @@ public class MenuManager : MonoBehaviour
 
     private void SetButtonListeners()
     {
-        var btnPlay = _mainMenu.Q<Button>(BtnPlaySelector);
+        var btnPlay = Root.Q<Button>(BtnPlaySelector);
         Assert.IsNotNull(btnPlay, "[MenuManager] Play button was not found");
 
         btnPlay.clicked += OnPlayClick;
 
-        var btnScoreboard = _mainMenu.Q<Button>(BtnScoreboardSelector);
+        var btnScoreboard = Root.Q<Button>(BtnScoreboardSelector);
         Assert.IsNotNull(btnScoreboard, "[MenuManager] Scoreboard button was not found");
 
         btnScoreboard.clicked += OnScoreboardClick;
 
-        var btnAudio = _mainMenu.Q<Button>(BtnAudioSelector);
+        var btnAudio = Root.Q<Button>(BtnAudioSelector);
         Assert.IsNotNull(btnPlay, "[MenuManager] Audio button was not found");
         btnAudio.clicked += () => OnAudioBtnClick(btnAudio);
         SetAudioImage(btnAudio, State.AudioIsEnabled);
 
-        var btnMenuBack = CharacterSelect.rootVisualElement.Q<Button>(BtnMenuBackSelector);
+        var btnMenuBack = CharacterSelect.Root.Q<Button>(BtnMenuBackSelector);
         Assert.IsNotNull(btnPlay, "[MenuManager] Back button was not found");
         btnMenuBack.clicked += OnMenuBackClick;
 
@@ -113,17 +160,89 @@ public class MenuManager : MonoBehaviour
         Assert.IsNotNull(btnScoreboardBack, "[MenuManager] Scoreboard Back button was not found");
         btnScoreboardBack.clicked += OnScoreboardBackClick;
 
-        var btnStartGame = CharacterSelect.rootVisualElement.Q<Button>(BtnStartGameSelector);
+        var btnStartGame = CharacterSelect.Root.Q<Button>(BtnStartGameSelector);
         Assert.IsNotNull(btnStartGame, "[MenuManager] Start button was not found");
         btnStartGame.clicked += OnStartGameClick;
+    }
+
+    private void DisableCharacterSelectInputs()
+    {
+        InputNextCharacter.Disable();
+        InputPrevCharacter.Disable();
+    }
+
+    private void EnableCharacterSelectInputs()
+    {
+        InputNextCharacter.Enable();
+        InputPrevCharacter.Enable();
+    }
+
+    private void EnableNavigationInputs()
+    {
+        InputPrevMenu.Enable();
+        InputNextMenu.Enable();
+    }
+
+    private void DisableAllInputs()
+    {
+        InputPrevMenu.Disable();
+        InputNextMenu.Disable();
+        DisableCharacterSelectInputs();
+    }
+    #endregion
+
+    #region Input Events
+    private void OnPreviousMenuPressed(InputAction.CallbackContext context)
+    {
+        switch (_currentView)
+        {
+            case MenuView.MainMenu:
+                OnScoreboardClick();
+                break;
+            case MenuView.CharacterSelect:
+                DisableCharacterSelectInputs();
+                OnMenuBackClick();
+                break;
+            case MenuView.HighScores:
+                OnScoreboardBackClick();
+                break;
+        }
+    }
+    private void OnNextMenuPressed(InputAction.CallbackContext context)
+    {
+        switch (_currentView)
+        {
+            case MenuView.MainMenu:
+                EnableCharacterSelectInputs();
+                OnPlayClick();
+                break;
+            case MenuView.CharacterSelect:
+                DisableAllInputs();
+                OnStartGameClick();
+                break;
+            case MenuView.HighScores:
+                OnScoreboardBackClick();
+                break;
+        }
+    }
+
+    private void OnNextCharacterPressed(InputAction.CallbackContext context)
+    {
+        CharacterSelect.OnNextClick();
+    }
+
+    private void OnPreviousCharacterPressed(InputAction.CallbackContext context)
+    {
+        CharacterSelect.OnPreviousClick();
     }
     #endregion
 
     #region Button Events
     private void OnPlayClick()
     {
-        OffsetUIDocument.Slide(_mainMenu, SlideDurationSec, 0, -_offset);
+        OffsetUIDocument.Slide(Root, SlideDurationSec, 0, -_offset);
         OffsetUIDocument.Slide(_characterSelect, SlideDurationSec, _offset, 0);
+        _currentView = MenuView.CharacterSelect;
     }
 
     private void OnScoreboardClick()
@@ -132,8 +251,9 @@ public class MenuManager : MonoBehaviour
         script.enabled = true;
 
         // TODO: Rename OffsetUIDocument to UITransition
-        OffsetUIDocument.Slide(_mainMenu, SlideDurationSec, 0, _offset);
+        OffsetUIDocument.Slide(Root, SlideDurationSec, 0, _offset);
         OffsetUIDocument.Slide(_scoreboard, SlideDurationSec, -_offset, 0);
+        _currentView = MenuView.HighScores;
     }
 
     private void OnScoreboardBackClick()
@@ -141,14 +261,16 @@ public class MenuManager : MonoBehaviour
         var script = Scoreboard.gameObject.GetComponent<Scoreboard>();
         script.enabled = false;
 
-        OffsetUIDocument.Slide(_mainMenu, SlideDurationSec, _offset, 0);
+        OffsetUIDocument.Slide(Root, SlideDurationSec, _offset, 0);
         OffsetUIDocument.Slide(_scoreboard, SlideDurationSec, 0, -_offset);
+        _currentView = MenuView.MainMenu;
     }
 
     private void OnMenuBackClick()
     {
-        OffsetUIDocument.Slide(_mainMenu, SlideDurationSec, -_offset, 0);
+        OffsetUIDocument.Slide(Root, SlideDurationSec, -_offset, 0);
         OffsetUIDocument.Slide(_characterSelect, SlideDurationSec, 0, _offset);
+        _currentView = MenuView.MainMenu;
     }
 
     private void OnAudioBtnClick(Button btnAudio)
@@ -174,6 +296,7 @@ public class MenuManager : MonoBehaviour
         GameWorld.StartNewGame(GameOverScreen.OnPlayerDead);
         Music.SwitchToGame();
         GameHud.gameObject.SetActive(true);
+        _currentView = MenuView.None;
     }
     #endregion
 }

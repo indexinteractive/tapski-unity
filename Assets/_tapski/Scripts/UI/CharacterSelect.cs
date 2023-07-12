@@ -13,6 +13,8 @@ public class CharacterSelect : MonoBehaviour
     [Tooltip("Scriptable object that stores the current game state")]
     public GameState State;
 
+    public VisualElement Root { get; private set; }
+
     [Header("Selectors")]
     public string BtnPreviousSelector = "btn-previous";
     public string BtnNextSelector = "btn-next";
@@ -31,10 +33,10 @@ public class CharacterSelect : MonoBehaviour
         Assert.IsTrue(Characters.Length > 0, "[CharacterSelect] No characters were assigned");
         Assert.IsNotNull(State, "[CharacterSelect] GameState asset is unassigned!");
 
-        var uiRoot = GetComponent<UIDocument>().rootVisualElement;
-        SetButtonHandlers(uiRoot);
+        Root = GetComponent<UIDocument>().rootVisualElement;
+        SetButtonHandlers(Root);
 
-        _characterPreview = uiRoot.Q(CharacterPreviewSelector);
+        _characterPreview = Root.Q(CharacterPreviewSelector);
         Assert.IsNotNull(_characterPreview, "[CharacterSelect] cannot find the character preview element");
 
         _btnAudio = GetComponent<AudioSource>();
@@ -54,7 +56,7 @@ public class CharacterSelect : MonoBehaviour
     #endregion
 
     #region Button Events
-    private void OnPreviousClick()
+    public void OnPreviousClick()
     {
         _characterIndex--;
         if (_characterIndex < 0)
@@ -65,7 +67,7 @@ public class CharacterSelect : MonoBehaviour
         ChangeCharacter();
     }
 
-    private void OnNextClick()
+    public void OnNextClick()
     {
         _characterIndex = ++_characterIndex % Characters.Length;
         ChangeCharacter();
