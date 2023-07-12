@@ -126,7 +126,11 @@ public class BaseCharacter : MonoBehaviour
         _stateTimer += Time.deltaTime;
 
 #if UNITY_STANDALONE || UNITY_EDITOR
-        if (!(Keyboard.current.anyKey.isPressed || Gamepad.current.dpad.IsPressed() || Gamepad.current.leftStick.IsActuated()))
+        // Looks like a complicated check but it's not too bad:
+        //   - Check if there is a keyboard, and if any key is being pressed
+        //   - Check if there is a gamepad, and if either the d-pad or the left stick is being pressed
+        // If neither of those are true, we are trying to handle mouse input
+        if (!((Keyboard.current != null && Keyboard.current.anyKey.isPressed) || (Gamepad.current != null && (Gamepad.current.dpad.IsPressed() || Gamepad.current.leftStick.IsActuated()))))
         {
             HandlePointerInput();
         }
@@ -269,7 +273,6 @@ public class BaseCharacter : MonoBehaviour
         }
 
         float value = e.ReadValue<float>();
-        Debug.Log("reading value from input ------------- " + value);
         if (value == 0)
         {
             State = PlayerStates.Straight;
@@ -277,7 +280,6 @@ public class BaseCharacter : MonoBehaviour
         else
         {
             Vector2 position = new Vector2(_screenMidpoint + value, 0);
-            Debug.Log("adding to position " + position);
             AdjustDirection(position);
         }
     }
