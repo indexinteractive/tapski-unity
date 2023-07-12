@@ -1,7 +1,7 @@
-using System;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 /// <summary>
@@ -13,6 +13,9 @@ public class TutorialOverlay : MonoBehaviour
     #region Public Properties
     [Header("References")]
     public GameState State;
+
+    [Header("Menu Input Commands")]
+    public InputAction InputSkipAction;
 
     [Header("Selectors")]
     public string ArrowLeftSelector = "arrow-left";
@@ -47,15 +50,17 @@ public class TutorialOverlay : MonoBehaviour
 
         _rootElement.schedule.Execute(FlipVisibility).Every(1200);
         _rootElement.schedule.Execute(SetWaitedFlag).StartingIn(MinWaitTimeMs);
-        _rootElement.RegisterCallback<MouseUpEvent>(OnOverlayTapped);
 
         _screenTapped = false;
         _minTimeWaited = false;
+
+        InputSkipAction.performed += OnOverlayTapped;
+        InputSkipAction.Enable();
     }
 
     private void OnDisable()
     {
-        _rootElement.UnregisterCallback<MouseUpEvent>(OnOverlayTapped);
+        InputSkipAction.Disable();
     }
     #endregion
 
@@ -77,7 +82,7 @@ public class TutorialOverlay : MonoBehaviour
         _minTimeWaited = true;
     }
 
-    private void OnOverlayTapped(MouseUpEvent evt)
+    private void OnOverlayTapped(InputAction.CallbackContext context)
     {
         _screenTapped = true;
     }

@@ -4994,6 +4994,31 @@ MonoBehaviour:
   MaxCurveValue: 1
   DriftFactor: 1.5
   DriftRate: 0.5
+  InputSuicideAction:
+    m_Name: Input Suicide
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 799dd1ea-08e2-4b43-b9b7-304b6c452880
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 7a3f31fc-305d-4f8e-ba5f-80c89b7694d0
+      m_Path: <Keyboard>/escape
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Suicide
+      m_Flags: 0
+    - m_Name: 
+      m_Id: d7bc40a2-18de-4132-bcff-3e8b9cfd6336
+      m_Path: <Gamepad>/select
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Suicide
+      m_Flags: 0
+    m_Flags: 0
 --- !u!114 &8118296987711664486
 MonoBehaviour:
   m_ObjectHideFlags: 0

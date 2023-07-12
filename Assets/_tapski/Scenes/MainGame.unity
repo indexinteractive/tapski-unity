@@ -244,6 +244,22 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Input Prev Menu
       m_Flags: 0
+    - m_Name: 
+      m_Id: 804930e5-1a7d-4d85-b78c-97a7a074b9d3
+      m_Path: <Gamepad>/buttonEast
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Prev Menu
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 90d28391-ef2a-479d-b5c0-debd0919c260
+      m_Path: <Gamepad>/buttonWest
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Prev Menu
+      m_Flags: 0
     m_Flags: 0
   InputNextMenu:
     m_Name: Input Next Menu
@@ -256,6 +272,22 @@ MonoBehaviour:
     - m_Name: 
       m_Id: 6ea2f8c9-fa69-456d-824c-de61870c4dbf
       m_Path: <Keyboard>/enter
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Next Menu
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 0172ea11-445d-4dcb-adac-1b7cdd7abcc2
+      m_Path: <Gamepad>/start
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Next Menu
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 91edb276-ed0f-400c-8256-26eebf6f35f4
+      m_Path: <Gamepad>/buttonSouth
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -294,6 +326,22 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Input Prev Character
       m_Flags: 0
+    - m_Name: 
+      m_Id: 28d8c000-9865-4651-9ca3-556df361fc13
+      m_Path: <Gamepad>/dpad/left
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Prev Character
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 7327ce3b-8a0b-4237-955c-70274b6f726d
+      m_Path: <Gamepad>/leftStick/left
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Prev Character
+      m_Flags: 0
     m_Flags: 0
   InputNextCharacter:
     m_Name: Input Next Character
@@ -322,6 +370,22 @@ MonoBehaviour:
     - m_Name: 
       m_Id: 5e27b0b3-d415-4bda-958f-d92e934eee23
       m_Path: <Keyboard>/period
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Next Character
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 8d286e44-e3b0-484e-9538-ae4c9a92465f
+      m_Path: <Gamepad>/dpad/right
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Next Character
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 0d94be70-ab98-413c-a861-d4f8249b3d16
+      m_Path: <Gamepad>/leftStick/right
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -994,6 +1058,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: {fileID: 11400000, guid: 0bb76baa805de4ee3a0274d83a45547a, type: 2}
+  InputSkipAction:
+    m_Name: Input Skip
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 406352e4-66a3-48d2-905b-fa85b9393472
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 6dfae679-5caa-4a42-93c2-3d8ff35bff93
+      m_Path: <Keyboard>/anyKey
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Skip
+      m_Flags: 0
+    - m_Name: 
+      m_Id: ddee0da0-5cee-4879-8850-fb093085c9f2
+      m_Path: <Gamepad>/start
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Skip
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 6951a670-a08a-47b2-b069-72d65c3acc0c
+      m_Path: <Gamepad>/buttonSouth
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Skip
+      m_Flags: 0
+    - m_Name: 
+      m_Id: bf46c83a-18de-4dd4-b1fe-c7204d8fa140
+      m_Path: <XInputController>/buttonSouth
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Skip
+      m_Flags: 0
+    m_Flags: 0
   ArrowLeftSelector: arrow-left
   ArrowRightSelector: arrow-right
   MinWaitTimeMs: 3000
@@ -1076,6 +1181,22 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Input Retry
       m_Flags: 0
+    - m_Name: 
+      m_Id: 8baafaa5-19d9-4f25-9bbf-0713d6890785
+      m_Path: <Gamepad>/start
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Retry
+      m_Flags: 0
+    - m_Name: 
+      m_Id: c85be376-81e4-4d8f-af7f-2bb4dc4d55a9
+      m_Path: <Gamepad>/buttonSouth
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Retry
+      m_Flags: 0
     m_Flags: 0
   InputBack:
     m_Name: Input Back
@@ -1088,6 +1209,22 @@ MonoBehaviour:
     - m_Name: 
       m_Id: 29d51a97-e7a1-4872-a317-3ed233799ebb
       m_Path: <Keyboard>/escape
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Back
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 9d4d5246-fc20-4fcd-9a03-c692715306bd
+      m_Path: <Gamepad>/buttonWest
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Back
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 91abdbb1-1d27-4c92-a1a6-8ca0fb6ee668
+      m_Path: <Gamepad>/buttonEast
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -1618,7 +1755,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.6413794, y: 1}
+    m_SensorSize: {x: 1.1, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

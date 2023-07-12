@@ -48,6 +48,9 @@ public class BaseCharacter : MonoBehaviour
     public float DriftRate = 0.5f;
     #endregion
 
+    [Header("special Inputs")]
+    public InputAction InputSuicideAction;
+
     #region Public Properties
     /// <summary>
     /// Indicates the player's current state. Changing the state will
@@ -113,6 +116,9 @@ public class BaseCharacter : MonoBehaviour
 
         _screenMidpoint = Screen.width * 0.5f;
         _state = PlayerStates.Idle;
+
+        InputSuicideAction.Enable();
+        InputSuicideAction.performed += OnSuicide;
     }
 
     private void Update()
@@ -120,7 +126,7 @@ public class BaseCharacter : MonoBehaviour
         _stateTimer += Time.deltaTime;
 
 #if UNITY_STANDALONE || UNITY_EDITOR
-        if (!Keyboard.current.anyKey.isPressed)
+        if (!(Keyboard.current.anyKey.isPressed || Gamepad.current.dpad.IsPressed() || Gamepad.current.leftStick.IsActuated()))
         {
             HandlePointerInput();
         }
@@ -186,6 +192,7 @@ public class BaseCharacter : MonoBehaviour
     private void OnDisable()
     {
         EnhancedTouchSupport.Disable();
+        InputSuicideAction.Disable();
     }
     #endregion
 
@@ -238,7 +245,8 @@ public class BaseCharacter : MonoBehaviour
         }
     }
 
-    private void HandlePointerInput() {
+    private void HandlePointerInput()
+    {
         bool inputIsPressed = Pointer.current.press.isPressed;
 
         if (InputStateIsValid() && inputIsPressed)
@@ -261,6 +269,7 @@ public class BaseCharacter : MonoBehaviour
         }
 
         float value = e.ReadValue<float>();
+        Debug.Log("reading value from input ------------- " + value);
         if (value == 0)
         {
             State = PlayerStates.Straight;
@@ -268,8 +277,14 @@ public class BaseCharacter : MonoBehaviour
         else
         {
             Vector2 position = new Vector2(_screenMidpoint + value, 0);
+            Debug.Log("adding to position " + position);
             AdjustDirection(position);
         }
+    }
+
+    private void OnSuicide(InputAction.CallbackContext context)
+    {
+        OnCollideWithObstacle();
     }
     #endregion
 
