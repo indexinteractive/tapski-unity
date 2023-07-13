@@ -4350,6 +4350,111 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: snow_bump_1
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 341
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c903282bda9b4590a1d9f2108efd9a8
+      internalID: 1868211466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow_bump_2
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 341
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 076c80c943b804fba997f99fba26ce24
+      internalID: -1355797763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow_bump_3
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 341
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b66e83efe99d84e5d90bcfccd3ea7be2
+      internalID: -1699337443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow_bump_4
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 341
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f11a4bd81a695413484350827b1b0331
+      internalID: -1417709951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snow_bump_0
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 341
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c31731894a5c4cafaac1c4f16d2a005
+      internalID: -62848141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -4415,6 +4520,7 @@ TextureImporter:
       mountain_man_turn_1: -1612597612
       doggo_straight_0: -865258777
       elf_jump: 1641980223
+      snow_bump_1: 1868211466
       extremo_jump: -2109938881
       zombie_straight_2: 2074796401
       fro_turn_1: -1361336217
@@ -4482,6 +4588,7 @@ TextureImporter:
       fro_straight_1: 976542559
       help_turn: 85051408
       girl_skier_turn_0: 1463445503
+      snow_bump_0: -62848141
       text_select_character: -1294037682
       penguin_straight_0: -2070063893
       yeti_turn_1: -1409340013
@@ -4520,12 +4627,14 @@ TextureImporter:
       girl_skier_straight_0: 1329808172
       extremette_straight_0: -1387401676
       yeti_straight_1: -1341562307
+      snow_bump_2: -1355797763
       btn_empty_pressed: 857958002
       girl_snowboarder_straight_1: 1976246667
       btn_ok_pressed: -1217741793
       btn_highscores_neutral: -813081115
       boy_snowboarder_straight_1: 1332790044
       tree_green_2: -1475730711
+      snow_bump_4: -1417709951
       extremette_straight_2: -1603015720
       tree_snowy_0: 1073866161
       santa_straight_0: -2000401335
@@ -4533,6 +4642,7 @@ TextureImporter:
       ninja_turn_1: 1811339944
       btn_play_neutral: -2004876131
       zombie_turn_2: -205769823
+      snow_bump_3: -1699337443
       doggo_straight_1: 950024045
       santa_straight_2: -1086279354
       panel: 1931511541

@@ -54,6 +54,7 @@ public class WorldGenerator : MonoBehaviour
     public GameObject BigSnowmanPrefab;
     public GameObject WoodRampPrefab;
     public GameObject SnowRampPrefab;
+    public GameObject[] BackgroundTiles;
 
     [Header("Debugging")]
     public GameObject PathPrefab;
@@ -120,6 +121,16 @@ public class WorldGenerator : MonoBehaviour
     private List<GameObject> _inactiveObjects = new List<GameObject>();
 
     /// <summary>
+    /// List of non-collideable background objects that exist for aesthetics only
+    /// </summary>
+    private List<GameObject> _visibleBgTiles = new List<GameObject>();
+
+    /// <summary>
+    /// List of background tiles that are pending repositioning
+    /// </summary>
+    private Queue<GameObject> _hiddenBgTiles = new Queue<GameObject>();
+
+    /// <summary>
     /// List of trees that are visible or not yet marked inactive by <see cref="DisableHiddenTrees"/>
     /// </summary>
     private List<GameObject> _activeTrees = new List<GameObject>();
@@ -154,6 +165,7 @@ public class WorldGenerator : MonoBehaviour
         Assert.IsNotNull(CineCam, "[WorldGenerator] Cinemachine camera is unassigned");
         Assert.IsNotNull(PathPrefab, "[WorldGenerator] No path prefab found");
         Assert.IsNotNull(State, "[WorldGenerator] Game State is unassigned");
+        Assert.IsTrue(BackgroundTiles.Length > 0, "[WorldGenerator] No background tiles added");
 
         SetPlayer(PreviewTarget);
         SetWorldSize();
@@ -298,6 +310,12 @@ public class WorldGenerator : MonoBehaviour
 
         return Instance(treePrefab);
     }
+
+    private GameObject GenerateTile()
+    {
+        int randomIndex = Random.Range(0, BackgroundTiles.Length);
+        return Instance(BackgroundTiles[randomIndex]);
+    }
     #endregion
 
     #region Procedural Generation
@@ -330,6 +348,11 @@ public class WorldGenerator : MonoBehaviour
             RepositionTree(tree, newPath);
             ResetObject(tree);
             _activeTrees.Add(tree);
+
+            var bgTile = GenerateTile();
+            RepositionTree(bgTile, newPath);
+            ResetObject(bgTile);
+            _visibleBgTiles.Add(bgTile);
         }
     }
 
@@ -353,6 +376,7 @@ public class WorldGenerator : MonoBehaviour
             // Move dead objects back to the front of the screen (bottom)
             ActivateTrees(step);
             ActivateObject();
+            MoveBackgroundTiles(step);
 
             // Add the step to the end of the path
             path.Add(step);
@@ -394,6 +418,17 @@ public class WorldGenerator : MonoBehaviour
                 _activeObjects.RemoveAt(i);
             }
         }
+
+        for (int i = _visibleBgTiles.Count - 1; i >= 0; i--)
+        {
+            GameObject obj = _visibleBgTiles[i];
+            if (!ViewportHelper.IsAboveCameraView(Camera, obj.transform, 0.1f))
+            {
+                obj.SetActive(false);
+                _hiddenBgTiles.Enqueue(obj);
+                _visibleBgTiles.RemoveAt(i);
+            }
+        }
     }
 
     /// <summary>
@@ -407,6 +442,16 @@ public class WorldGenerator : MonoBehaviour
             RepositionTree(tree, step);
             ResetObject(tree);
             _activeTrees.Add(tree);
+        }
+    }
+
+    private void MoveBackgroundTiles(PathStep step)
+    {
+        if (_hiddenBgTiles.TryDequeue(out GameObject tile))
+        {
+            RepositionTree(tile, step);
+            ResetObject(tile);
+            _visibleBgTiles.Add(tile);
         }
     }
 
