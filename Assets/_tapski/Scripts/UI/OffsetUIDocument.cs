@@ -1,5 +1,5 @@
 using System.Linq;
-using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UIElements;
@@ -53,7 +53,7 @@ public class OffsetUIDocument : MonoBehaviour
             _uiRoot.style.left = Mathf.Lerp(startValue, endValue, timeElapsed / durationSec);
 
             timeElapsed += Time.deltaTime;
-            await Task.Yield();
+            await UniTask.Yield();
         }
 
         _uiRoot.style.left = endValue;
@@ -71,7 +71,7 @@ public class OffsetUIDocument : MonoBehaviour
             root.style.left = Mathf.Lerp(startValue, endValue, timeElapsed / durationSec);
 
             timeElapsed += Time.deltaTime;
-            await Task.Yield();
+            await UniTask.Yield();
         }
 
         root.style.left = endValue;

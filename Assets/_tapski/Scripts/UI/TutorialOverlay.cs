@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
@@ -65,11 +65,11 @@ public class TutorialOverlay : MonoBehaviour
     #endregion
 
     #region Screen Waiting
-    public async Task WaitForSkipAsync()
+    public async UniTask WaitForSkipAsync()
     {
         while (!(_screenTapped && _minTimeWaited))
         {
-            await Task.Yield();
+            await UniTask.Yield();
         }
 
         State.WillShowTutorial = false;

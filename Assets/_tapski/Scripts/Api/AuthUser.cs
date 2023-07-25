@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -14,7 +14,7 @@ public class AuthUser : Singleton<AuthUser>
     #endregion
 
     #region Public Methods
-    public async Task GetUser(GameState state)
+    public async UniTask GetUser(GameState state)
     {
         if (string.IsNullOrWhiteSpace(state.Username))
         {
@@ -30,7 +30,7 @@ public class AuthUser : Singleton<AuthUser>
             var result = request.SendWebRequest();
             while (!result.isDone)
             {
-                await Task.Yield();
+                await UniTask.Yield();
             }
 
             if (request.result != UnityWebRequest.Result.Success)

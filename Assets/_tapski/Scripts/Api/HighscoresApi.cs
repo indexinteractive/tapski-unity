@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -19,7 +19,7 @@ public class HighscoresApi : Singleton<HighscoresApi>
         return /*CHECK*/0/*SUM*/;
     }
 
-    public async Task<int> SetHighscoreAsync(int score)
+    public async UniTask<int> SetHighscoreAsync(int score)
     {
         string url = $"{BASE_URL}/rpc/set_score";
         var data = JsonUtility.ToJson(new ScoreData(_deviceId, score, checksum(score)));
@@ -30,7 +30,7 @@ public class HighscoresApi : Singleton<HighscoresApi>
         var result = request.SendWebRequest();
         while (!result.isDone)
         {
-            await Task.Yield();
+            await UniTask.Yield();
         }
 
         if (request.result != UnityWebRequest.Result.Success)
@@ -47,7 +47,7 @@ public class HighscoresApi : Singleton<HighscoresApi>
         }
     }
 
-    public async Task<PlayerRank[]> GetPlayerScoreViewAsync(int padding)
+    public async UniTask<PlayerRank[]> GetPlayerScoreViewAsync(int padding)
     {
         string url = $"{BASE_URL}/rpc/player_rank?device_id={_deviceId}&lim={padding}";
         UnityWebRequest request = ApiGet(url);
@@ -55,7 +55,7 @@ public class HighscoresApi : Singleton<HighscoresApi>
         var result = request.SendWebRequest();
         while (!result.isDone)
         {
-            await Task.Yield();
+            await UniTask.Yield();
         }
 
         if (result.webRequest.result != UnityWebRequest.Result.Success)
@@ -72,7 +72,7 @@ public class HighscoresApi : Singleton<HighscoresApi>
         }
     }
 
-    public async Task<PlayerRank> UpdateUsername(string username)
+    public async UniTask<PlayerRank> UpdateUsername(string username)
     {
         string url = $"{BASE_URL}/highscores?device_id=eq.{_deviceId}";
         var data = JsonUtility.ToJson(new UsernameUpdateData() { display_name = username });
@@ -83,7 +83,7 @@ public class HighscoresApi : Singleton<HighscoresApi>
         var result = request.SendWebRequest();
         while (!result.isDone)
         {
-            await Task.Yield();
+            await UniTask.Yield();
         }
 
         if (request.result != UnityWebRequest.Result.Success)

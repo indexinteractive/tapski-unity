@@ -1,5 +1,5 @@
 using System;
-using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -48,7 +48,7 @@ public class Collectible : MonoBehaviour
     #region Helpers
     private async void DisableInSecondsAsync(float seconds)
     {
-        await Task.Delay(TimeSpan.FromSeconds(seconds));
+        await UniTask.Delay(TimeSpan.FromSeconds(seconds));
         gameObject.SetActive(false);
     }
     #endregion

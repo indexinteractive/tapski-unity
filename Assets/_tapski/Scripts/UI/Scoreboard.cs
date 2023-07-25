@@ -1,9 +1,9 @@
 using UnityEngine;
-using System.Threading.Tasks;
 using UnityEngine.UIElements;
 using UnityEngine.Assertions;
 using System.Linq;
 using System;
+using Cysharp.Threading.Tasks;
 
 /// <summary>
 /// Handles firebase data for the scoreboard.
@@ -80,7 +80,7 @@ public class Scoreboard : MonoBehaviour
     #endregion
 
     #region Database Methods
-    private async Task FetchHighScoresAsync()
+    private async UniTask FetchHighScoresAsync()
     {
         // We know the max number of items we want to display, so use that number as the above+below padding in our
         // query. This satisfies the cases where the player is in either first or last place, and we can

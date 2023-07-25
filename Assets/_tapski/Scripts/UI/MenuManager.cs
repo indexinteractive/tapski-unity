@@ -1,10 +1,10 @@
 using System;
 using System.Linq;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Assertions;
 using UnityEngine.UIElements;
+using Cysharp.Threading.Tasks;
 
 public enum MenuView
 {
@@ -281,7 +281,7 @@ public class MenuManager : MonoBehaviour
     private async void OnStartGameClick()
     {
         OffsetUIDocument.Slide(_characterSelect, SlideDurationSec, 0, -_offset);
-        await Task.Delay(TimeSpan.FromSeconds(SlideDurationSec));
+        await UniTask.Delay(TimeSpan.FromSeconds(SlideDurationSec));
 
         if (State.WillShowTutorial)
         {

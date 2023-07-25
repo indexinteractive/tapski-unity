@@ -1,6 +1,6 @@
 using System;
 using System.Linq;
-using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
@@ -116,7 +116,7 @@ public class GameOver : MonoBehaviour
     {
         DisableInputs();
         OffsetUIDocument.Slide(_gameOver, SlideDurationSec, 0, _offset);
-        await Task.Delay(TimeSpan.FromSeconds(SlideDurationSec));
+        await UniTask.Delay(TimeSpan.FromSeconds(SlideDurationSec));
 
         GameWorld.StartNewGame(OnPlayerDead);
 

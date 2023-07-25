@@ -1103,6 +1103,14 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Input Skip
       m_Flags: 0
+    - m_Name: 
+      m_Id: ec624e45-8ab5-49a4-9ab7-f3c2b4e72f63
+      m_Path: <Pointer>/press
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Skip
+      m_Flags: 0
     m_Flags: 0
   ArrowLeftSelector: arrow-left
   ArrowRightSelector: arrow-right

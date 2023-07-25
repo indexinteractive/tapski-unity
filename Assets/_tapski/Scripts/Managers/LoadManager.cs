@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
@@ -55,7 +55,7 @@ public class LoadManager : MonoBehaviour
 
     private async void LoadGameAsync()
     {
-        await Task.WhenAll(
+        await UniTask.WhenAll(
             FadeUI(FadeInSec, 0, 1),
             LoadMenuScene(),
             AuthUser.Instance.GetUser(State)
@@ -67,24 +67,24 @@ public class LoadManager : MonoBehaviour
         Debug.Log("[LoadManager] Game loaded for userId " + AuthUser.Instance.UserId);
     }
 
-    private async Task LoadMenuScene()
+    private async UniTask LoadMenuScene()
     {
         // NOTE: This unnecessary delay is here because of a bug with SceneManager.LoadSceneAsync
         // https://issuetracker.unity3d.com/issues/loadsceneasync-allowsceneactivation-flag-is-ignored-in-awake?page=1#comments
-        await Task.Delay(1000);
+        await UniTask.Delay(1000);
 
         _menuLoadOperation = SceneManager.LoadSceneAsync(MainMenuScene, LoadSceneMode.Single);
         _menuLoadOperation.allowSceneActivation = false;
 
         while (_menuLoadOperation.progress < 0.9f)
         {
-            await Task.Yield();
+            await UniTask.Yield();
         }
     }
     #endregion
 
     #region UI Operations
-    private async Task FadeUI(float durationSec, float startValue, float endValue)
+    private async UniTask FadeUI(float durationSec, float startValue, float endValue)
     {
         float timeElapsed = 0;
         while (timeElapsed < durationSec)
@@ -92,7 +92,7 @@ public class LoadManager : MonoBehaviour
             _uiRoot.style.opacity = Mathf.Lerp(startValue, endValue, timeElapsed / durationSec);
 
             timeElapsed += Time.deltaTime;
-            await Task.Yield();
+            await UniTask.Yield();
         }
 
         _uiRoot.style.opacity = endValue;
