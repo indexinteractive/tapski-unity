@@ -20,7 +20,7 @@ public class AuthUser : Singleton<AuthUser>
         {
             string url = $"{BASE_URL}/rpc/create_user";
 
-            string username = UsernameGenerator.Instance.Generate();
+            string username = await UsernameGenerator.Instance.Generate();
             var user = new DbUserData(UserId, username);
             string data = JsonUtility.ToJson(user);
             Debug.Log($"[AuthUser] Sending user data {data}");

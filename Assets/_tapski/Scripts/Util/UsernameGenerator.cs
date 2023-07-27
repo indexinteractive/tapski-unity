@@ -1,6 +1,8 @@
 using System.Globalization;
 using System.IO;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class UsernameGenerator : Singleton<UsernameGenerator>
 {
@@ -8,24 +10,35 @@ public class UsernameGenerator : Singleton<UsernameGenerator>
     {
         public string[] Words { get; private set; }
 
-        public Dict(string filepath)
+        public static async UniTask<Dict> Load(string filepath)
         {
-            Load(filepath);
+            var dict = new Dict();
+#if UNITY_WEBGL && !UNITY_EDITOR
+            string text = await GetWebFileData(filepath);
+            dict.Words = text.Split('\n');
+#else
+            await UniTask.Yield();
+            dict.Words = File.ReadAllLines(filepath);
+#endif
+            return dict;
         }
 
-        private void Load(string filepath)
+        private static async UniTask<string> GetWebFileData(string url)
         {
-            Words = File.ReadAllLines(filepath);
+            UnityWebRequest request = UnityWebRequest.Get(url);
+            await request.SendWebRequest();
+            string text = request.downloadHandler.text;
+            return text;
         }
     }
 
-    public string Generate()
+    public async UniTask<string> Generate()
     {
         string adjectivesPath = Path.Combine(Application.streamingAssetsPath, "text/adjectives.txt");
         string nounsPath = Path.Combine(Application.streamingAssetsPath, "text/nouns.txt");
 
-        Dict adjectives = new Dict(adjectivesPath);
-        Dict nouns = new Dict(nounsPath);
+        Dict adjectives = await Dict.Load(adjectivesPath);
+        Dict nouns = await Dict.Load(nounsPath);
 
         string adjective = adjectives.Words[Random.Range(0, adjectives.Words.Length)];
         string noun = nouns.Words[Random.Range(0, nouns.Words.Length)];
