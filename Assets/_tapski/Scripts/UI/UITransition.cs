@@ -5,7 +5,7 @@ using UnityEngine.Assertions;
 using UnityEngine.UIElements;
 
 [RequireComponent(typeof(UIDocument))]
-public class OffsetUIDocument : MonoBehaviour
+public class UITransition : MonoBehaviour
 {
     #region Public Properties
     public float SlideDurationSec = 2;

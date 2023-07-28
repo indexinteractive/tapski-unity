@@ -60,8 +60,8 @@ public class GameOver : MonoBehaviour
 
         _gameOver.Q<Label>(TextNewHighScoreSelector).style.display = DisplayStyle.None;
 
-        OffsetUIDocument.Slide(_gameOver, 0, 0, _offset);
-        OffsetUIDocument.Slide(_gameOver, SlideDurationSec, _offset, 0);
+        UITransition.Slide(_gameOver, 0, 0, _offset);
+        UITransition.Slide(_gameOver, SlideDurationSec, _offset, 0);
     }
     #endregion
 
@@ -115,8 +115,8 @@ public class GameOver : MonoBehaviour
     private async void OnBtnRetryClicked()
     {
         DisableInputs();
-        OffsetUIDocument.Slide(_gameOver, SlideDurationSec, 0, _offset);
-        await UniTask.Delay(TimeSpan.FromSeconds(SlideDurationSec));
+        UITransition.Slide(_gameOver, SlideDurationSec, 0, _offset);
+        await UniTask.Delay(TimeSpan.FromSeconds(SlideDurationSec * 2));
 
         GameWorld.StartNewGame(OnPlayerDead);
 
@@ -127,13 +127,15 @@ public class GameOver : MonoBehaviour
     private void OnBtnBackClicked()
     {
         DisableInputs();
-        OffsetUIDocument.Slide(_gameOver, SlideDurationSec, 0, _offset);
-        OffsetUIDocument.Slide(MainMenu.Root, SlideDurationSec, -_offset, 0);
+        UITransition.Slide(_gameOver, SlideDurationSec, 0, _offset);
+        UITransition.Slide(MainMenu.Root, SlideDurationSec, -_offset, 0);
 
         GameWorld.EndGame();
         Music.SwitchToMenu();
 
-        this.gameObject.SetActive(false);
+        _gameOver.schedule
+            .Execute(() => this.gameObject.SetActive(false))
+            .StartingIn((long)(SlideDurationSec * 1000));
         GameHud.gameObject.SetActive(false);
         MainMenu.Activate();
     }
