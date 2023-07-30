@@ -81,6 +81,7 @@ public class BaseCharacter : MonoBehaviour
 
     #region Private / Inherited Fields
     private Animator _animator;
+    private ParticleSystem _trails;
     private PlayerInput _input;
     private PlayerStates _state;
 
@@ -107,6 +108,9 @@ public class BaseCharacter : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         Assert.IsNotNull(_animator, $"[BaseCharacter] No Animator found on character {name}");
+
+        _trails = GetComponent<ParticleSystem>();
+        Assert.IsNotNull(_animator, $"[BaseCharacter] No ParticleSystem found on character {name}");
 
         EnhancedTouchSupport.Enable();
         _input = new PlayerInput();
@@ -175,6 +179,7 @@ public class BaseCharacter : MonoBehaviour
                 if (_stateTimer > JumpTime)
                 {
                     State = PlayerStates.Straight;
+                    _trails.Play();
                 }
                 break;
 
@@ -321,6 +326,7 @@ public class BaseCharacter : MonoBehaviour
 
     public void OnCollideWithRamp()
     {
+        _trails.Stop();
         State = PlayerStates.Jumping;
     }
     #endregion
