@@ -22,17 +22,11 @@ public class BaseCharacter : MonoBehaviour
     [Tooltip("Amount of time before the player sets off running (seconds)")]
     public float RestTime = 1.3f;
 
-    [Tooltip("Amount of time the player is in the air while jumping (seconds)")]
-    public float JumpTime = 0.5f;
-
     [Header("Speeds")]
     public AnimationCurve SpeedCurve;
 
     [Tooltip("Max speed the player can move")]
     public float MaxSpeed = 1f;
-
-    [Tooltip("Percent speed increase while in the air")]
-    public float JumpSpeedMultiplier = 0.2f;
 
     [Header("Speed curve values")]
     [Tooltip("Rate at which the speed curve (x) increases")]
@@ -46,6 +40,15 @@ public class BaseCharacter : MonoBehaviour
 
     [Tooltip("Rate of turn drift")]
     public float DriftRate = 0.5f;
+
+    [Header("Jump settings")]
+    public float JumpSpriteScaleFactor = 1.2f;
+
+    [Tooltip("Percent speed increase while in the air")]
+    public float JumpSpeedMultiplier = 0.2f;
+
+    [Tooltip("Amount of time the player is in the air while jumping (seconds)")]
+    public float JumpTime = 0.5f;
     #endregion
 
     [Header("special Inputs")]
@@ -129,18 +132,7 @@ public class BaseCharacter : MonoBehaviour
     {
         _stateTimer += Time.deltaTime;
 
-#if UNITY_STANDALONE || UNITY_EDITOR
-        // Looks like a complicated check but it's not too bad:
-        //   - Check if there is a keyboard, and if any key is being pressed
-        //   - Check if there is a gamepad, and if either the d-pad or the left stick is being pressed
-        // If neither of those are true, we are trying to handle mouse input
-        if (!((Keyboard.current != null && Keyboard.current.anyKey.isPressed) || (Gamepad.current != null && (Gamepad.current.dpad.IsPressed() || Gamepad.current.leftStick.IsActuated()))))
-        {
-            HandlePointerInput();
-        }
-#else
-        HandleTouchInput();
-#endif
+        HandleInputs();
 
         switch (State)
         {
@@ -178,6 +170,7 @@ public class BaseCharacter : MonoBehaviour
 
                 if (_stateTimer > JumpTime)
                 {
+                    transform.localScale = Vector3.one;
                     State = PlayerStates.Straight;
                     _trails.Play();
                 }
@@ -238,6 +231,22 @@ public class BaseCharacter : MonoBehaviour
             State = PlayerStates.TurnRight;
             FacesLeft = false;
         }
+    }
+
+    private void HandleInputs()
+    {
+#if UNITY_STANDALONE || UNITY_EDITOR
+        // Looks like a complicated check but it's not too bad:
+        //   - Check if there is a keyboard, and if any key is being pressed
+        //   - Check if there is a gamepad, and if either the d-pad or the left stick is being pressed
+        // If neither of those are true, we are trying to handle mouse input
+        if (!((Keyboard.current != null && Keyboard.current.anyKey.isPressed) || (Gamepad.current != null && (Gamepad.current.dpad.IsPressed() || Gamepad.current.leftStick.IsActuated()))))
+        {
+            HandlePointerInput();
+        }
+#else
+        HandleTouchInput();
+#endif
     }
 
     private void HandleTouchInput()
@@ -315,6 +324,11 @@ public class BaseCharacter : MonoBehaviour
         );
 
         transform.position = newPosition;
+        transform.localScale = new Vector3(
+            Mathf.Abs(transform.localScale.x) * (FacesLeft ? 1 : -1),
+            transform.localScale.y,
+            transform.localScale.z
+        );
     }
 
     public void OnCollideWithObstacle()
@@ -326,6 +340,7 @@ public class BaseCharacter : MonoBehaviour
 
     public void OnCollideWithRamp()
     {
+        transform.localScale *= JumpSpriteScaleFactor;
         _trails.Stop();
         State = PlayerStates.Jumping;
     }
