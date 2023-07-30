@@ -287,6 +287,8 @@ public class MenuManager : MonoBehaviour
                 EnableNavigationInputs();
                 break;
             case MenuView.Gameplay:
+                DisableAllInputs();
+
                 if (_currentView == MenuView.CharacterSelect)
                 {
                     SlideOut(_characterSelect, slideLeft: true);
@@ -304,8 +306,6 @@ public class MenuManager : MonoBehaviour
 
                 Music.SwitchToGame();
                 GameHud.gameObject.SetActive(true);
-
-                DisableAllInputs();
 
                 GameWorld.StartNewGame(GameOverScreen.OnPlayerDead);
                 break;
