@@ -85,7 +85,6 @@ public class BaseCharacter : MonoBehaviour
     #region Private / Inherited Fields
     private Animator _animator;
     private ParticleSystem _trails;
-    private PlayerInput _input;
     private PlayerStates _state;
 
     /// <summary>
@@ -116,10 +115,6 @@ public class BaseCharacter : MonoBehaviour
         Assert.IsNotNull(_animator, $"[BaseCharacter] No ParticleSystem found on character {name}");
 
         EnhancedTouchSupport.Enable();
-        _input = new PlayerInput();
-        _input.Enable();
-
-        _input.Player.DirectionKey.performed += OnDirectionKeyInput;
 
         _screenMidpoint = Screen.width * 0.5f;
         _state = PlayerStates.Idle;
@@ -235,63 +230,88 @@ public class BaseCharacter : MonoBehaviour
 
     private void HandleInputs()
     {
-#if UNITY_STANDALONE || UNITY_EDITOR
-        // Looks like a complicated check but it's not too bad:
-        //   - Check if there is a keyboard, and if any key is being pressed
-        //   - Check if there is a gamepad, and if either the d-pad or the left stick is being pressed
-        // If neither of those are true, we are trying to handle mouse input
-        if (!((Keyboard.current != null && Keyboard.current.anyKey.isPressed) || (Gamepad.current != null && (Gamepad.current.dpad.IsPressed() || Gamepad.current.leftStick.IsActuated()))))
+        if (InputStateIsValid())
         {
-            HandlePointerInput();
+            if (Keyboard.current != null && Keyboard.current.anyKey.isPressed)
+            {
+                HandleKeyboardInput();
+            }
+            else if (Gamepad.current != null && (Gamepad.current.dpad.IsPressed() || Gamepad.current.leftStick.IsActuated()))
+            {
+                HandleGamepadInput();
+            }
+            else if (Pointer.current != null && Pointer.current.press.isPressed)
+            {
+                HandlePointerInput();
+            }
+            else if (Touch.activeTouches.Count > 0)
+            {
+                HandleTouchInput();
+            }
+            else
+            {
+                State = PlayerStates.Straight;
+            }
         }
-#else
-        HandleTouchInput();
-#endif
+        else if (_state != PlayerStates.Dead && _state != PlayerStates.Jumping)
+        {
+            State = PlayerStates.Straight;
+        }
     }
 
     private void HandleTouchInput()
     {
-        if (InputStateIsValid() && Touch.activeTouches.Count > 0)
-        {
-            Touch lastTouch = Touch.activeTouches[Touch.activeTouches.Count - 1];
-            Vector2 position = lastTouch.screenPosition;
-            AdjustDirection(position);
-        }
-        else if (_state != PlayerStates.Dead && _state != PlayerStates.Jumping)
-        {
-            State = PlayerStates.Straight;
-        }
+        Touch lastTouch = Touch.activeTouches[Touch.activeTouches.Count - 1];
+        Vector2 position = lastTouch.screenPosition;
+        AdjustDirection(position);
     }
 
     private void HandlePointerInput()
     {
-        bool inputIsPressed = Pointer.current.press.isPressed;
+        float screenMidpoint = Screen.width / 2;
+        Vector2 position = Pointer.current.position.ReadValue();
+        AdjustDirection(position);
+    }
 
-        if (InputStateIsValid() && inputIsPressed)
+    private void HandleGamepadInput()
+    {
+        float leftValue = Mathf.Clamp01(
+            Gamepad.current.leftStick.left.ReadValue()
+            + Gamepad.current.rightStick.left.ReadValue()
+            + Gamepad.current.dpad.left.ReadValue()
+        );
+        float rightValue = Mathf.Clamp01(
+            Gamepad.current.leftStick.right.ReadValue()
+            + Gamepad.current.rightStick.right.ReadValue()
+            + Gamepad.current.dpad.right.ReadValue()
+        );
+
+        float value = rightValue - leftValue;
+
+        if (value != 0)
         {
-            float screenMidpoint = Screen.width / 2;
-            Vector2 position = Pointer.current.position.ReadValue();
+            Vector2 position = new Vector2(_screenMidpoint + value, 0);
             AdjustDirection(position);
-        }
-        else if (_state != PlayerStates.Dead && _state != PlayerStates.Jumping)
-        {
-            State = PlayerStates.Straight;
         }
     }
 
-    private void OnDirectionKeyInput(InputAction.CallbackContext e)
+    private void HandleKeyboardInput()
     {
-        if (!InputStateIsValid())
-        {
-            return;
-        }
+        float leftValue = Mathf.Clamp01(
+            Keyboard.current.leftArrowKey.ReadValue()
+            + Keyboard.current.commaKey.ReadValue()
+            + Keyboard.current.aKey.ReadValue()
+        );
 
-        float value = e.ReadValue<float>();
-        if (value == 0)
-        {
-            State = PlayerStates.Straight;
-        }
-        else
+        float rightValue = Mathf.Clamp01(
+            Keyboard.current.rightArrowKey.ReadValue()
+            + Keyboard.current.periodKey.ReadValue()
+            + Keyboard.current.dKey.ReadValue()
+        );
+
+        float value = rightValue - leftValue;
+
+        if (value != 0)
         {
             Vector2 position = new Vector2(_screenMidpoint + value, 0);
             AdjustDirection(position);
@@ -333,8 +353,6 @@ public class BaseCharacter : MonoBehaviour
 
     public void OnCollideWithObstacle()
     {
-        _input.Player.DirectionKey.performed -= OnDirectionKeyInput;
-
         State = PlayerStates.Dead;
     }
 

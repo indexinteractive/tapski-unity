@@ -260,6 +260,14 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Input Prev Menu
       m_Flags: 0
+    - m_Name: 
+      m_Id: 5ba2403a-bdde-4d1c-8dda-0b748986ac0c
+      m_Path: <Gamepad>/leftShoulder
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Prev Menu
+      m_Flags: 0
     m_Flags: 0
   InputNextMenu:
     m_Name: Input Next Menu
@@ -288,6 +296,14 @@ MonoBehaviour:
     - m_Name: 
       m_Id: 91edb276-ed0f-400c-8256-26eebf6f35f4
       m_Path: <Gamepad>/buttonSouth
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Next Menu
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 6e4ca22d-eb6f-4e50-936c-e4b67ea56448
+      m_Path: <Gamepad>/rightShoulder
       m_Interactions: 
       m_Processors: 
       m_Groups: 
