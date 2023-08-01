@@ -67,7 +67,7 @@ public class BuildScript
     static void BuildWebGL()
     {
         string projectName = PlayerSettings.productName;
-        BuildPipeline.BuildPlayer(EditorBuildSettings.scenes, $"./builds/{projectName} WebGL", BuildTarget.WebGL, BuildOptions.None);
+        BuildPipeline.BuildPlayer(EditorBuildSettings.scenes, $"./builds/webgl", BuildTarget.WebGL, BuildOptions.None);
     }
     #endregion
 
