@@ -13,7 +13,7 @@ public class UsernameGenerator : Singleton<UsernameGenerator>
         public static async UniTask<Dict> Load(string filepath)
         {
             var dict = new Dict();
-#if UNITY_WEBGL && !UNITY_EDITOR
+#if (UNITY_WEBGL || UNITY_ANDROID) && !UNITY_EDITOR
             string text = await GetWebFileData(filepath);
             dict.Words = text.Split('\n');
 #else
