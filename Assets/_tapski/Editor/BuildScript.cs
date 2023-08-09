@@ -52,12 +52,12 @@ public class BuildScript
         BuildPipeline.BuildPlayer(EditorBuildSettings.scenes, $"./builds/linux/{projectName}.x86_64", BuildTarget.StandaloneLinux64, BuildOptions.None);
     }
 
-    [MenuItem("ind3x/Build/Build OS X")]
+    [MenuItem("ind3x/Build/Build OSX")]
     static void BuildOSX()
     {
         string projectName = PlayerSettings.productName;
         PlayerSettings.SetScriptingBackend(BuildTargetGroup.Standalone, ScriptingImplementation.IL2CPP);
-        PlayerSettings.SetArchitecture(BuildTargetGroup.Standalone, (int)AppleMobileArchitecture.ARM64);
+        UnityEditor.OSXStandalone.UserBuildSettings.createXcodeProject = true;
         BuildPipeline.BuildPlayer(EditorBuildSettings.scenes, $"./builds/osx/{projectName}", BuildTarget.StandaloneOSX, BuildOptions.None);
     }
     #endregion

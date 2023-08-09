@@ -89,7 +89,7 @@ PlayerSettings:
   forceSingleInstance: 0
   useFlipModelSwapchain: 1
   resizableWindow: 1
-  useMacAppStoreValidation: 0
+  useMacAppStoreValidation: 1
   macAppStoreCategory: public.app-category.games
   gpuSkinning: 0
   xboxPIXTextureCapture: 0
@@ -158,7 +158,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: games.ind3x.tapski
-    Standalone: games.Ind3x.tapski
+    Standalone: games.ind3x.tapski
     iPhone: games.ind3x.tapski
   buildNumber:
     Standalone: 0
